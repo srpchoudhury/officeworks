@@ -1,0 +1,38 @@
+
+.nav ul li{
+    list-style: none;
+    display: inline-block;
+    color: #666666;
+}
+.nav ul {
+    padding: 15px;
+}
+.nav ul li a {
+    text-decoration: none;
+    color: #666666;
+}
+.nav ul li a:hover{
+    color: rgb(9, 169, 243);
+}
+.nav {
+   display: inline-block; 
+   width: 100%;
+   
+   /* position: fixed; */
+
+}
+.nav ul li button {
+    color: white;
+    background-color: #d73e0f;
+    border: none;
+    padding: 5px 20px 5px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 100px 0px 100px;
+    border-bottom: 5px solid rgba(99, 50, 50, 0.781);
+    box-shadow: 0px 2px 18px rgba(0,0,0,0.3);
+}

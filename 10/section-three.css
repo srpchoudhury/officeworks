@@ -1,0 +1,33 @@
+.section-three{
+    background-color: aliceblue;
+  }
+  .section-three .section-three-whole {
+    margin: 2px;
+  }
+  .section-three .section-three-whole .section-three-body {
+    padding: 120px;
+    display: flex;
+    padding-left: 170px;
+  }
+  
+  .section-three .section-three-whole .section-three-body .p-h4 {
+    padding: 20px;
+    /* text-align: center; */
+    width: 400px;
+    padding-top: 0;
+    padding-left: 0;
+  } 
+  .section-three .section-three-whole .section-three-body .p-h4 h4 {
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 25px;
+  }
+  .section-three .section-three-whole .section-three-body .p-h4 p {
+    font-size: 20px;
+    font-family:  Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 20px;
+   
+  }
+  .section-three .section-three-whole .section-three-body img{
+    padding-left: 330px;
+  }
