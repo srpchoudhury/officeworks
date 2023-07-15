@@ -1,0 +1,15 @@
+<script>
+    var num = prompt("Enter the number you want to check ");
+    var i;
+    function fibonacci(num){
+        if(num<=1){
+            return num;
+        }
+        else { 
+        return fibonacci(num-1)+fibonacci(num-2);
+        }
+    }
+    for(i=1;i<=num;i++){
+        document.write(fibonacci(i)+"&nbsp");
+    }
+</script>

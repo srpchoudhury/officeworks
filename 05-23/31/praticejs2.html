@@ -1,0 +1,11 @@
+<script>
+    var authorize = ["admin", function(){document.write("Login Success")}, function(){document.write("Login Failure")}];
+    var [password, success, failure] =authorize;
+    
+    var yourPassword = prompt("Enter Password");
+    if(password == yourPassword){
+        success();
+    } else {
+        failure();
+    }
+</script>
