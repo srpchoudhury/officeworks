@@ -1,0 +1,28 @@
+<script>
+
+
+    function sundaysInMonth( m, y ) {
+      var days = new Date( y,m,0 ).getDate();
+      var sundays = [ 8 - (new Date( m +'/01/'+ y ).getDay()) ];
+      for ( var i = sundays[0] + 7; i < days; i += 7 ) {
+        sundays.push( i );
+      }
+      return sundays;
+    }
+    
+    alert("sunday"+ sundaysInMonth( 06,2023 ) );
+    alert( sundaysInMonth( 06,2023 ).length ); 
+    
+    function saturdaysInMonth(m,y){
+        var days = new Date(y,m,0).getDate();
+        var saturdays= [7-(new Date (m +'/01/'+y).getDay())];
+        for (var i = saturdays[0]+7; i< days; i+=7){
+            saturdays.push(i);
+        }
+        return saturdays;
+    }
+    
+    alert("saturday"+ saturdaysInMonth(06,2023));
+    alert( saturdaysInMonth(06,2023).length);
+    
+    </script>

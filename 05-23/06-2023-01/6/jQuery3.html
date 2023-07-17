@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JQuery3</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+           /* $(function(){
+                $("button").click(function(){
+                    $("span").html($("#txtName").val());
+                    $("#txtName").val("");
+                })
+            })*/
+            $(function(){
+                $("#txtName").keyup(function(){
+                    $("span").html($("#txtName").val());
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div>
+            Your Name : <input type="text" id="txtName"><button>Submit</button>
+        </div>
+        <div>
+            <h2>Hello ! <span></span></h2>
+        </div>
+    </body>
+</html>

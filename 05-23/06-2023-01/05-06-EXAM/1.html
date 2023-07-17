@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result {
+            border: 1px solid black;
+            width: 200px;
+        }
+    </style>
+    <script>
+        function submitClick(){
+            var age = document.getElementById("textBox").value;
+            calculateDays(age);
+        }
+        function calculateDays(age){
+            var days=365;
+            var totalAge = age*days;
+           document.getElementById("result").innerHTML = totalAge;
+
+        }
+    </script>
+</head>
+<body>
+    Enter How old are you :  <input type="text" id="textBox">
+    <button onclick="submitClick()">Calculate</button>
+    <p id="result"></p>
+</body>
+</html>
+
+/*
+
+
+*/

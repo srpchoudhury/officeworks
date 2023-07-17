@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="wrapper" style="margin-left: 60px;">
+    <div style="width: 60%; text-align: center;" class="divmain" >
+      <form id="myform" style="border: 2px solid black;">
+        <h3><u><i>Confirm order of 50 items</i></u></h3>
+        <div style="display:flex;flex-direction: row;">
+          <div style="width: 30%;">
+            <input type="text" id="name" name="name" placeholder="Enter Name" required maxlength="20" ><br><br>
+            <input type="email" id="email" name="email" placeholder="Enter Email Address" maxlength="20" required ><br><br>
+            <input type="text" id="phone" name="phone" placeholder="Enter Phone Number" required ><br><br>
+          </div>
+          <div >
+            <textarea name="address" id="address" cols="30" rows="10" placeholder="Address"  style="margin-left: 20px;"   required pattern="[a-zA-Z0-9_]+>" ></textarea>
+          </div>
+        </div>
+        <div style="width: 100%;">
+          <input type="text" placeholder="Note If Any" style="width: 40%;"><br><br>
+        </div>
+        <div id="productform">
+          <label for="product">Product:</label>
+          <select id="product" class="product-dropdown">
+            <option value="">Select Sku Of item</option>
+          </select>
+          <button id="addBtn" type="button">Add New Item</button>
+        </div>
+        <button id="save-btn" type="button">Save Order</button>
+      </form>
+      <div id="orderbox" style="text-align: center;">
+        <table id="ordertable">
+          <tr>
+            <th>Order Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+      var itemCount = 1;
+      var selectedProducts = [];
+
+      for(var i = 1; i <= 50; i++){
+        $('.product-dropdown').append($('<option>', {
+          value: 'product' + i,
+          text: 'product' + i
+        }));
+      }
+
+      $('#addBtn').click(function() {
+        var selectedProduct = $('.product-dropdown').last().val();
+
+        if (selectedProduct !== '') {
+          // Remove selected option from previous dropdown
+          $('.product-dropdown option[value="' + selectedProduct + '"]').remove();
+
+          // Create a new dropdown and append it to the productform div
+          var newDropdown = $('<select>').addClass('product-dropdown');
+          newDropdown.append($('<option>', {
+            value: '',
+            text: 'Select Sku Of item'
+          }));
+          $('.product-dropdown').last().after(newDropdown);
+
+          // Add the selected product to the new dropdown
+          newDropdown.val(selectedProduct);
+
+          // Append a remove button to the new dropdown
+          var removeButton = $('<button>').text('Remove').addClass('remove-product-btn');
+          newDropdown.after(removeButton);
+
+          itemCount++;
+        }
+      });
+
+      $(document).on('click', '.remove-product-btn', function() {
+        var dropdown = $(this).prev('.product-dropdown');
+        var selectedProduct = dropdown.val();
+
+        // Add the selected option back to the previous dropdown
+        $('.product-dropdown').last().append($('<option>', {
+          value: selectedProduct,
+          text: selectedProduct
+        }));
+
+        // Remove the corresponding dropdown and remove button
+        dropdown.remove();
+        $(this).remove();
+
+        itemCount--;
+      });
+
+      $('#save-btn').click(function(e) {
+        if($("#name").val().trim() == ""){
+          alert("Enter name");
+        }
+        else if($("#email").val().trim() == ""){
+          alert("Enter email");
+        }
+        else if($("#phone").val().trim() == ""){
+          alert("Enter Phone Number");
+        }
+        else if($("#address").val().trim() == ""){
+          alert("Enter Address");
+        }
+        else {
+          e.preventDefault();
+          // Generate a unique order ID of 5 digits
+          var orderId = generateOrderId();
+
+          // Get form data
+          var name = $("#name").val();
+          var email = $("#email").val();
+          var phone = $("#phone").val();
+          var address = $("#address").val();
+
+          // Create a new row in the table
+          var newRow = $('<tr>')
+          newRow.append($('<td>').text(orderId));
+          newRow.append($('<td>').text(name));
+          newRow.append($('<td>').text(email));
+          newRow.append($('<td>').text(phone));
+
+          // Append the new row to the table
+          $('#ordertable').append(newRow);
+
+          // Clear the fields after submission
+          $('#myform')[0].reset();
+
+          function generateOrderId(){
+            var orderId = Math.floor(Math.random() * 90000);
+            return orderId;
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

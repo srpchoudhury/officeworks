@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+      .form-body{
+          background-color:#08ac4b;
+          width: 250px;
+          padding: 25px;
+          border-radius: 20px;
+          
+      }
+      .form {
+        margin-left:500px;
+        margin-top: 200px;
+      }
+      body {
+        background-color:gray;
+        /* font-weight: bold; */
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+      input {
+        outline: none;
+      }
+    
+    </style>
+       <script>
+        function ButtonClick(){
+        var name = document.getElementById("name").value ;
+          
+          if(name == " "){
+               alert("Name should not be empty");
+           }
+        }
+       
+       </script> 
+</head>
+<body>
+    <div class="form">
+      <div class="form-body">
+       <table cellpadding="7" cellspacing="20">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" id="name" "></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" id="email" "></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="number" name="" id="phone" "></td>
+        </tr>
+        <tr>
+            <td>DOB</td>
+            <td><input type="date" id="date" "></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                <input type="radio" name="gender" value="male" class="gender"> Male
+                <input type="radio" name="gender" value="female" class="gender">Female
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><button onsubmit="ButtonClick()">Submit</button></td>
+        </tr>
+        
+           <tr>
+           <td colspan="2"> <p id="inside"></p></td>
+           </tr>
+        
+       </table>
+
+
+      </div>
+    </div>
+   
+</body>
+</html>

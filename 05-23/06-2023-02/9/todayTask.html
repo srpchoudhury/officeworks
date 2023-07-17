@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task Today</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    </head>
+    <style>
+        .field {
+            display: flex;
+            /* padding: 20px; */
+            /* border: 1px solid black; */
+            justify-content: space-between;
+            /* width: 380px; */
+        }
+        .table{
+            border: 1px solid black;
+            padding: 10px;
+            width: 250px;
+        }
+        .total {
+            display: flex;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#name").click(function(event){ 
+                 $("#1st_field2").html("Name : " + $("#name").val() );
+            });
+            $("#name").keyup(function(event){ 
+                 $("#1st_field2").html("Name : " + $("#name").val());
+            });
+            $("#email").click(function(event){ 
+                 $("#2nd_field2").html("Email : "+ $("#email").val());
+            });
+            $("#email").keyup(function(event){ 
+                 $("#2nd_field2").html("Email : " + $("#email").val());
+            });
+            $("#age").click(function(event){ 
+                 $("#3rd_field2").html("Age : "+ $("#age").val() );
+            });
+            $("#age").keyup(function(event){ 
+                 $("#3rd_field2").html("Age : " + $("#age").val());
+            });
+        })
+    </script>
+    <body>
+      <div class="total">
+        <div class="table" id="table_one">
+            <div class="field" id="1st_field1">
+                <div>Name </div>
+                <div><input type="text" id="name" ></div>
+            </div>
+            <div class="field" id="2nd_field1">
+                <div>Email </div>
+                <div><input type="text" id="email"></div>
+            </div>
+            <div class="field" id="3rd_field1">
+                <div>Age </div>
+                <div><input type="text" id="age"></div>
+            </div>
+        </div>
+        <div class="table" id="table_two">
+              <div class="ground" id="1st_field2">
+
+              </div>
+              <div class="ground" id="2nd_field2">
+                
+              </div>
+              <div class="ground" id="3rd_field2">
+                
+              </div>
+        </div>
+      </div>
+    </body>
+</html>

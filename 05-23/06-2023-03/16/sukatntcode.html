@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html>
+
+ 
+
+<head>
+
+    <title>Order Confirmation</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="Scriptnew.js"></script>
+    <style>
+        #orderForm{
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+        #savedItems{
+            border: 2px solid black;
+        }
+        h1{
+            text-align: center;
+        }
+        .add{
+            margin-left: 250px;
+            margin-bottom: 40px;
+        }
+
+    </style>
+    <script>
+    $(document).ready(function () {
+        var maxItems = 50;
+        var itemCounter = 0;
+        var orderNumber = 1;
+        var itemsList = ['Suyog Product-1', 'Suyog Product-2', 'Suyog Product-3',
+            'Suyog Product-4', 'Suyog Product-5', 'Suyog Product-6', 'Suyog Product-7',
+            'Suyog Product-8', 'Suyog Product-9', 'Suyog Product-10', 'Suyog Product-11'
+            , 'Suyog Product-12', 'Suyog Product-13', 'Suyog Product-14', 'Suyog Product-15', 'Suyog Product-16'
+            , 'Suyog Product-17', 'Suyog Product-18', 'Suyog Product-19', 'Suyog Product-20', 'Suyog Product-21'
+            , 'Suyog Product-22', 'Suyog Product-23', 'Suyog Product-24', 'Suyog Product-25', 'Suyog_product-26',
+            'Suyog_product-27', 'Suyog_product-28', 'Suyog_product-29', 'Suyog_product-30', 'Suyog_product-31',
+            'Suyog_product-32', 'Suyog_product-33', 'Suyog_product-34', 'Suyog_product-35', 'Suyog_product-36'
+            , 'Suyog_product-37', 'Suyog_product-38', 'Suyog_product-39', 'Suyog_product-40', 'Suyog_product-41'
+            , 'Suyog_product-42', 'Suyog_product-43', 'Suyog_product-44',
+            'Suyog_product-45', 'Suyog_product-46', 'Suyog_product-47', 'Suyog_product-48', 'Suyog_product-49', 'Suyog_product-50']; // Sample item list
+    
+        function addItem() {
+            if (itemCounter < maxItems) {
+                itemCounter++;
+                var remainingItems = maxItems - itemCounter;
+                $('#remainingItems').text(remainingItems);
+    
+                var newRow = $('<tr>');
+                newRow.append('<td><select class="itemSelect" id="item' + itemCounter + '"  value="Suyog Product-' + itemCounter + '">' + generateOptions(itemCounter) + '</select></td>');
+                newRow.append('<td><input type="number" id="quantity' + itemCounter + '"></td>');
+                newRow.append('<td><button type="button" class="deleteBtn" data-id="' + itemCounter + '">Delete</button></td>');
+                $('#itemTable').append(newRow);
+            }
+        }
+    
+        function deleteItem(id) {
+            $('#item' + id).closest('tr').remove();
+            itemCounter--;
+            var remainingItems = maxItems - itemCounter;
+            $('#remainingItems').text(remainingItems);
+        }
+    
+        // function generateOptions(selectvalue="") {
+        //     var options = '';
+        //     for (var i = 0; i < itemsList.length; i++) {
+        //         if(selectvalue == i ){
+        //             console.log('check',selectvalue,i);
+        //             options += '<option selected value="' + itemsList[i-1] + '">' + itemsList[i-1] + '</option>';
+        //         }else{
+        //             options += '<option value="' + itemsList[i-1] + '">' + itemsList[i-1] + '</option>';
+        //         }
+                           
+                
+        //     }
+    
+            
+        //     return options;
+            
+            
+        // }
+        function generateOptions(selectvalue = "") {
+            var options = '';
+         for (var i = 0; i < itemsList.length; i++) {
+        if (selectvalue == i) {
+            console.log('check', selectvalue, i);
+            options += '<option selected value="' + itemsList[i - 1] + '">' + itemsList[i - 1] + '</option>';
+            itemsList.splice(i - 1, 1); // Remove the selected option from the itemsList array
+        } else {
+            options += '<option value="' + itemsList[i - 1] + '">' + itemsList[i - 1] + '</option>';
+        }
+    }
+    return options;
+}
+
+    
+        $('#addItemBtn').click(function () {
+            addItem();
+        });
+    
+        $(document).on('click', '.deleteBtn', function () {
+            var itemId = $(this).data('id');
+            deleteItem(itemId);
+        });
+    
+        $('#orderForm').submit(function (event) {
+            event.preventDefault();
+    
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var phone = $('#phone').val();
+            var address = $('#address').val();
+    
+            // Do something with the order data (e.g., send to server or display a confirmation message)
+            console.log('Name:', name);
+            console.log('Email:', email);
+            console.log('Phone:', phone);
+            console.log('Address:', address);
+    
+            // Retrieve item details
+            var items = [];
+            var totalQuantity = 0;
+            $('#itemTable tr').each(function () {
+                var item = $(this).find('.itemSelect').val();
+                var quantity = parseInt($(this).find('input[type="number"]').val());
+                items.push({ item: item, quantity: quantity });
+                totalQuantity += quantity;
+            });
+    
+            console.log('Items:', items);
+            console.log('Total Quantity:', totalQuantity);
+    
+            // Save the order in the table
+            var savedRow = $('<tr>');
+            savedRow.append('<td>' + orderNumber + '</td>');
+            savedRow.append('<td>' + items.map(item => item.item).join(', ') + '</td>');
+            savedRow.append('<td>' + totalQuantity + '</td>');
+            $('#savedItemTable').append(savedRow);
+    
+            orderNumber++;
+    
+            // Reset the form and item counter
+            $('#orderForm')[0].reset();
+            $('#itemTable').empty();
+            itemCounter = 0;
+            $('#remainingItems').text(maxItems);
+        });
+    });
+</script>
+
+</head>
+
+ 
+
+<body>
+
+    <h1>Confirm Order Of 50 Items</h1>
+
+    <form id="orderForm">
+
+        <label for="name">Name:</label>
+
+        <input type="text" id="name" maxlength="20" required><br><br>
+
+ 
+
+        <label for="email">Email address:</label>
+
+        <input type="email" id="email" maxlength="20" required><br><br>
+
+ 
+
+        <label for="phone">Phone number:</label>
+
+        <input type="text" id="phone" pattern="[0-9]{10}" required><br><br>
+
+ 
+
+        <!-- <label for="address">Address:</label>
+
+        <textarea id="address" required></textarea><br> -->
+        <label for="note">note if any:</label>
+
+        <input type="text" id="note" maxlength="20" required><br>
+
+<div class="add">
+    <label for="address">Address:</label>
+
+        <textarea id="address" required></textarea><br>
+
+</div>
+ 
+
+        <div id="items">
+
+            
+
+            <table id="itemTable">
+
+                <tr>
+
+                    <th>Item</th> 
+
+                    <th>Quantity</th>
+
+                    <th>Delete</th>
+
+                </tr>
+
+            </table>
+
+            <button type="button" id="addItemBtn">Add New Item</button>
+
+            <!-- <p>Remaining Items: <span id="remainingItems">49</span></p> -->
+
+        <!-- </div> -->
+
+ 
+
+        <button type="submit" id="saveBtn">Save Order</button>
+    </div>
+    </form>
+
+ 
+
+    <div id="savedItems">
+
+        <!-- <h2>Saved Items</h2> -->
+
+        <table id="savedItemTable">
+
+            <tr>
+
+                <th>Order Number</th>
+
+                <th>Item Sku</th>
+
+                <th> Quantity</th>
+
+            </tr>
+
+        </table>
+
+    </

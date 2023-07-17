@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        .toggle-content{
+            display: none;
+        }
+        .toggle-icon{
+            cursor: pointer;
+        }
+        ul li {
+            list-style: none;
+        }
+
+    </style>
+
+</head>
+<body>
+    <!-- <h2>Elements:</h2> -->
+    <ul>
+        <li class="toggle">
+            <span class="toggle-icon">+</span>HTML
+            <ul class="toggle-content">
+                <li>Html Attributes</li>
+                <li>Html Elements</li>
+                <li>Forms</li>
+            </ul>
+        </li>
+        <li class="toggle">
+            <span class="toggle-icon">+</span>Java Script
+            <ul class="toggle-content">
+                <li>Html Attributes</li>
+                <li>Html Elements</li>
+                <li>Forms</li>
+            </ul>
+        </li>
+        <li class="toggle">
+            <span class="toggle-icon">+</span>JQuery
+            <ul class="toggle-content">
+                <li>Html Attributes</li>
+                <li>Html Elements</li>
+                <li>Forms</li>
+            </ul>
+        </li>
+        <li class="toggle">
+            <span class="toggle-icon">+</span>Java
+            <ul class="toggle-content">
+                <li>Html Attributes</li>
+                <li>Html Elements</li>
+                <li>Forms</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        $(document).ready(function(){
+            $('.toggle').on('click',function(){
+                var content=$(this).find('.toggle-content');
+                var icon=$(this).find('.toggle-icon');
+                content.slideToggle();
+                icon.text(icon.text()=='-'?'+' :'-');
+            });
+        });
+    </script>
+    
+</body>
+</html>

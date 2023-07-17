@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jquery</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+            $(function(){
+                var categories = ["Electronics","Footwear","Fashion"];
+                $.each(categories, function(key, value){
+                    $(`<option>${value}</option>`).appendTo("select");
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <h2>Select Category</h2>
+        <select>
+            
+        </select>
+    </body>
+</html>

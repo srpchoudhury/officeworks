@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("p").add(document.getElementsByTagName("span")[1]).css("background-color","yellow");
+            })
+        </script>
+    </head>
+    
+    <body>
+        <div>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero, provident.</p>
+            <span>Lorem, ipsum dolor.</span>
+            <span>Lorem, ipsum.</span>
+            <br>
+            
+        </div>
+    </body>
+</html>

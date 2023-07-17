@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>KFC Online Order</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgb(212, 43, 43);
+        }
+
+    </style>
+    <script>
+        function OrderClick(){
+            document.getElementById("lblName").innerHTML = document.getElementById("txtName").value;
+            document.getElementById("lblMobile").innerHTML = document.getElementById("txtMobile").value;
+
+            var chickenRadio = document.getElementById("optChicken");
+            var bucketRadio = document.getElementById("optBucket");
+
+            var wingsCheckbox = document.getElementById("optWings");
+            var krusherCheckbox = document.getElementById("optKrusher");
+
+            var mealName = "";
+            var adonName = "";
+
+            var mealCost = 0;
+            var adonCost = 0;
+            
+            if(chickenRadio.checked){
+                mealName = chickenRadio.value;
+                mealCost = 120;
+            }
+            if(bucketRadio.checked){
+                mealName = bucketRadio.value;
+                mealCost = 100;
+            }
+            if(krusherCheckbox.checked){
+                adonName += krusherCheckbox.value+ "<br>";
+                adonCost = 60;
+                mealCost += adonCost;
+            }
+            if(wingsCheckbox.checked){
+                adonName += wingsCheckbox.value+ "<br>";
+                adonCost = 80;
+                mealCost += adonCost;
+            }
+            document.getElementById("lblMeal").innerHTML = mealName;
+            document.getElementById("lblAdon").innerHTML = adonName;
+            document.getElementById("lblAmount").innerHTML = "&#8377; "+mealCost;
+        }
+    </script>
+</head>
+<body class="container_fluid">
+    <header>
+        <img src="banner55.png" alt="logo" width="100%" height="160" >
+    </header>
+    <section>
+        <div class="accordion" id="kfcOrder"> 
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button class="btn btn-danger w-100" data-bs-toggle="collapse" data-bs-target="#customer">
+                        <h3>Customer Details</h3>
+                    </button>
+               </div> 
+               <div id="customer" class="accordion-body accordion-collapse collapse show" data-bs-parent="#kfcOrder">
+                    <dl>
+                        <dt>Customer Name</dt>
+                        <dd><input type="text" id="txtName" class="form-control"></dd>
+                        <dt>Mobile</dt>
+                        <dd><input type="text" id="txtMobile" class="form-control"></dd>
+                    </dl>
+               </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button class="btn btn-danger w-100" data-bs-toggle="collapse" data-bs-target="#meal">
+                        <h3>Select Your Meal</h3>
+                    </button>
+                </div>
+                <div class="accordion-body accordion-collapse collapse" id="meal" data-bs-parent="#kfcOrder">
+                    <div class="row">
+                        <div class="col text-center">
+                            <img src="friedChicken.jpg" width="20%" height="200" alt="logo">
+                            <div>
+                                <input type="radio" id="optChicken" name="meal" value="KFC Chicken" class="form-check-input"> KFC Chicken [ &#8377; 120/-]
+                            </div>
+                        </div>
+                        <div class="col text-center">
+                            <img src="chickenBucket.jpg" alt="logo" width="20%" height="200">
+                            <div>
+                                <input type="radio" id="optBucket" value="Chicken Bucket" name="meal" class="form-check-input"> Chicken Bucket [&#8377; 100/- ]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button class="btn btn-danger w-100" data-bs-toggle="collapse" data-bs-target="#adon">
+                        <h3>Select Ad-ON's</h3>
+                    </button>
+                </div>
+                <div class="accordion-body accordion-collapse collapse" id="adon" data-bs-parent="#kfcOrder">
+                    <div class="row">
+                        <div class="col text-center">
+                            <img src="adon1.jpg" width="20%" height="200" alt="logo">
+                            <div>
+                                <input type="checkbox" class="form-check-input" id="optKrusher" value="Krusher Brownie"> Krusher Brownie [&#8377; 60/-]
+                            </div>
+                        </div>
+                        <div class="col text-center">
+                            <img src="adon2.jpg" width="20%" height="200" alt="">
+                            <div>
+                                <input type="checkbox" class="form-check-input" id="optWings" value="6 Pc Hot Wings">6 Pc Hot Wings [&#8377; 80/-]
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button onclick="OrderClick()" data-bs-target="#billsummary" data-bs-toggle="modal" class="btn btn-danger w-100"> Place Order</button>
+                        </div>
+                        <div class="modal fade" id="billsummary">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3>Your Bill Summary</h3>
+                                        <button class="btn-close" data-bs-dismiss="modal"> </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <dl class="row">
+                                            <dt class="col-6">Customer Name</dt>
+                                            <dd class="col-6" id="lblName"></dd>
+                                            <dt class="col-6">Mobile</dt>
+                                            <dd class="col-6"id=lblMobile></dd>
+                                            <dt class="col-6">Meal Name</dt>
+                                            <dd class="col-6" id="lblMeal"></dd>
+                                            <dt class="col-6">Ad-On's</dt>
+                                            <dd class="col-6" id="lblAdon"></dd>
+                                            <dt class="col-6">Total Amount</dt>
+                                            <dd class="col-6" id="lblAmount"></dd>
+                                        </dl>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </section>
+</body>
+
+</html>

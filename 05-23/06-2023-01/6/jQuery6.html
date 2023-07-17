@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jquery</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+            var menu = [
+                    {Category: 'Electronics', Products: ['TV','Mobile']},
+                    {Category: 'Footwear', Products:['Shoe','Boot']}
+            ];
+            $.each(menu, function(key, item){
+                $(`<li>$(item.Category)</li>`).appendTo("ol");
+                $.each(item.Products, function(innerKey, product){
+                    $(`<ul><li>${product}</li></ul>`).appendTo("ol");
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <h2>Select Category</h2>
+      <ol>
+
+      </ol>
+    </body>
+</html>

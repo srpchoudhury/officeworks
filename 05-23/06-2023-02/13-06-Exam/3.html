@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        .delete-btn {
+            background-color: green;
+            border: none;
+            padding: 3px;
+            color: orange;
+        }
+        .second_box {
+            width: 400px;
+            border: 1px solid black;
+        }
+        table {
+            margin: 5px;
+            border-collapse: collapse;
+        }
+         td {
+            padding-left: 30px;
+            padding-right: 30px;
+         }
+         th{
+            padding-left: 30px;
+            padding-right: 30px;
+         }
+        #add-btn {
+            background-color: blue;
+            border: none;
+            padding: 3px;
+            color: yellow;
+        }
+        #submit-btn {
+            background-color: blue;
+            border: none;
+            padding: 3px;
+            color: yellow;
+        }
+        .form-container {
+            justify-content: space-between;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+           
+           
+          
+           $(".delete-btn").click(function(){
+                var remove= $("#table_body").children().remove();
+               $(".delete-btn").click(function(){
+                     $("#form-container").remove();
+               })
+           });
+            var first;
+           $(".add-btn").click(function(){
+            //     first = $("#form-container").append('<br>');
+            //  var one = first.append("<input type='text' placeholder='Enter Your Name' class='one'>     "); 
+            //  var two = first.append("<input type='text' placeholder='age' class='two'>  "); 
+            //  var three = first.append("<button>Delete<button>"); 
+            //   first.append("<br>");
+            //   one.addClass("one")
+            //   two.addClass("two");
+            //   three.addClass("delete-btn");
+           
+             first = $("#form-container").append('<br>');
+               clone1 = $("#oneinput").clone().addClass("one");
+               clone2 = $("#twoinput").clone().addClass("two");
+               clone3 = $("#btninput").clone().addClass("delete-btn");
+               first.append(clone1);
+               first.append(clone2);
+               first.append(clone3);
+               first.append("<br>");
+
+               $(".one").val("");
+             $(".two").val("");
+           });
+           $("#submit-btn").click(function(){
+            
+            var name = $(".one").val();
+            if(name == ""){
+                return;
+            }
+            if(age == ""){
+                return;
+            }
+            var age = $(".two").val();
+            
+                console.log(age,name);
+             var row =   $("#table_body").append("<tr>");
+              row.append("<td>"+name+"</td>");
+              row.append("<td>"+age+"</td>");
+           
+              $(".one").val("");
+             $(".two").val("");
+           });
+        });
+    </script>
+</head>
+<body>
+    <div id="container">
+       
+        <div id="form-container">
+           <div class="input_fields">
+            <input type="text" placeholder="Enter Your Name" name="name" class="one" id="oneinput">
+            <input type="text"placeholder="age" name="age" class="two" id="twoinput">
+            <button class="delete-btn" id="btninput">DELETE</button>
+           </div>
+       
+    </div>
+
+        <br><br>
+        <button id="submit-btn">SUBMIT</button>
+        <button id="add-btn" class="add-btn">ADD NEW</button>
+        
+
+        <br><br>
+        <div class="second_box">
+            <table id="table" border="1">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                   
+                  </tr>
+                </thead>
+                <tbody id="table_body">
+                </tbody>
+              </table>
+        </div>
+
+      </div>
+</body>
+</html>

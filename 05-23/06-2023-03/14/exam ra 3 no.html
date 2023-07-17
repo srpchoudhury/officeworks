@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dynamic Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .footer {
+            padding: 5px;
+            color: yellow;
+            background-color: blue;
+            border: none;
+        }
+
+        .delete {
+            background-color: green;
+            columns: orange;
+            padding: 5px;
+            border: none;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#addButton").click(function () {
+                var newRow = '<tr>' +
+                    '<td><input type="text" class="name"></td>' +
+                    '<td><input type="number" class="age"></td>' +
+                    '<td><button class="delete">Delete</button></td>' +
+                    '</tr>';
+                $("#dataTable tbody").append(newRow);
+            });
+
+            $(".delete").click(function () {
+                $(this).closest("tr").remove();
+            });
+
+            $("#submitButton").click(function () {
+                var data = [];
+                $("#dataTable tbody tr").each(function () {
+                    var name = $(this).find(".name").val();
+                    var age = $(this).find(".age").val();
+                    if (name && age) {
+                        data.push({ name: name, age: age });
+                    }
+                    $(this).find(".name").val("");
+                    $(this).find(".age").val("");
+                });
+                
+                var table = "<tbody>";
+                $.each(data, function (index, item) {
+                    table += "<tr><td>" + item.name + "</td><td>" + item.age + "</td></tr>";
+                });
+                table += "</tbody>";
+                $("#container").append(table);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <table id="dataTable">
+
+            <tbody>
+                <tr>
+                    <td><input type="text" class="name"></td>
+                    <td><input type="number" class="age"></td>
+                    <td><button class="delete">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <button id="submitButton" class="footer">Submit</button>
+        <button id="addButton" class="footer">Add New</button>
+
+    </div>
+
+</body>
+
+</html>

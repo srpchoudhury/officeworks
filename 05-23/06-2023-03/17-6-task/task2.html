@@ -1,0 +1,208 @@
+nee):
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper" style="margin-left: 60px;">
+        <div style="width: 60%; text-align: center;" class="divmain" >
+            <form id="myform" style="border: 2px solid black;">
+                <h3><u><i>Confirm order of 50 items</i></u></h3>
+                <div style="display:flex;flex-direction: row;">
+                    <div style="width: 30%;">
+                        <input type="text" id="name" name="name" placeholder="Enter Name" required maxlength="20" ><br><br>
+                        <input type="email" id="email" name="email" placeholder="Enter Email Address" maxlength="20" required ><br><br>
+                        <input type="text" id="phone" name="phone" placeholder="Enter Phone Number" required ><br><br>
+                    </div>
+                    <div >
+                      
+                        <textarea name="address" id="address" cols="30" rows="10" placeholder="Address"  style="margin-left: 20px;"   required pattern="[a-zA-Z0-9_]+>" ></textarea>
+                    </div>
+                </div>
+                <div style="width: 100%;">
+                    <input type="text" placeholder="Note If Any" style="width: 40%;"><br><br>
+                </div>
+               
+                <!-- <form id="myForm">
+                    <table>
+                      <tr>
+                        <td>
+                          <label for="product">Product:</label>
+                          <select id="product" name="product">
+                            <option value="">Select a product</option>
+                          </select>
+                        </td>
+                        <td>
+                          <label for="quantity">Quantity:</label>
+                          <input type="number" id="quantity" name="quantity" min="1" max="100">
+                        </td>
+                        <td>
+                          <button type="button" id="addBtn">Add</button>
+                        </td>
+                      </tr>
+                    </table>
+                    <br>
+                    <table id="productTable">
+                      <thead>
+                        <tr>
+                          <th>Product</th>
+                          <th>Quantity</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                    <br>
+                    <button type="submit" id="submitBtn">Submit</button>
+                  </form> -->
+                <div id="productform">
+                    <label for="product">Product:</label>
+                    <select id="product" class="product-dropdown">
+                        <option value="">Select Sku Of item</option>
+                    </select>
+                        <button id="addBtn" type="button">Add New Item</button>
+                    </div>
+                        <button id="save-btn" type="button">Save Order</button>
+            </form>
+            <div id="orderbox" style="text-align: center;">
+                <table id="ordertable">
+                    <tr>
+                        <th>Order Id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                       
+                        <th>Phone Number</th>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+        
+    
+    </div>
+    
+    <script>
+        $(document).ready(function(){
+           
+            var selectedProducts = [];
+        
+            for(var i = 1;i <= 50;i++){
+                $('.product-dropdown').append($('<option>',{
+                    value: 'product' + i,
+                    text: 'product' + i
+                }));
+            }
+          
+            $('#addBtn').click(function(){
+                var selectedProduct = $('#product').val();
+    
+                if (selectedProduct !== '' && !selectedProducts.includes(selectedProduct)){
+                    selectedProducts.push(selectedProduct);
+    
+                    var newProductField = $('<div>').append('product');
+                        newProductField.append($('<input>',{
+                            type: 'text' ,
+                            value : selectedProduct,
+                            readonly: 'readonly'
+                        
+                        }));
+                        newProductField.append($('<button>' , {
+                            text: 'Remove' , 
+                            class: 'remove-product-btn'
+                        }));
+                        newProductField.appendTo($('#productform'));
+                        
+                        $('#product').val('');
+                        
+                        $('#product option[value="' + selectedProduct + '"]').remove();
+                }
+                
+            });
+           
+            $(document).on('click','.remove-product-btn', function(){
+                var productField = $(this).parent('.product-field');
+                var removedProduct = productField.find('input').val();
+                productField.remove();
+         
+              
+                $('#product').append($('<option>' ,{
+                    value: removedProduct,
+                    text: removedProduct
+                }));
+               
+                var index = selectedProducts.indexOf(removedProduct);
+                if (index !== -1){
+                    selectedProducts.splice(index, 1)
+                }
+          
+            });
+        
+    
+                $('#save-btn').click(function(e){
+
+                   
+               
+    
+                    if($("#name").val().trim()==""){
+                          alert("enter name");
+                    }
+                 
+                    else if($("#email").val().trim()==""){
+                        alert("enter email");
+                    }
+                    else if($("#phone").val().trim()==""){
+                        alert("enter Phone Number");
+                        console.log(phone)
+                    }
+                    else if($("#address").val().trim()==""){
+                        alert("enter Address");
+                    };
+                    e.preventDefault();
+                    // generate an unique order ID of 5 digits
+                    var orderId = generateOrderId();
+    
+                    // get form data
+                    var name = $("#name").val();
+                    var email = $("#email").val();
+                    var phone = $("#phone").val();
+                    var address = $("#address").val();
+                    var addvalid="^[A-Za-z0-9]+-";
+
+    
+                    // create a new row in the table
+                    if($("#name").val().trim()!=""&&$("#phone").val().trim()!=""&&$("#email").val().trim()!=""&&$("#address").val().trim()!=""){
+                        var newRow = $('<tr>')
+                        newRow.append($('<td>').text(orderId));
+                        newRow.append($('<td>').text(name));
+                        newRow.append($('<td>').text(email));
+                       
+                            newRow.append($('<td>').text(phone));
+                           
+                           
+                            // append the new row to the table
+                            $('#ordertable').append(newRow)
+    
+
+                    }
+                   
+                            // clear the field after submission
+                            $('#myform')[0].reset();
+                            function generateOrderId(){
+                    var orderId = Math.floor(Math.random()*90000 );
+                    return orderId;
+                }
+                           
+                });
+                
+                //  generate id of 5 digits
+               
+            });
+    </script>
+</body>
+</html>

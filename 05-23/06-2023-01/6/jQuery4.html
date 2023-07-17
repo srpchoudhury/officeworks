@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JQuery</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+            $(function(){
+                  $("#slblStock").html("Out of Stock");
+                  $("#stock").change(function(){
+                    $("#lblStock").html(
+                        `
+                         ${$("#stock").prop("checked")?"Available":"Out of Stock"}
+                        `
+                    )
+                  })
+                  $("#lstCities").change(function(){
+                    // $("#lblCity").html(`Selected City : ${$("#lstCities").val()}`);
+                    var city = $("#lstCities").val();
+                    $("#lblCity").html(`Selected City : ${city}`);
+                  })
+            })
+        </script>
+    </head>
+    <body>
+      <div>
+        <h2>Stock</h2>
+        
+        <input type="checkbox" id="stock"><span id="lblStock"></span>
+    </div>
+        <h2>Shipped To</h2>
+        <select id="lstCities">
+            <option>Delhi</option>
+            <option>Hyd</option>
+        </select>
+        <span id="lblCity"></span>
+       
+    </body>
+</html>

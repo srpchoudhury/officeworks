@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Table Column Search and Sort</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <input type="text" id="search-input" placeholder="Search...">
+  <button style="background-color: green;color: yellow;padding: 5px;" id="btn">Sort First Name</button>
+  <br>
+  <table id="my-table" border="1" style="border-collapse: collapse;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>25</td>
+        <td>USA</td>
+      </tr>
+      <tr>
+        <td>Sara</td>
+        <td>30</td>
+        <td>Canada</td>
+      </tr>
+      <tr>
+        <td>Mark</td>
+        <td>28</td>
+        <td>Australia</td>
+      </tr>
+      <tr>
+        <td>ane</td>
+        <td>22</td>
+        <td>USA</td>
+      </tr>
+      <tr>
+        <td>kanhu</td>
+        <td>32</td>
+        <td>INDIA</td>
+      </tr>
+      <tr>
+        <td>sudhara</td>
+        <td>25</td>
+        <td>AMERICA</td>
+      </tr>
+      <tr>
+        <td>Bishnu</td>
+        <td>55</td>
+        <td>ENGLAND</td>
+      </tr>
+      <tr>
+        <td>kalia</td>
+        <td>45</td>
+        <td>JAPAN</td>
+      </tr>
+      <tr>
+        <td>Jay</td>
+        <td>22</td>
+        <td>USAb</td>
+      </tr>
+      <tr>
+        <td>Jay</td>
+        <td>22</td>
+        <td>USAa</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    $(document).ready(function () {
+      $('#search-input').on('input', function () {
+        var searchText = $(this).val().toLowerCase();
+
+        $('#my-table tbody tr').hide().filter(function () {
+          var columnText = $(this).find('td:nth-child(1)').text().toLowerCase();
+          return columnText.includes(searchText);
+        }).show();
+      });
+
+
+
+      $("#btn").click(function () {
+        var rows = $('#my-table tbody tr').get();
+        rows.sort(function (a, b) {
+          var firstNameA = $(a).find('td:first').text().toLowerCase();
+          var firstNameB = $(b).find('td:first').text().toLowerCase();
+          return firstNameA.localeCompare(firstNameB);
+        });
+
+        $.each(rows, function (index, row) {
+          $('#my-table tbody').append(row);
+        });
+
+      });
+    });
+
+  </script>
+</body>
+
+</html>

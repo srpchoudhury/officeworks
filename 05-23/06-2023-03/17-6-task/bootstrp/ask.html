@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confirm Order</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h4>Order Details</h4>
+      <form id="orderForm">
+        <div class="form-group">
+          <label for="name">Enter Name:</label>
+          <input type="text" class="form-control" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Enter Email:</label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Enter Phone Number:</label>
+          <input type="text" class="form-control" id="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="address">Enter Address:</label>
+          <textarea class="form-control" id="address" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="note">Note:</label>
+          <textarea class="form-control" id="note"></textarea>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="itemList">
+            <tr>
+              <td>
+                <select class="form-control item-select">
+                  <option value="">Select Item</option>
+                  <option value="Item 1">Item 1</option>
+                  <option value="Item 2">Item 2</option>
+                  <option value="Item 3">Item 3</option>
+                  <!-- ... and so on up to 50 items -->
+                </select>
+              </td>
+              <td><input type="number" class="form-control quantity-input" min="1"></td>
+              <td><button type="button" class="btn btn-danger delete-btn" disabled>Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary">Save Order</button>
+        <button type="button" class="btn btn-success" id="addNewItem">Add New Item</button>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <h4>Order Summary</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Order Number</th>
+            <th>Item SKU</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody id="orderSummary"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  var orderCount = 0;
+
+  // Add new item row
+  $('#addNewItem').click(function() {
+    var newItemRow = $('<tr>' +
+      '<td>' +
+      '<select class="form-control item-select">' +
+      '<option value="">Select Item</option>' +
+      '<option value="Item 1">Item 1</option>' +
+      '<option value="Item 2">Item 2</option>' +
+      '<option value="Item 3">Item 3</option>' +
+      '</select>' +
+      '</td>' +
+      '<td><input type="number" class="form-control quantity-input" min="1"></td>' +
+      '<td><button type="button" class="btn btn-danger delete-btn">Delete</button></td>' +
+      '</tr>');
+
+    // Remove selected item from all other dropdowns
+    $('.item-select').each(function() {
+      var selectedItem = $(this).val();
+      if (selectedItem !== '') {
+        newItemRow.find('.item-select option[value="' + selectedItem + '"]').remove();
+      }
+    });
+
+    $('#itemList').append(newItemRow);
+    $('#itemList tr:first-child .delete-btn').prop('disabled', true);
+    $('#itemList tr:not(:first-child) .delete-btn').prop('disabled', false);
+  });
+
+  // Delete item row
+  $('#itemList').on('click', '.delete-btn', function() {
+    // $('#itemList tr:first-child .delete-btn').prop('disabled', true);
+    var selectedItem = $(this).closest('tr').find('.item-select').val();
+    if (selectedItem !== '') {
+      $('.item-select option[value="' + selectedItem + '"]').show();
+    }
+    $(this).closest('tr').remove();
+    $('#itemList tr:first-child .delete-btn').prop('disabled', true);
+  });
+
+  // Submit form
+  $('#orderForm').submit(function(e) {
+    e.preventDefault();
+
+    var orderNumber = generateOrderNumber();
+    var selectedItem = $('#itemList tr:first-child .item-select').val();
+    var quantity = $('#itemList tr:first-child .quantity-input').val();
+
+    if (selectedItem !== '' && quantity !== '') {
+      var orderSummaryRow = $('<tr>' +
+        '<td>' + orderNumber + '</td>' +
+        '<td>' + selectedItem + '</td>' +
+        '<td>' + quantity + '</td>' +
+        '</tr>');
+
+      $('#orderSummary').append(orderSummaryRow);
+      $('#itemList tr:not(:first-child)').each(function() {
+        var selectedItem = $(this).find('.item-select').val();
+        var quantity = $(this).find('.quantity-input').val();
+
+        if (selectedItem !== '' && quantity !== '') {
+          var orderSummaryRow = $('<tr>' +
+            '<td></td>' +
+            '<td>' + selectedItem + '</td>' +
+            '<td>' + quantity + '</td>' +
+            '</tr>');
+
+          $('#orderSummary').append(orderSummaryRow);
+        }
+      });
+
+      $('#itemList tr:not(:first-child)').remove();
+    } else {
+      alert('Please select an item and enter a quantity.');
+    }
+  });
+
+  function generateOrderNumber() {
+    return Math.floor(Math.random() * 90000) + 10000;
+  }
+});
+</script>
+
+</body>
+</html>

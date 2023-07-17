@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sliding Img</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+        <style>
+            .flex-img img{
+                width: 100px;
+               display: flex;
+            
+            }
+            .flex-images{
+                display: flex;
+                justify-content: space-around;
+                width: 600px;
+            }
+            #left , #right {
+                position: absolute;
+                top: 120px;
+            }
+            #main-div {
+                position: relative;
+            }
+            #left {
+                left: 10px;
+            }
+            #right{
+                right: 10px;
+            }
+            .img-container {
+                width: 280px;
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+              
+                $(".one img").click(function(){
+                    var clickedImg = $(this).attr('src');
+                    console.log(clickedImg);
+                    $("#main-div img").attr('src',clickedImg);
+                })
+                var imageArray = [];
+                imageArray.push("1.png");
+                imageArray.push("6 - Copy.png");
+                imageArray.push("7 - Copy.png");
+                imageArray.push("4 - Copy.png");
+                console.log(imageArray);
+                var currentIndex = 0;
+                var totalImages = imageArray.length;
+
+                function showImage(index){
+                    $("#sliderImage").attr('src',imageArray[index]);
+                }
+              $("#right").on('click',function(){
+                console.log(currentIndex);
+                currentIndex++;
+                if(currentIndex >=totalImages){
+                    currentIndex = 0;
+                }
+                // console.log(currentIndex);
+                showImage(currentIndex);
+              })
+              $("#left").on('click',function(){
+                currentIndex--;
+                if(currentIndex < 0){
+                    currentIndex = totalImages-1;
+                }
+                console.log(currentIndex);
+                showImage(currentIndex);
+              })
+            //   function getNextIndex(){
+            //     var nextIndex = currentIndex+1;
+            //     if(nextIndex >= totalImages){
+            //         nextIndex = 0;
+            //     }
+            //     return nextIndex;
+            //   }
+            //   $(".image-container").slick({
+            //     autoplay: true,
+            //     autoplaySpeed: 2000,
+               
+            //   });
+            
+            //   function autoSlide(){
+            //     interval = setInterval(function(){
+            //         currentIndex = getNextIndex();
+            //         showImage(currentIndex);
+            //     },3000);
+                
+            //   }
+            //   $(window).on('load',function(){
+            //     autoSlide();
+            //   });
+            
+            })
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="img-container" id="main-div">
+
+
+                   <img src="1.png" id="sliderImage" alt="">
+                   <button id="left"> &larr;</button>
+                   <button id="right">&rarr;</button>
+            </div>
+            <div class="flex-img">
+               <div class="flex-images">
+                <div class="one" id="one">
+                    <img src="1.png" alt="logo">
+                </div>
+                <div class="one">
+                    <img src="6 - Copy.png" alt="logo">
+                </div>
+                <div class="one">
+                    <img src="7 - Copy.png" alt="logo">
+                </div>
+                <div class="one">
+                    <img src="4 - Copy.png" alt="logo">
+                </div>
+               </div>
+            </div>
+        </div>
+    </body>
+</html>

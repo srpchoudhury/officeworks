@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+      .list1 {
+        list-style: none;
+        border: 3px solid black;
+        width: 150px;
+        margin-left: 100px;
+        margin-top: 100px;
+      }
+      .list2 {
+        /* list-style: none; */
+        border: 3px solid black;
+        width: 150px;
+        margin-right: 100px;
+        margin-top: 100px;
+        padding-left: 20px;
+      }
+      .all {
+        display: flex;
+        justify-content: space-between;
+      }
+      #btn {
+        margin-top: 150px;
+        width: 100px;
+        height: 25px;
+     
+      }
+    </style>
+    <script>
+        // function OnSubmitButton(){
+        //       var markedCheckBox = document.querySelectorAll('input[type="checkbox"]:checked');
+        //       document.querySelector("ul").innerHTML = "";
+        //       for( var task of markedCheckBox) {
+        //         // alert(list);
+        //         // console.log(task.value);
+               
+        //          var li = document.createElement("li");
+        //         li.innerHTML = task.value;
+        //         document.querySelector("ul").appendChild(li);
+                   
+        //       }
+        // }
+        $(document).ready(function(){
+            $('.check').click(function(){
+                // var val = [];
+                // var checkedItem ;
+                $("ul").html("");
+                $(':checkbox:checked').each(function(i){
+                //    val[i] = $(this).val();
+                    // $("ul").add($(`<li>${val[i]}</li>`)).appendTo(".list2");
+                    $("ul").add($(`<li>${$(this).val()}</li>`)).appendTo(".list2");
+                    //  checkedItem = val.toString();
+                // });
+                    // $("ul").html("");
+                    // for(i=0;i<val.length;i++){
+                       // var sub_li = $('<li>'+val[i]+'</li>');
+                        
+                        // $("ul").add($('<li>'+val[i]+'</li>')).appendTo(".list2");
+                      
+                        // $(sub_li).appendTo(".list2");
+                    // }
+
+                    // for(var lists of checkedItem){
+                    //     // $("<li></li>").text(lists).append("ul");
+                    //      console.log(lists);
+                    //      var sub_li = $('<li>'+lists+'</li>');
+                        
+                        
+                    //      $(sub_li).appendTo(".list2");
+
+                    // }
+                    //  console.log(val[1]);
+                    //  console.log(val[2]);
+             
+                });
+                // console.log(checkedItem);
+            });
+        });
+
+
+       
+
+//  document.querySelector("ul").innerHTML = "";
+
+    </script>
+</head>
+<body >
+   
+
+    <div class="all">
+        <div id="item">
+            <ol class="list1">
+                <li>  <input type="checkbox" class="check"  value="C"> C</li>
+                <li>  <input type="checkbox" class="check"  value="C++">C++</li>
+                <li> <input type="checkbox" class="check"  value="Php">Php </li>
+                <li><input type="checkbox" class="check" value="Java">Java</li>
+                <li> <input type="checkbox" class="check"  value="AdvanceJava">Advance Java</li>
+                <li>  <input type="checkbox" class="check"  value="JavaScript">JavaScript</li>
+                <li> <input type="checkbox" class="check"  value="Oracle">Oracle</li>
+            </ol>
+         </div>
+         <!-- <div class="item" id="button">
+            <button id="btn">Send</button>
+         </div> -->
+        <div id="item3">
+            <ul class="list2">
+                
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

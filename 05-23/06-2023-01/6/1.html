@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+       $(document).ready(function(){
+         $("#btn-1").click(function(){
+            $("h2").hide(5000);
+         });
+         $("#btn-2").click(function(){
+            $("h2").show();
+         });
+       });
+    </script>
+</head>
+<body>
+   <button id="btn-1">hide</button>
+   <button id="btn-2">show</button>
+   <h2>S Rudra Prasad Is A Legend....</h2>
+</body>
+</html>

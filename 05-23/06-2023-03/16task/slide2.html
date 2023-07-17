@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .addres-box {
+      display: flex;
+    }
+
+    .form-group {
+      /* width: 200px; */
+    }
+
+    .present-addres {
+      padding: 3px;
+      margin: 10px;
+      margin-left: 30px;
+    }
+
+    .permanet-address {
+      padding: 3px;
+      margin: 10px;
+    }
+
+    #age-form {
+      /* justify-content: space-between; */
+    }
+
+    .required {
+      color: red;
+      margin-left: 2px;
+    }
+
+    .form-div {
+      border: 1px solid black;
+      width: 530px;
+      padding: 10px;
+    }
+
+    .form-group {
+      display: flex;
+      justify-content: space-between;
+      width: 420px;
+      margin-left: 25px;
+      padding: 10px;
+    }
+
+    .date-age {
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-left: 20px;
+    }
+
+    .footer-section {
+      justify-content: space-between;
+      display: flex;
+      padding: 10px;
+    }
+
+    button {
+      background-color: green;
+      color: yellow;
+      padding: 5px;
+    }
+
+    #age {
+      border: 1px solid black;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Disable permanent address fields and check the checkbox by default
+      $('#permanent-address1').prop('disabled', true);
+      $('#permanent-address2').prop('disabled', true);
+      $('#permanent-city').prop('disabled', true);
+      $('#permanent-state').prop('disabled', true);
+      $('#same-address').prop('checked', true);
+
+      $('#date-of-birth').on('change', function () {
+        var dob = new Date($(this).val());
+        var today = new Date();
+        var age = today.getFullYear() - dob.getFullYear();
+        var monthDiff = today.getMonth() - dob.getMonth();
+        var dayDiff = today.getDate() - dob.getDate();
+
+        if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+          age--;
+        }
+
+        $('#age').text(age+ " year");
+      });
+
+      $('#present-address1').on('keyup', function () {
+        var presentAddress1Value = $(this).val();
+        $('#permanent-address1').val(presentAddress1Value);
+      });
+      $('#present-address2').on('keyup', function () {
+        var presentAddress2Value = $(this).val();
+        $('#permanent-address2').val(presentAddress2Value);
+      });
+
+      // Event listener to copy present-city to permanent-city
+      $('#present-city').on('keyup', function () {
+        var presentCityValue = $(this).val();
+       
+     
+        $('#permanent-city').val(presentCityValue);
+      });
+
+      // Event listener to copy present-state to permanent-state
+      $('#present-state').on('keyup', function () {
+        var presentStateValue = $(this).val();
+        $('#permanent-state').val(presentStateValue);
+      });
+      
+      $('#same-address').change( function () {
+        if ($(this).is(':checked')) {
+
+
+          // Copy values from present address to permanent address
+          $('#permanent-address1').val($('#present-address1').val());
+          $('#permanent-address2').val($('#present-address2').val());
+          $('#permanent-city').val($('#present-city').val());
+          $('#permanent-state').val($('#present-state').val());
+
+          // Disable permanent address fields
+          $('#permanent-address1').prop('disabled', true);
+          $('#permanent-address2').prop('disabled', true);
+          $('#permanent-city').prop('disabled', true);
+          $('#permanent-state').prop('disabled', true);
+        } 
+        else
+         {
+          // Clear values from permanent address fields
+          $('#permanent-address1').val('');
+          $('#permanent-address2').val('');
+          $('#permanent-city').val('');
+          $('#permanent-state').val('');
+
+          // Enable permanent address fields
+          $('#permanent-address1').prop('disabled', false);
+          $('#permanent-address2').prop('disabled', false);
+          $('#permanent-city').prop('disabled', false);
+          $('#permanent-state').prop('disabled', false);
+        }
+
+      });
+
+      $(".button").click(function () {
+        var presentAddress1 = $("#present-address1").val();
+        var presentAddress2 = $("#present-address2").val();
+        var presentCity = $("#present-city").val();
+        var presentState = $("#present-state").val();
+        var permanentAddress1 = $("#permanent-address1").val();
+        var permanentAddress2 = $("#permanent-address2").val();
+        var permanentCity = $("#permanent-city").val();
+        var permanentState = $("#permanent-state").val();
+        var fatherName = $("#father-name").val();
+        var motherName = $("#mother-name").val();
+        var age = $("#age").text();
+
+        if (presentAddress1 === "" || presentAddress2 === "" || presentCity === "" || presentState === "" || age === "" || fatherName === "" || motherName === '') {
+          // alert("All fields must be filled");
+        }
+        if(presentAddress1.trim() == "" || presentAddress2.trim() == "" || presentCity.trim() == "" || presentState.trim() == ""){
+          $("#paragraph-error").text("Address Fields cant be empty").css("color","red");
+        }
+        if(permanentAddress1.trim() == "" || permanentAddress2.trim() == "" || permanentCity.trim() == "" || permanentState.trim() == ""){
+          $("#paragraph-error").text("Address Fields cant be empty").css("color","red");
+        }
+
+
+        var specialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+        if (fatherName.length > 50) {
+          $("#error-father").text("Father's name should not exceed 50 characters").css("color", "red");
+        }
+        if ($.isNumeric(fatherName)) {
+          $("#error-father").text("Father's name should not contain numeric values").css("color", "red");
+        }
+        if (fatherName.match(specialChars)) {
+          $("#error-father").text("Father's name should not contain any special characters").css("color", "red");
+        }
+
+        if (motherName.length > 50) {
+          $("#error-mother").text("Mother's name should not exceed 50 characters").css("color", "red");
+        }
+        if ($.isNumeric(motherName)) {
+          $("#error-mother").text("Mother's name should not contain numeric values").css("color", "red");
+        }
+        if (motherName.match(specialChars)) {
+          $("#error-mother").text("Mother's name should not contain any special characters").css("color", "red");
+        }
+
+        console.log("Present Address 1:", presentAddress1);
+        console.log("Present Address 2:", presentAddress2);
+        console.log("Present City:", presentCity);
+        console.log("Present State:", presentState);
+        console.log("Permanent Address 1:", permanentAddress1);
+        console.log("Permanent Address 2:", permanentAddress2);
+        console.log("Permanent City:", permanentCity);
+        console.log("Permanent State:", permanentState);
+        console.log("Father's Name:", fatherName);
+        console.log("Mother's Name:", motherName);
+        console.log("Age:", age);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <!-- HTML content -->
+
+  <body>
+    <div class="slide" id="slide-2">
+      <h2>Step 2: Address Information</h2>
+      <!-- <form> -->
+      <div class="form-div">
+        <div class="form-group" id="age-form">
+          <label for="date-of-birth">Enter DOB <span class="required">* </span> :</label>
+          <div class=" date-age">
+            <input type="date" name="date-of-birth" id="date-of-birth">
+            <!-- <input type="text" placeholder="age"  id="age" class=""> -->
+            <span id="age">Your Age</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="father-name">Enter Father Name <span class="required">* </span> :</label>
+          <input type="text" name="father-name" id="father-name" required>
+
+        </div>
+        <p id="error-father"></p>
+        <div class="form-group">
+          <label for="mother-name">Enter Mother Name <span class="required">* </span> :</label>
+          <input type="text" name="mother-name" id="mother-name">
+
+        </div>
+        <p id="error-mother"></p>
+        <div class="addres-box">
+          <div class="address-group">
+            <label for="present-address" class="present-addres">Present Address:</label>
+            <p id="paragraph-error"></p>
+            <input type="text" name="present-address-line-1" id="present-address1" class="present-addres">
+            <input type="text" name="present-address-line-2" id="present-address2" class="present-addres">
+            <input type="text" name="present-address-city" id="present-city" class="present-addres">
+            <input type="text" name="present-address-region" id="present-state" class="present-addres">
+
+          </div>
+          <div class="addres-group">
+            <label for="permanent-address" class="permanet-address">Permanent Address:</label>
+            <p id="#paragraph-error2"></p>
+            <input type="text" name="permanent-address-line-1" id="permanent-address1" class="permanet-address">
+            <input type="text" name="permanent-address-line-2" id="permanent-address2" class="permanet-address">
+            <input type="text" name="permanent-address-city" id="permanent-city" class="permanet-address">
+            <input type="text" name="permanent-address-region" id="permanent-state" class="permanet-address">
+
+          </div>
+        </div>
+        <div class="footer-section">
+          <div class="buttons">
+            <input type="checkbox" name="same-address" id="same-address" value="1">
+            <label for="same-address">Same as Permanent Address</label>
+          </div>
+          <div class="buttons">
+            <button type="button" id="prev-slide-2" class="button1">Previous</button>
+            <button type="button" id="nextslide2" class="button">Next</button>
+          </div>
+        </div>
+      </div>
+      <!-- </form> -->
+    </div>
+  </body>
+</body>
+
+</html>

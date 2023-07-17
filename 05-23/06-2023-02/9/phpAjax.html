@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+	<form>
+		Enter First Name : 
+		<input type="text" name="fname" id="fanme">
+		Enter Last Name : 
+		<input type="text" name="lname" id="lanme">
+		Enter email : 
+		<input type="text" name="email" id="email">
+		Enter age : 
+		<input type="text" name="age" id="age">
+
+		<button type="button" id="form_submit"> Submit </button>
+		<p id="p_id"></p>
+	</form>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#form_submit").click(function(){
+				var fname = $("#fanme").val();
+				var lname = $("#lanme").val();
+				var email = $("#email").val();
+				var age = $("#age").val();
+				$.ajax({
+                    type : "POST",
+                    url : "page.php",
+                    data : {action: "set_session","fname":fname,"lname":lname,"email":email,"age":age},
+                    success: function(response) {
+                       var result = JSON.parse(response);
+                       if(result.success == 1){
+                       		$("#p_id").html(result.name);
+                       }
+                       
+                    }
+                });   
+			});
+		});
+	</script>
+</body>
+</html>

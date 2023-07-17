@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#form_submit").click(function(){
+				// var fname = $("#fanme").val();
+				// var lname = $("#lanme").val();
+				// var email = $("#email").val();
+				// var age = $("#age").val();
+				$.ajax({
+                    method : "GET",
+					dataType: 'json',
+                    // url : "http://devdesigntex.thbred.store/test-1111111/",  
+					 
+					url: 'https://restcountries.com/v3.1/all',
+					success: function(response) {
+						console.log(response);
+						var countries = response;
+						var ul = $('<ul>')
+							countries.foreach(function(country){
+								var li = $('<li>').text(country.name.common);
+									ul.append(li);
+							})
+							$("#countryList").append(ul);
+					},
+					error:function(xhr, status, error){
+						console.log('Error:', error)
+					}
+                // })
+				
+				// .then(function(data){
+				// 	console.log(data);
+				// 	$.each(data,function(key, value){
+				// 		$(`<li>${value.country_code}</li>`).appendTo("ul");
+				// 	})
+				})
+			});
+		});
+	</script>
+	
+</head>
+<body>
+	<button id="form_submit">submit</button>
+     <div class="countryList">
+
+	 </div>
+</body>
+</html>

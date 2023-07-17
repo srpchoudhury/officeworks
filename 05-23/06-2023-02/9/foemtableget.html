@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+  // Form submit event handler
+             $("#myForm").submit(function(event) {
+                    event.preventDefault(); // Prevent form submission
+
+    // Validate form inputs
+    var name = $("#name").val();
+    var email = $("#email").val();
+    var phone = $("#phone").val();
+    var age = $("#age").val();
+    var address = $("address").val();
+    var gender = $("input[type='radio'][name='gender']:checked").val();
+    if (!gender) {
+         
+          alert("Gender is required");
+          return;
+    }
+
+    // Check if all fields are filled
+    if (name.trim() === "" || email === "" || phone === "" || age === "" || address === "" || gender === "") {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    // Create a new div with form values
+    var newDiv = $("<div></div>");
+    newDiv.html("Name: " + name + "<br>" +
+                "Email: " + email + "<br>" +
+                "Phone: " + phone + "<br>" +
+                "Age: "+age+ "<br>" +
+                "Address: "+age+ "<br>" +
+                "Gender:"+gender);
+
+    // Append the new div to the validatedValues div
+    $("#validatedValues").append(newDiv);
+
+    // Clear form inputs
+    $("#name").val("");
+    $("#email").val("");
+    $("#phone").val("");
+    $("#age").val("");
+    $("#address").val("");
+    $("#gender").val("");
+  });
+});
+
+    </script>
+</head>
+<body>
+    <form id="myForm">
+       <table>
+       <tr>
+        <td>Name</td>
+        <td> <input type="text" id="name" ></td>
+       </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" id="email" ></td>
+        </tr>
+       <tr>
+        <td>Phone</td>
+        <td> <input type="text" id="phone"></td>
+       </tr>
+       <tr>
+        <td>Age</td>
+        <td> <input type="text" id="age"></td>
+       </tr>
+       <tr>
+        <td>Address</td>
+        <td> <textarea name="" id="address"></textarea></td>
+       </tr>
+       <tr>
+        <td>Gender</td>
+        <td> <input type="radio" name="gender" value="male" id="male">Male
+            <input type="radio" name="gender" value="female" id="female">Female</td>
+       </tr>
+       <tr>
+        <td> <input type="submit" value="Submit"></td>
+       </tr>
+       </table>
+      </form>
+      
+      <div id="validatedValues"></div>
+      
+</body>
+</html>
