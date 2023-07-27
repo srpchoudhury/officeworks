@@ -1,0 +1,70 @@
+<!-- 
+ <script>
+   let n=5;
+   
+   for(i=1; i<=n; i++){
+    for(k=1; k<=(n-i); k++)
+    {
+     document.write("&nbsp")
+     }
+     for(j=1; j<=i; j++)
+    {
+     document.write("*"+"&nbsp")
+   }
+    
+    document.write("<br>")
+   }
+ </script>  -->
+
+
+
+    <script>
+   
+     function pattern(){
+        let i=1;
+        let j=1;
+        let k;
+        for( i=1;i<=5;i++) {
+              k=1;
+        for( j=1;j<=9;j++){
+            if(j>=6-i && j<=4+i && k){
+             console.log("*");
+                k=0;
+            }
+            else {
+              console.log(" ");
+              k=1;
+            }
+            
+        }
+        console.log("\n");
+        }
+     }
+     pattern();
+</script>
+ 
+<!-- 
+    <script>
+     var i;
+     var space;
+     var star;
+            var row=5;
+            var n="";
+            for(i=1;i<=row;i++)
+            {
+                for(space=1;space<=row-i;space++)
+                {
+                    n+=" ";
+                }
+                for(star=1;star<=2*i-1;star++)
+                {
+                    n+="*";
+                }
+                n+="\n";
+
+            }
+            console.log(n);
+
+
+</script>
+ -->
