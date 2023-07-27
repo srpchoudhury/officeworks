@@ -1,0 +1,274 @@
+ * {
+    margin: 0%;
+    padding: 0%;
+ }
+ body {
+   background-image: linear-gradient(45deg,#e1b5e2,#7e07f6);
+   background-repeat: repeat;
+}
+ ul li {
+    list-style: none;
+    margin: 0px;
+  
+}
+a {
+    text-decoration: none;
+}
+.navbar ul li a{
+    /* float: left; */
+    padding: 20px;
+    display: inline-block;
+    
+}
+.navbar ul li {
+    display: inline-block;
+}
+.navbar {
+    margin: 20px auto ;
+    border: 0px solid violet;
+    /* height: 60px; */
+    border-radius: 35px;
+    /* padding: 10px 20px 10px 20px; */
+    background-color: white;
+    width: 70%;
+    /* align-items: center; */
+    /* position: fixed; */
+    text-align: center;
+   
+   
+}
+.heading {
+    /* align-items: center;
+    justify-content: center; */
+    width: 250px;
+    padding: 5% 40% 0% 40%;
+    font-family: Arial, Helvetica, sans-serif;
+   
+}
+.paragraph {
+    width: 250px;
+    padding: 2% 40% 2% 40%;
+    margin: 3%;
+    text-align: center;
+}
+.button {
+    padding: 6;
+    font-size: medium;
+    border-radius: 20%;
+    height: 40px;
+    margin-left: 45%;
+    background-color: #f44fe1;
+    width: 150px;
+}
+.button:hover{
+    background-color: #6f26f8;
+}
+
+.card .card-section .cards{
+    height: 300px;
+    width: 300px;
+    background-color: white;
+    border-radius: 10%;
+    margin: 20px;
+    
+}
+.card .card-section .cards .card-header {
+    background-color: rgb(151, 121, 228);
+     width: 70px;
+    padding: 5%;
+    border-radius: 50%;
+    padding-left: 10%;
+    margin-left: 30%;
+    margin-top: 15px; 
+    cursor: pointer; 
+}
+.card .card-section .cards .card-header:hover {
+    background-color: #f763e6;
+}
+.card .card-section .cards .card-body {
+       text-align: center;
+       padding: 20px;
+       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+.card .card-section .cards .card-footer{
+    text-align: center;
+    padding-top: 0px;
+    padding: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.card .card-section{
+    display: flex;
+    margin-left: 13%;
+    /* border: 1px solid white; */
+}
+ .blog-one .left-blog {
+    display: flex;
+    justify-content: space-around;
+    margin: 15%;
+    
+}
+.blog-two .right-blog{
+    display: flex;
+    justify-content: space-around;
+    margin: 15%;
+}
+.middle .middle-part {
+    background-color: #9a44ef;
+    height: 600px;
+   
+
+}
+.middle .middle-part .middle-part-h3{
+    text-align: center;
+    
+    
+}
+.middle .middle-part .middle-part-p {
+    text-align: center;
+}
+.middle .middle-card .middle-card-six  {
+    display: flex;
+    /* background-color: white; */
+}
+.middle .middle-card .middle-card-six  .card-six {
+    background-color: white;
+    height: 180px;
+    width: 150px;
+    
+    margin-left: 5%;
+    margin-top: 20%;
+    border-radius: 10%;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.2),
+    0px 10px 20px rgba(0,0,0,0.3),
+    0px 30px 60px 1px rgba(0,0,0,0.5);
+    
+   
+}
+.middle .middle-card .middle-card-six  .card-six .card-header {
+    margin-top: 10px;
+    margin-left: 40%;
+}
+
+.middle .middle-card .middle-card-six  .card-six .card-body{
+       text-align: center;
+}
+
+.middle .middle-card .middle-card-six  .card-six .card-footer {
+       text-align: center;
+}
+.body-four{
+    background-color: white;
+    height: 600px;
+}
+.body-four .body-four-card .card-three {
+    margin-left: 10%;
+    margin-top: 10%;
+}
+.body-four .body-four-card .card-three .cards {
+    /* height: 340px; */
+    width: 340px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.2),
+    0px 10px 20px rgba(0,0,0,0.3),
+    0px 30px 60px 1px rgba(0,0,0,0.5);
+    margin: 20px;
+    border-radius: 5%;
+   
+    
+}
+.body-four .body-four-card .card-three .cards .card-header {
+    padding: 10px;  
+}
+.body-four .body-four-card .card-three .cards .card-body {
+    text-align: center;
+    padding-top: 50px;
+}
+.body-four .body-four-card .card-three .cards .card-footer {
+     display: flex;
+}
+.body-four .body-four-card .card-three .cards .card-footer h3 {
+     padding-left: 10%;
+}
+.body-four .body-four-card .card-three {
+    display: flex;
+}
+.body-five {
+    background-color: #dbcadb;
+    height: 800px;
+}
+   
+.body-five .header h1 {
+    text-align: center;
+    padding-top: 3%;   
+}
+.body-five .header p {
+    text-align: center;
+    font-size: 18px;
+    width: 400px;
+}
+.body-five .body-four-card .card-three {
+    margin-top: 8%;
+    display: flex;
+    margin-left: 12%;
+   
+}
+.body-five .body-four-card .card-three .cards{
+    height: 500px;
+    width: 320px;
+    background-color: white;
+    border-radius:5%;
+    margin-left: 1%;
+    margin-right: 1%;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.2),
+    0px 10px 20px rgba(0,0,0,0.3),
+    0px 30px 60px 1px rgba(0,0,0,0.5);
+    margin: 20px;
+}
+.body-five .body-four-card .card-three .cards  .card-header{
+     text-align: center;
+}
+.body-five .body-four-card .card-three .cards .card-body {
+    text-align: center;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.body-five .body-four-card .card-three .cards .card-footer {
+    text-align: center;
+}
+.body-five .body-four-card .card-three .cards .card-footer button {
+    background-color: #f44fe1;
+    padding: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: rgb(247, 226, 226);
+}
+.body-five .body-four-card .card-three .cards .card-footer button:hover{
+    background-color: #7762f1;
+}
+.body-five .body-four-card .card-three .cards  .card-header .box2 {
+         background-color: #f44fe1;
+         width: 200px;
+         border-radius: 10px;
+         margin-left: 20%;
+         padding: 1px;
+}
+.body-five .body-four-card .card-three .cards  .card-header .box1 {
+    background-color: #7762f1;
+    width: 200px;
+    border-radius: 10px;
+    margin-left: 20%;
+    padding: 1px;
+}
+.body-six {
+    height: 350px;
+    background-color: #a744e9;
+}
+.body-seven {
+    height: 800px;
+    background-color: #eee4e4;
+}
+
+
+
+ 

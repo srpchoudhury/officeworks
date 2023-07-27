@@ -1,0 +1,26 @@
+.section-seven {
+    background-color: rgb(245, 131, 237);
+}
+.section-seven .section-seven-whole {
+    margin: 2px;
+}
+.section-seven .section-seven-whole .section-seven-body{
+  padding: 30px 60px 30px 60px;
+  display: flex;
+}
+.section-seven .section-seven-whole .section-seven-body .body {
+    margin: 5px;
+    padding:  80px 120px 80px 120px ;
+}
+.section-seven .section-seven-whole .section-seven-body .body h2 {
+    font-size: 35px;
+    margin: 5px;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.section-seven .section-seven-whole .section-seven-body .body p{
+    font: 20px;
+    color: white;
+    margin: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

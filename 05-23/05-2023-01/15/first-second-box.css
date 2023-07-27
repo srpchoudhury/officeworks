@@ -1,0 +1,62 @@
+.first-box img{
+    height: 50px;
+    width: 50px;
+  
+}
+.first-box {
+ margin: 10px;
+ padding: 20px 150px;
+
+}
+.first-box-body {
+    border-bottom: 0.3px solid #666666;
+  
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 50px;
+    
+}
+.first-box-body .img img{
+    padding: 5px;
+}
+.first-box-body .h2-p {
+   padding: 10px;
+}
+.first-box-body .h2-p h2 {
+    padding: 5px;
+    color: #666666;
+}
+.first-box-body .h2-p p {
+    padding: 5px;
+    color: #666666;
+}
+.second-box {
+    padding: 5px 20px 5px 0px;
+}
+.second-box  .second-box-body {
+    display: flex;
+    padding: 0px 135px 0px 190px;
+    justify-content: space-around;
+}
+.second-box  .second-box-body .h3-p {
+    padding: 20px 20px 20px 0px;
+    border-bottom: 0.3px solid #666666;
+    color: #666666;
+}
+.second-box  .second-box-body .h3 {
+    border-bottom: 0.3px solid #666666;
+    padding: 20px 20px 20px 0px;
+    color: #666666;
+}
+.second-box  .second-box-body .h2 {
+    border-bottom: 0.3px solid #666666;
+    padding: 20px 20px 20px 0px;
+    color: rgb(192,0,0);
+    font-size: 12px;
+    font-weight: bold;
+}
+.second-box .second-box-body .first-portion {
+    margin-right: 30px;
+   
+  
+}

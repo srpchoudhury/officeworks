@@ -1,0 +1,74 @@
+.section-one {
+    background-color: rgb(198, 143, 249);
+    /* background-color: rgba(234, 152, 223, 0.1); */
+ }
+ .section-one .section-one-whole {
+    margin: 5px;
+    padding: 150px 20px 20px 20px;
+ }
+ .section-one .section-one-whole .section-one-h2 {
+    text-align: center;
+    width: 550px;
+    padding-left: 370px;
+    padding-bottom: 30px;
+    font-size: x-large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: whitesmoke;
+ }
+ .section-one .section-one-whole .section-one-p {
+    color: whitesmoke;
+    padding: 10px;
+    text-align: center;
+    width: 650px;
+    padding-left: 300px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 15px;
+ }
+ .section-one .section-one-whole .section-one-button button {
+    padding: 15px;
+    border-radius: 20px;
+    background-color: rgb(237, 109, 184);
+    cursor: pointer;
+    margin-left: 550px;
+    margin-top: 30px;
+   
+    
+ }
+ .section-one .section-one-whole .section-one-button button:hover {
+    background-color: rgb(177, 119, 232);
+ }
+ .section-one .section-one-whole .section-one-cards {
+    padding: 30px;
+    display: flex;
+ }
+ .section-one .section-one-whole .section-one-cards .cards {
+    width: 300px;
+    background-color: whitesmoke;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow:   0 2px 48px 0 rgba(0, 0, 0, 0.1);
+    margin-right: 45px;
+    margin-left: 45px;
+    cursor: pointer;
+ }
+ .section-one .section-one-whole .section-one-cards .cards .card-header {
+    padding: 10px;
+ }
+ .section-one .section-one-whole .section-one-cards .cards .card-header img {
+    background-color: rgb(99, 99, 229);
+    border-radius: 50px;
+    padding: 15px;
+}
+.section-one .section-one-whole .section-one-cards .cards .card-header img:hover {
+    background-color:  rgb(247, 80, 211) ;
+}
+.section-one .section-one-whole .section-one-cards .cards .card-body {
+    padding: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.section-one .section-one-whole .section-one-cards .cards .card-header .card-footer {
+    text-align: center;
+    padding: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
