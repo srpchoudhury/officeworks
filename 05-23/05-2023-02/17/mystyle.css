@@ -1,0 +1,655 @@
+ body {
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Poppins'; */
+ }
+
+
+ 
+.list  li{
+    display: inline-block;
+    list-style: none;
+   padding: 5px;
+   align-items: center;
+    color: white;
+    font-weight: bold;
+    /* justify-content: space-between; */
+}
+.nav {
+    background-color: rgb(49, 97, 253);
+    padding: 10px 0;
+    /* padding-top: 18px; */
+    
+}
+/* .blue-body {
+    background-color: rgb(49, 97, 253);
+} */
+.one {
+    background-color: rgb(49, 97, 253);
+   padding-top: 20px;
+}
+.two {
+    background-color: white;
+}
+ .one-button button {
+    padding: 8px;
+    color:  rgb(49, 97, 253);
+    background-color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    float: right;
+}
+.first-section {
+      width: 450px;
+      background-color: rgb(49, 97, 253);
+}
+.first-section .first-section-body {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.first-section .first-section-body h1 {
+    color: white; 
+    font-weight: bold;
+    font-size: 80px; 
+}
+.first-section .first-section-body p{
+    color: white;
+}
+.first-section .first-section-body button:hover {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 30px;
+    border-color: rgb(49, 97, 253);
+    color: rgb(49, 97, 253);
+    background-color: white;
+    font-weight: bold;
+}
+.first-section .first-section-body button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 30px;
+    border-color: white;
+    color: white;
+    background-color: rgb(49, 97, 253);
+    font-weight: bold;
+   margin-right: 10px;
+}
+.first-section  {
+    display: flex;
+}
+.first-section .first-section-body .img {
+    height: 200px;
+    width: 200px;
+    padding-left: 30px;
+}
+.second-section {
+    /* background-color: rgb(247, 223, 223); */
+}
+.second-section .h2-p{
+    text-align: center;
+}
+.second-section .h2-p h2{
+    font-weight: bold;
+    font-size: 35px;
+}
+.second-section .h2-p p{
+    font-size: 15px;
+}
+.two {
+    padding: 100px;
+    background-color: aliceblue;
+}
+
+.banner {
+    background-color: #0067f4;
+   }
+  
+   .slidetext {
+     margin-left: 50px;
+     font-family: 'Poppins';
+     color: #fff;
+     padding-bottom: 125px;
+   }
+   
+   .slidetext h1 {
+     font-size: 77px;
+     font-weight: 700;
+     margin-top: 150px;
+   
+   }
+   
+   .slidetext p {
+     font-size: 15px;
+     font-weight: 400;
+     margin-top: 15px;
+   }
+   
+   .slideimg img {
+     width: 100%;
+     object-fit: contain;
+   }
+   
+   .left-arrow {
+     width: 0px;
+     height: 0px;
+     margin: auto;
+     opacity: 1;
+   }
+   .right-arrow {
+     width: 0px;
+     height: 0px;
+     margin: auto;
+     opacity: 1;
+   }
+   
+   .left-arrow svg {
+     position: relative;
+     width: 30px;
+     height: 30px;
+     outline: none;
+     text-decoration: none;
+     border: 0;
+     top: -43px;
+   }
+   
+   .right-arrow svg {
+     position: relative;
+     width: 30px;
+     height: 30px;
+     outline: none;
+     text-decoration: none;
+     border: 0;
+     top: -43px;
+   
+   }
+   
+   .carousel.carousel-dark.right-arrow, .carousel.carousel-dark.left-arrow {
+     opacity: 1;
+   }
+   
+   .btn.one {
+     margin-top: 20px;
+     padding: 10px 20px 10px 20px;
+     border-radius: 36px;
+     margin-right: 25px;
+     background-color: #ffffff;
+     color: #0067f4;
+     font-size: 17px;
+     font-family: 'Poppins', sans-serif;
+     font-weight: 600;
+     cursor: pointer;
+     transition: ease all .5s;
+   }
+   
+   .btn.two {
+     margin-top: 20px;
+     padding: 10px 20px 10px 20px;
+     border-radius: 36px;
+     margin-right: 25px;
+     background-color: #0067f4;
+     border: 3px solid white;
+     color: #ffffff;
+     font-size: 17px;
+     font-family: 'Poppins', sans-serif;
+     font-weight: 600;
+     cursor: pointer;
+     transition: ease all .5s;
+   }
+   
+   .btn.one:hover, .btn.two:hover {
+     background-color: #ffffff;
+     color: #0067f4;
+   }
+   
+
+
+.card-body {
+    background-color: white;
+    padding: 30px;
+}
+.card-body button {
+    border: none;
+    color: rgb(49, 97, 253);
+    font-weight: bold;
+    background-color: white;
+}
+.img img{
+height: 700px;
+width: 700px;
+padding-left: 100px;
+}
+
+.three {
+    background-color: white;
+    padding-bottom: 70px;
+}
+.three-h2-p {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+.three-h2-p h2{
+    font-weight: bold;
+}
+.three .images img{
+    height: 250px;
+    width: 250px;
+}
+.three .list-three li:hover {
+    list-style-type: none;
+    color: white;
+    background-image: linear-gradient(to right, rgb(12, 36, 245) , rgb(23, 224, 238));
+    border-radius: 30px;
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    margin: 10px;
+    font-weight: bold;
+    width: 200px;
+    text-align: center;
+}
+.three .list-three li{
+    list-style-type: none;
+    color: rgb(82, 81, 81);
+    background-color: white;
+    border-radius: 30px;
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    margin: 10px;
+    font-weight: bold;
+    width: 200px;
+    text-align: center;
+}
+.three .list-three .first-li {
+    list-style-type: none;
+    color: white;
+    background-image: linear-gradient(to right, rgb(12, 36, 245) , rgb(23, 224, 238));
+    border-radius: 30px;
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    margin: 10px;
+    font-weight: bold;
+    width: 200px;
+    text-align: center;
+}
+.three .list-three .first-li:hover {
+    list-style-type: none;
+    color: rgb(82, 81, 81);
+    background-color: white;
+    border-radius: 30px;
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    margin: 10px;
+    font-weight: bold;
+    width: 200px;
+    text-align: center;
+}
+
+.four .h2-p {
+    text-align: center;
+}
+.four .h2-p h2{
+    font-weight: bold;
+    padding: 20px;
+}
+.four .h2-p p {
+    padding: 30px;
+}
+.four {
+    background-color: rgb(236, 229, 229);
+    padding-bottom: 40px;
+}
+.card-1 {
+    background-image: linear-gradient(to bottom, rgb(23, 224, 238), rgb(12, 36, 245));
+    border-radius: 10px;
+    width: 350px;
+}
+.card-1 img{
+    margin-left: 80px;
+    margin-top: 20px;
+    height: 200px;
+    width: 200px;
+
+}
+.card-1 h3 {
+    color: white;
+    font-weight: bold;
+    padding: 3px;
+    text-align: center;
+}
+.card-1 h1 {
+    color: white;
+    font-weight: bold;
+    padding: 3px;
+    text-align: center;
+}
+.card-1 p {
+    color: white;
+    font-weight: bold;
+    padding: 3px;
+    padding-left: 25px;
+}
+.card-1 button{
+    border-radius: 30px;
+    font-weight: bold;
+    padding: 3px;
+    background-color: white ;
+    color: rgb(31, 52, 240);
+    border: none;
+    margin-left: 90px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 45px;
+    padding-right: 45px;
+}
+.fourth .fourth-bottom .card-1{
+    display: flex;
+}
+.five {
+    background-color: white;
+    padding: 100px;
+}
+.five .img img {
+    height: 500px;
+    width: 500px;
+}
+.five .h5-h3-ul h5 {
+    color: rgb(51, 71, 248);
+    font-weight: bold;
+}
+.five .h5-h3-ul h3 {
+    font-weight: bold;
+}
+.five .h5-h3-ul ul li{
+    color: rgb(77, 74, 74);
+    padding: 20px;
+    font-size: 16px;
+    list-style: none;
+}.five .h5-h3-ul ul li i{
+    padding-left: 60px;
+}
+
+
+
+
+.six {
+    background-color: rgb(201, 197, 197);
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.six h5 {
+    color: rgb(31, 52, 240);
+    font-weight: bold;
+}
+.six h2 {
+    font-weight: bold;
+}
+.six  p{
+    text-align: left;
+    font-weight: bold;
+    color: rgb(59, 58, 58);
+}
+.six .p {
+    padding-bottom: 50px;
+}
+.six .card {
+    margin: 50px;
+    /* float: right; */
+    /* top: 100px; */
+}
+.six .card .card-body {
+    border-radius: 50px;
+}
+.six .card-body {
+    margin: 15px;
+    padding: 10px;
+   
+    top: 70px;
+    left: 100px;
+    position: absolute;
+    width: 400px;
+
+}
+.six .card-body .first-part {
+    padding: 20px;
+}
+.six .card-body .first-part p{
+    color: rgb(88, 87, 87);
+    font-size: 20px;
+    font-family: 'Poppins';
+}
+.six .card-body .second-part {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgb(186, 193, 194);
+    padding: 20px;
+}
+.six .card-body .second-part img {
+   height: 50px;
+   width: 50px;
+   border-radius: 50px;
+} 
+.card .card-body .second-part h5 {
+    color: black;
+}
+.card .card-body .second-part p{
+    color: rgb(163, 159, 159);
+}
+.card .card-body .second-part .review {
+    color: rgb(102, 97, 97);
+}
+.card .card-body .second-part span {
+    background-color: rgb(253, 165, 2);
+}
+/* .float-card {
+    position: relative;
+    
+} */
+.container {
+    position: relative;
+}
+.six .row {
+    margin-right: 15px;
+}
+.six .fade-card {
+    height: 350px;
+    width: 400px;
+   
+    margin: 30px;
+    background-color: rgba(248, 242, 242,0.3);
+    border-radius: 50px;
+    /* z-index: 5; */ 
+}
+.seven {
+    background-color: white;
+    padding-bottom: 60px;
+}
+.seven .h2-p {
+    text-align: center;
+    padding: 40px;
+}
+.seven .h2-p h2 {
+    font-weight: bold;
+}
+.seven .card img{
+    height: 280px;
+    width: 280px;
+}
+.seven .card h2{
+    font-weight: bold;
+    /* text-align: center; */
+}
+.seven .card h5 {
+    color: rgb(49, 97, 253);
+    font-weight: bold;
+    /* text-align: center; */
+}
+.seven .card {
+     box-shadow: 2px 2px 7px 1px rgb(194, 187, 224);
+     width: 310px;
+     text-align: center;
+     /* justify-content: space-around; */
+}
+.seven .card .h3-h5 {
+    padding: 10px;
+    font-weight: bold;
+}
+.eight {
+    background-color: rgb(207, 202, 202);
+}
+.eight .h3-p{
+    text-align: center;
+    padding: 30px;
+}
+.eight .h3-p h3{
+    font-weight: bold;
+}
+.eight .h3-p p {
+    font-weight: bold;
+    color: rgb(134, 128, 128);
+}
+.eight .second-part {
+    padding-left: 70px;
+    padding-bottom: 40px;
+}
+.eight .first {
+    display: flex;
+}
+.eight .second{
+    display: flex;
+   
+}
+.eight .third {
+    display: flex;
+   
+}
+.eight .first p {
+    padding-left: 25px;
+}
+.eight .second p {
+    padding-left: 25px;
+}
+.eight .third p {
+    padding-left: 25px;
+}
+.eight .first i {
+    padding: 10px;
+    background-color: black;
+    border-radius: 50px;
+    color: white;
+    
+}
+.eight .second i {
+    padding: 10px;
+    background-color: rgb(252, 26, 26);
+    border-radius: 50px;
+    color: white;
+}
+.eight .third i {
+    padding: 10px;
+    background-color: rgb(5, 116, 243);
+    border-radius: 50px;
+    color: white;
+}
+.eight  .third-part-body {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 30px;
+}
+.eight {
+    padding: 10px;
+}
+
+.eight .fourth-part  strong{
+    font-weight: bold;
+    
+}
+.eight .fourth-part i{
+    padding-right: 10px;
+    
+}
+.eight .fifth-part {
+  padding: 20px;
+}
+.eight .fifth-part .first-second {
+   display: flex; 
+   padding: 20px;  
+}
+.eight .fifth-part .first-second input{
+    width: 500px;  
+    padding: 5px;
+ }
+ .eight .fifth-part .third input{
+    width: 1000px;  
+    padding: 45px;
+    padding-top: 10px;
+    padding-left: 10px;
+ }
+ .eight .fifth-part .third {
+    padding: 20px;  
+ }
+ .livmessage {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    font-family: 'Poppins';
+  }
+  
+  label {
+    font-size: 12px;
+    font-weight: 200;
+  }
+  
+  .leaveico::before {
+    /* width:20vw;
+   height: 25px; */
+    color: black;
+    content: "\f0e0";
+    font-family: "Font Awesome 5 Free";
+    font-size: 2.3rem;
+  }
+  
+  .upbutton {
+    position: absolute;
+    padding: 5px 7px 5px 7px;
+    margin-top: 75px;
+    margin-left: 1200px;
+    border-radius: 4px;
+    text-decoration: none;
+    background-color: #0067f4;
+    color: #ffffff;
+    transition: smooth;
+  }
+  
+  .upbutton:hover {
+    color: #ffffff;
+  }
+  .nine {
+    background-color: rgb(17, 15, 15)
+  }
+  .nine .ul-li {
+    padding: 70px;
+  }
+  .nine .ul-li li {
+    list-style: none;
+    font-weight: bold;
+    padding: 10px;
+    color: white;
+    text-align: center;
+  }
