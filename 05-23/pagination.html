@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fake Store API Example</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+         
+           .card {
+            height: 100%; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+    <script>
+         function fetchAndDisplayProducts(category) {
+            fetch(`https://fakestoreapi.com/products/category/${category}`)
+                .then(response => response.json())
+                .then(data => {
+                    const productContainer = document.getElementById('productContainer');
+                    productContainer.innerHTML = ''; // Clear previous products
+                    
+                    data.forEach(product => {
+                        const card = document.createElement('div');
+                        card.classList.add('col-md-4', 'my-3', 'w-25');
+
+                        card.innerHTML = `
+                            <div class="card text-center">
+                                <!-- Card content here -->
+                                <img src="${product.image}" width="100" height="200" class="card-img-top " alt="${product.title}">
+                             <div class="card-body">
+                                <h5 class="card-title text-center">${product.title}</h5>
+                                <h5 class="card-title text-center">${product.category}</h5>
+                              
+                              
+                             <p class="card-text text-center">$${product.price}</p>
+                                <a href="#" class="btn btn-danger ">Add to Cart</a>
+                           </div>
+                            </div>
+                        `;
+
+                        productContainer.appendChild(card);
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+        
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const buttons = document.querySelectorAll('.category-button');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const category = button.dataset.category;
+                    fetchAndDisplayProducts(category);
+                });
+            });
+        });
+      </script>
+</head>
+
+<body class="container">
+ 
+    <div class="my-2">
+        <button class="btn btn-primary mx-2 category-button" data-category="electronics">Electronics</button>
+        <button class="btn btn-primary mx-2 category-button" data-category="jewelery">Jewelery</button>
+        <button class="btn btn-primary mx-2 category-button" data-category="men's clothing">Men's Clothing</button>
+        <button class="btn btn-primary mx-2 category-button" data-category="women's clothing">Women's Clothing</button>
+    </div>
+    <div class="row" id="productContainer">
+        <!-- Cards will be dynamically added here -->
+    </div>
+
+   
+</body>
+
+</html>
+
