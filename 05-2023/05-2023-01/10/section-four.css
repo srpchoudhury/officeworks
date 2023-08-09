@@ -1,0 +1,52 @@
+.section-four {
+    background-color: rgb(156, 118, 251);
+   }
+   .section-four .section-four-whole {
+    margin: 20px;
+   }
+   .section-four .section-four-whole .section-four-header {
+    padding: 20px;
+   }
+   .section-four .section-four-whole .section-four-header .h3-p {
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   
+   }
+   .section-four .section-four-whole .section-four-header .h3 {
+    padding: 20px;
+    font-size: 25px;
+   }
+   .section-four .section-four-whole .section-four-header .p {
+    padding: 20px;
+    font-size: 20px;
+   }
+   .section-four .section-four-whole .section-four-body {
+    margin: 10px;
+    padding: 80px;
+    display: flex;
+    padding-left: 120px;
+   }
+   .section-four .section-four-whole .section-four-body .cards {
+    width: 150px;
+    background-color: aliceblue;
+    box-shadow:   0 2px 48px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin: 20px;
+   }
+   .section-four .section-four-whole .section-four-body .cards .card-header {
+    padding: 20px;
+    margin-left: 35px;
+   }
+   .section-four .section-four-whole .section-four-body .cards .card-body h2 {
+      text-align: center;
+      font-size: 22px;
+      font-weight: lighter;
+      padding: 5px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   }
+   .section-four .section-four-whole .section-four-body .cards .card-footer p {
+            text-align: center;
+            padding: 20px;
+
+   }
+  

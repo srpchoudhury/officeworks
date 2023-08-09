@@ -1,0 +1,19 @@
+<script>
+    // let Mfd = new Date();
+    // document.write(`
+    //      ${Mfd.toLocaleDateString()}
+    // `);
+
+    let Mfd = new Date("2021-08-15");
+    let months = ["Jan","Feb","Mar","Apr","May","Jun","July","Aug","Sept","Oct","Nov","Dec"];
+    let weekdays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    Mfd.setMonth(7);
+    Mfd.setDate(20);
+    document.write(`
+       Manufactured Date :  ${Mfd.getDate()} <br>
+       Manufactured Month : ${months[Mfd.getMonth()]} <br>
+       Manufactured Weekday : ${weekdays[Mfd.getDay()]} <br>
+       Manufactured Year : ${Mfd.getFullYear()} <br>
+       Manufactured Date :   ${weekdays[Mfd.getDay()]}, ${Mfd.getDate()}- ${months[Mfd.getMonth()]} ${Mfd.getFullYear()} 
+           `);
+</script>

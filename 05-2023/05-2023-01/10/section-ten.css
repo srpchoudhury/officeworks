@@ -1,0 +1,25 @@
+.section-ten {
+    background-color: rgb(208, 175, 240);
+}
+.section-ten .section-ten-whole {
+    margin: 2px;
+}
+.section-ten .section-ten-whole .icons{
+    padding: 35px;
+}
+
+.icons ul li {
+    list-style: none;
+    padding-right: 30px;
+    
+   
+}
+.icons ul {
+    display: flex;
+    padding-left: 500px;
+}
+.section-ten .section-ten-whole .p {
+    margin: 20px;
+    text-align: center;
+    padding: 22px;
+}

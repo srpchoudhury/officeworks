@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Education Assistance Application Form</title>
+
+    <style type="text/css">
+    </style>
+
+
+    <link rel="icon" href="/obocwwb/images/Helix.png" type="image/png">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Odisha Building and Other Construction Workers' Welfare Board - Government of Odisha">
+
+    <link rel="stylesheet" href="/obocwwb/css/application-style.css?110" />
+    <link href="/obocwwb/css/dashboard-style.css?6" rel="stylesheet">
+    <link rel="stylesheet" href="/obocwwb/css/bootstrap5.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/obocwwb/webjars/bootstrap/4.6.0-1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/obocwwb/webjars/font-awesome/5.11.2/css/all.min.css" />
+    <link rel="stylesheet" href="/obocwwb/webjars/material-icons/0.3.1/iconfont/material-icons.css" />
+
+    <link rel="stylesheet" href="/obocwwb/css/dropdown/dropdown.css" />
+    <link rel="stylesheet" href="/obocwwb/css/dropdown/dropdown.vertical.css" />
+    <link rel="stylesheet" href="/obocwwb/css/dropdown/themes/default/default.ultimate.css" />
+
+    <link rel="stylesheet" href="/obocwwb/css/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="/obocwwb/css/mdb/4.12.0/css/mdb.min.css" />
+    <script src="/obocwwb/webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/obocwwb/webjars/jquery-ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="/obocwwb/webjars/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="/obocwwb/css/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="/obocwwb/css/mdb/4.12.0/js/mdb.min.js"></script>
+    <script src="/obocwwb/js/jquery.slimscroll.js"></script>
+
+    <script src="/obocwwb/webjars/bootstrap/4.6.0-1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <script src="/obocwwb/js/BackDataEducationAssist.js?2"></script>
+</head>
+
+<body>
+    <script src="/obocwwb/css/mdb/mdb.min.js"></script>
+    <header>
+        <script type="text/javascript">
+            $(document).on("click", ".changePassword", function () {
+                $.ajax({
+                    type: 'GET',
+                    url: "/obocwwb/public/changePassword",
+                    success: function (msg) {
+                        $('#cpBdy').html(msg);
+                        $('#cp').modal({
+                            backdrop: 'static',
+                            keyboard: false
+                        })
+                    }
+                });
+
+            });
+
+
+            function encryptPassword() {
+                var passwd = $("#password").val();
+                passwd = Encrypt(passwd);
+                $("#password").val(passwd);
+            }
+            function Encrypt(plainText) {
+
+                var iv = "00000000000000000000000000000000";
+                var salt = "00000000000000000000000000000000";
+                var keySize = 128;
+                var iterationCount = 10000;
+                var passPhrase = "aesalgoisbestbes";
+                var aesUtil = new AesUtil(keySize, iterationCount);
+                var encrypt = aesUtil.encrypt(salt, iv, passPhrase,
+                    plainText);
+                return encrypt;
+            }
+        </script>
+        <script src="/obocwwb/js/aes.js"></script>
+        <script src="/obocwwb/js/AesUtil.js"></script>
+        <script src="/obocwwb/js/pbkdf2.js"></script>
+
+        <div class="container-fluid text-white" style="background-color: #105e55;">
+
+            <div class="row h-25">
+                <div class="col-lg-6 col-sm-12">
+                    <div class="col-sm-12 d-flex justify-content-start">
+                        <img alt="Image" src="/obocwwb/images/OBOCWWB.png" width="50px" height="40px"
+                            class="img-responsive">
+                        <h6 class="text-left text-white font-weight-bold d-flex align-items-center mb-0">NirmanShramik
+                        </h6>
+                    </div>
+                </div>
+                <div class="col-6 text-right pt-2">
+
+                    <span class="font-weight-bold"> <a href="#" style="color: white;" title="Go to Profile"><span
+                                style="font-size: 13px">Biswajit Jena (SUYOG)</span>,&nbsp;<span
+                                style="font-size: 13px">DEO</span></a>
+                    </span>
+                </div>
+
+                <div id="popover-content" style="display: none;">
+                    <div class="col text-left px-0">
+                        <span class="font-weight-bold"> <a href="#" title="Go to Profile"><span
+                                    style="font-size: 20px">Biswajit Jena (SUYOG)</span>,&nbsp;<span
+                                    style="font-size: 20px">DEO</span></a>
+                        </span>
+                    </div>
+                    <hr class="mb-1">
+                    <div class="row">
+                        <div class="col mt-0 d-flex justify-content-between">
+                            <div class="pl-1">
+                                <a href="/obocwwb/saveLogoutDetails" class="btn btn-sm btn-danger"
+                                    role="button">Logout</a>
+                            </div>
+                            <div class="pl-1">
+                                <a href="javascript:void(0);" style="font-size: 16px; color: white;"
+                                    class="btn btn-sm btn-secondary changePassword">Change
+                                    Password</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-10 header-part">
+                    <div class="navbar-collapse">
+                        <ul class="nav nav-tabs" )>
+                            <li class="nav-item" title="Dashboard"></li>
+                            <li class="nav-item" title="Inbox"><a class="nav-link"
+                                    href="/obocwwb/common/getInboxItems">Inbox</a></li>
+
+
+
+
+                            <li class="nav-item" title="Sent Items"><a class="nav-link"
+                                    href="/obocwwb/common/getSentItems">Sent Items</a>
+                            <li class="nav-item" title="Inbox"><a class="nav-link"
+                                    href="/obocwwb/common/trackApplication">Application Tracking</a></li>
+                            </li>
+
+
+
+
+                            <li class="nav-item" title="Back log"><a class="nav-link active"
+                                    href="/obocwwb/goToBackdataSchemeList">Backlog</a></li>
+                            <li class="nav-item" title="Bak log"><a class="nav-link" target="_blank"
+                                    title="Bank-Aadhaar verification"
+                                    href="https://resident.uidai.gov.in/bank-mapper">Bank-Aadhaar verification</a></li>
+
+                            <li class="nav-item" title="Beneficiary Details"><a class="nav-link"
+                                    href="/obocwwb/common/getBeneficiaryDetails">Profile Search</a></li>
+
+
+                        </ul>
+
+
+
+
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-12 text-right">
+                    <a href="/obocwwb/receivedApplications" title="Home"> <i
+                            class="material-icons text-white">home</i></a> <a class="header-link" id="profile"
+                        data-toggle="popover" data-container="body" data-placement="bottom" type="button"
+                        data-html="true" href="#">
+                        <i class="material-icons text-white">person</i>
+                    </a>
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row " style="background-color:#ffffff ;display: none;">
+            <div class="col-sm-12 col-lg-12">
+                <div class="card mb-1 mt-2 pb-1 pt-1 mi-vh-100" style="background-color:white ;">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <marquee>
+
+                                <div class="text-dark" style="font-weight: bold;font-size: large">
+                                    <h5 style="font-weight: bold;color: red;"> Server will not be available from 01.20
+                                        PM to 01.45 PM due to scheduled maintenance!</h5>
+                                </div>
+                            </marquee>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 pl-0">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid" style="display: none;">
+            <div class="row">
+                <div class="col-12 pl-0">
+
+
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="cp">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content" id="cpc">
+                    <div class="modal-header">
+                        <h4>Change Password</h4>
+                        <button type="button" class="close" data-dismiss="modal" style="color: black;">&times;</button>
+                    </div>
+                    <div class="modal-body" id="cpBdy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page content -->
+    <main role="main" class="container-fluid min-vh-100">
+        <form name="applicationForm" id="applicationForm" method="post" action="/obocwwb/submitStudentApplication"
+            data-ng-app="workerRegistration" data-ng-controller="registrationController" autocomplete="off"><input
+                type="hidden" name="_csrf" value="9b35b72b-6e4b-4420-bebe-0e97bd0fbaba" />
+            <input type="hidden" id="edDetailID" name="id" value="87626">
+            <input type="hidden" id="appID" name="id" value="5384956">
+            <input type="hidden" id="regId" name="worker.id" value="3559678">
+            <input type="hidden" id="aplicaId" name="applicationId.id" value="5384956">
+            <input type="hidden" id="schId" name="scheme.id" value="1">
+            <input type="hidden" id="applicationStatus" name="applicationStatus" value="">
+            <input type="hidden" id="stdId" name="stdId" value="">
+
+
+            <h5 class="text-center pt-3 font-weight-bold">APPLICATION FOR FINANCIAL ASSISTANCE FOR THE EDUCATION OF
+                CHILDREN OF THE BENEFICIARY</h5>
+            <!-- Card 1  -->
+            <div class="card mt-4">
+                <div class="bg-green p-2" id="applicantDetailsHeading1" data-toggle="collapse"
+                    data-target="#applicantDetailsCollapse1" aria-expanded="true"
+                    aria-controls="applicantDetailsCollapse1">
+                    <div style="float: left;">
+                        <h6 class="text-white font-weight-bold mb-0">
+                            Applicant Details</h6>
+                    </div>
+
+                </div>
+                <div id="applicantDetailsCollapse1" class="collapse show">
+                    <div class="card-body">
+                        <div class="row pt-2">
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " readonly type="text" id="workerName" name="workerName"
+                                        value="GOURANGA BEHERA  ">
+                                    <label>Registered construction worker name <sup class="text-danger">*</sup>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " readonly type="text" id="gender" name="gender" value="Male">
+                                    <label class="select-label">Sex<sup class="text-danger">*</sup></label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " readonly type="text" id="worker.licenseNumber"
+                                        name="worker.licenseNumber" value="ODJSP001022281">
+                                    <label>Registration
+                                        number of the beneficiary<sup class="text-danger">*</sup>
+                                    </label>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="row pt-4">
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " readonly id="dateOfRegistrationToStringId" type="date"
+                                        name="dateOfRegistrationToString" value="2015-11-04">
+                                    <label>Date of
+                                        registration<sup class="text-danger">*</sup>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " readonly type="date" id="dobToString" name="dobToString"
+                                        value="1971-01-01">
+                                    <label>Date of birth <sup class="text-danger">*</sup></label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " class="character-only" type="text" id="fathersName"
+                                        name="fathersName" value="JHARI BEHERA">
+                                    <label><span>Father's name</span></label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " readonly type="text" id="maritalStatus" name="maritalStatus"
+                                        value="Married"> <label class="select-label">Marital status<sup
+                                            class="text-danger">*</sup>
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " class="character-only" type="text" id="spousename"
+                                        name="spousename" value="">
+                                    <label><span>Spouse's name</span></label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " id="dateOfReceiptToStringId"
+                                        onchange="checkValidDate('dateOfReceiptToStringId',this.value)" type="date"
+                                        name="dateOfReceiptToString" value="">
+                                    <label>Date of receipt of application <sup class="text-danger">*</sup></label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " class="number-only" id="aadhaarNoId"
+                                        onchange="checkAadhaarno(this.value);" type="text" maxlength="12"
+                                        name="aadhaarNo" value="611928793085">
+                                    <label><span>Aadhaar no.</span></label>
+                                    <small class="text-danger"><br>Aadhaar no. not authenticated</small>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " class="character-only" type="text"
+                                        id="workerNameAsPerAadhaar" name="workerNameAsPerAadhaar" value="">
+                                    <label><span>Name as per aadhaar card</span></label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " class="number-only" type="text" maxlength="10" id="mobileNo"
+                                        name="mobileNo" value="">
+                                    <label><span>Mobile no.</span></label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card mt-4">
+                <div class="bg-green" id="applicantDetailsHeading5" data-toggle="collapse"
+                    data-target="#applicantDetailsCollapse2" aria-expanded="true"
+                    aria-controls="applicantDetailsCollapse2">
+                    <div style="float: left;">
+                        <h6 class="text-white mb-0 font-weight-bold">Address Details
+                        </h6>
+                    </div>
+
+                </div>
+                <div id="applicantDetailsCollapse2" class="collapse show">
+                    <div class="card-body">
+                        <font style="font-weight: bold;">Permanent Address
+                        </font>
+                        <div class="row">
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " type="text" id="permanentAdd" name="permanentAddress"
+                                        value="AT-BALIKUDA PO-TANDIKULA ">
+                                    <label>Address</label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="custom-control custom-radio custom-control-inline">
+
+                                    <input type="radio" class="custom-control-input"
+                                        onchange="pernmentEducationUrbanRuralChange(this.value)" id="perUrban" value="U"
+                                        name="permanentRuralOrUrban"> <label class="custom-control-label"
+                                        for="perUrban">Urban</label>
+
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+
+                                    <input type="radio" class="custom-control-input"
+                                        onchange="pernmentEducationUrbanRuralChange(this.value)" id="perRural" value="R"
+                                        name="permanentRuralOrUrban" checked="checked"> <label
+                                        class="custom-control-label" for="perRural">Rural</label>
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="select">
+                                    <select class="select-text" id="stateId" onchange="getPermanentDistrict(this.value)"
+                                        name="permanentState.id">
+                                        <option value="0">-Select state-</option>
+                                        <option value="35">ANDAMAN AND NICOBAR ISLANDS</option>
+                                        <option value="28">ANDHRA PRADESH</option>
+                                        <option value="12">ARUNACHAL PRADESH</option>
+                                        <option value="18">ASSAM</option>
+                                        <option value="10">BIHAR</option>
+                                        <option value="4">CHANDIGARH</option>
+                                        <option value="22">CHHATTISGARH</option>
+                                        <option value="7">DELHI</option>
+                                        <option value="30">GOA</option>
+                                        <option value="24">GUJARAT</option>
+                                        <option value="6">HARYANA</option>
+                                        <option value="2">HIMACHAL PRADESH</option>
+                                        <option value="1">JAMMU AND KASHMIR</option>
+                                        <option value="20">JHARKHAND</option>
+                                        <option value="29">KARNATAKA</option>
+                                        <option value="32">KERALA</option>
+                                        <option value="37">LADAKH</option>
+                                        <option value="31">LAKSHADWEEP</option>
+                                        <option value="23">MADHYA PRADESH</option>
+                                        <option value="27">MAHARASHTRA</option>
+                                        <option value="14">MANIPUR</option>
+                                        <option value="17">MEGHALAYA</option>
+                                        <option value="15">MIZORAM</option>
+                                        <option value="13">NAGALAND</option>
+                                        <option value="21" selected="selected">ODISHA</option>
+                                        <option value="34">PUDUCHERRY</option>
+                                        <option value="3">PUNJAB</option>
+                                        <option value="8">RAJASTHAN</option>
+                                        <option value="11">SIKKIM</option>
+                                        <option value="33">TAMIL NADU</option>
+                                        <option value="36">TELANGANA</option>
+                                        <option value="38">THE DADRA AND NAGAR HAVELI AND DAMAN AND DIU</option>
+                                        <option value="16">TRIPURA</option>
+                                        <option value="5">UTTARAKHAND</option>
+                                        <option value="9">UTTAR PRADESH</option>
+                                        <option value="19">WEST BENGAL</option>
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>
+                                            State</span></label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 pt-4">
+                                <div class="select">
+                                    <select class="select-text" id="District" onchange="getPermanentBlock(this.value)"
+                                        name="permanentDistrict.id">
+                                        <option value="0">-Select District-</option>
+                                        <option value="467">ANGUL</option>
+                                        <option value="469">BALASORE</option>
+                                        <option value="470">BARGARH</option>
+                                        <option value="471">BHADRAK</option>
+                                        <option value="468">BOLANGIR</option>
+                                        <option value="472">BOUDH</option>
+                                        <option value="473">CUTTACK</option>
+                                        <option value="474">DEOGARH</option>
+                                        <option value="475">DHENKANAL</option>
+                                        <option value="476">GAJAPATI</option>
+                                        <option value="477">GANJAM</option>
+                                        <option value="478" selected="selected">JAGATSINGHAPUR</option>
+                                        <option value="479">JAJAPUR</option>
+                                        <option value="480">JHARSUGUDA</option>
+                                        <option value="481">KALAHANDI</option>
+                                        <option value="482">KANDHAMAL</option>
+                                        <option value="483">KENDRAPARA</option>
+                                        <option value="484">KENDUJHAR</option>
+                                        <option value="485">KHORDHA</option>
+                                        <option value="486">KORAPUT</option>
+                                        <option value="487">MALKANGIRI</option>
+                                        <option value="488">MAYURBHANJ</option>
+                                        <option value="489">NABARANGPUR</option>
+                                        <option value="490">NAYAGARH</option>
+                                        <option value="491">NUAPADA</option>
+                                        <option value="492">PURI</option>
+                                        <option value="493">RAYAGADA</option>
+                                        <option value="494">SAMBALPUR</option>
+                                        <option value="495">SUBARNAPUR</option>
+                                        <option value="496">SUNDARGARH</option>
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>
+                                            District</span></label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-4 pt-4" id="perBlockDiv">
+                                <div class="select">
+                                    <select class="select-text" id="permanentBlock"
+                                        onchange="getPremenentVillageAndPanchayatByBlock(this.value)"
+                                        name="permanentBlock.id">
+                                        <option value="0">-Select block-</option>
+                                        <option value="4184">BALIKUDA</option>
+                                        <option value="4185">BIRIDI</option>
+                                        <option value="4186">ERASAMA</option>
+                                        <option value="4187">JAGATSINGHPUR</option>
+                                        <option value="4188">KUJANG</option>
+                                        <option value="4189">NAUGAON</option>
+                                        <option value="4190">RAGHUNATHPUR</option>
+                                        <option value="4191">TIRTOL</option>
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>Block</span></label>
+                                </div>
+                            </div>
+                            <!--							th:onchange="setPermanentGramapanchayat(this.value)"-->
+                            <div class="col-sm-4 pt-4" id="perGramListDiv">
+                                <div class="select">
+                                    <select class="select-text" id="pernmentGramPanchayat"
+                                        onchange="getPermanentVillage(this.value)" name="permanentPanchayat.id">
+                                        <option value="0">--- Select ---</option>
+
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>Gram
+                                            panchayat</span><sup class="text-danger">*</sup> </label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 pt-4" id="perVillageDiv">
+                                <div class="select">
+                                    <select class="select-text" id="perVillage" name="permanentVillageSetup.id">
+                                        <option value="0">-Select Village-</option>
+
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>Village</span></label>
+                                </div>
+
+                            </div>
+
+
+                            <!--<div class="material-textfield col-sm-4 mt-4" id="perGramText">-->
+                            <!--<div class="select">-->
+                            <!--									<input placeholder=" " type="text" id="permanentGram"-->
+                            <!--										th:field="*{educationSchmeDetailsVO.permanentGramaPanchayat}">-->
+                            <!--									<label>Grama Panchayat</label>-->
+                            <!--								</div>-->
+                            <!--								</div>-->
+                            <div class="col-sm-4 pt-4" id="perUlbDiv">
+                                <div class="select">
+                                    <select class="select-text" id="perUlb" onchange="getPermanentWard(this.value)"
+                                        name="permanentUlbSetup.id">
+                                        <option value="0">-Select ULB-</option>
+
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>ULB</span></label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 pt-4" id="perWardDiv">
+                                <div class="select">
+                                    <select class="select-text" id="perWard" name="permanentWardSetup.id">
+                                        <option value="0">
+                                            -Select ward-</option>
+
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>Ward</span></label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " class="number-only" type="text" id="permanentPin"
+                                        maxlength="6" onchange='checkPin(this.value,&quot;permanentPin&quot;)'
+                                        name="permanentPincode" value="">
+                                    <label><span>PIN Code</span></label>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+                        <div class="row">
+                            <div class="form-check custom-control custom-checkbox col-sm-12 col-md-12 p-3">
+                                <font style="font-weight: bold;">Present address</font>
+                            </div>
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " id="presentAdd" type="text" name="presentAddress"
+                                        value="AT-BALIKUDA PO-TANDIKULA ">
+                                    <label>Address
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-4">
+                                <div class="select">
+                                    <select class="select-text" id="presentDistrict"
+                                        onchange="getPresentBlock(this.value)" name="presentDistrict.id">
+                                        <option value="0">-Select District-</option>
+                                        <option value="467">ANGUL</option>
+                                        <option value="469">BALASORE</option>
+                                        <option value="470">BARGARH</option>
+                                        <option value="471">BHADRAK</option>
+                                        <option value="468">BOLANGIR</option>
+                                        <option value="472">BOUDH</option>
+                                        <option value="473">CUTTACK</option>
+                                        <option value="474">DEOGARH</option>
+                                        <option value="475">DHENKANAL</option>
+                                        <option value="476">GAJAPATI</option>
+                                        <option value="477">GANJAM</option>
+                                        <option value="478" selected="selected">JAGATSINGHAPUR</option>
+                                        <option value="479">JAJAPUR</option>
+                                        <option value="480">JHARSUGUDA</option>
+                                        <option value="481">KALAHANDI</option>
+                                        <option value="482">KANDHAMAL</option>
+                                        <option value="483">KENDRAPARA</option>
+                                        <option value="484">KENDUJHAR</option>
+                                        <option value="485">KHORDHA</option>
+                                        <option value="486">KORAPUT</option>
+                                        <option value="487">MALKANGIRI</option>
+                                        <option value="488">MAYURBHANJ</option>
+                                        <option value="489">NABARANGPUR</option>
+                                        <option value="490">NAYAGARH</option>
+                                        <option value="491">NUAPADA</option>
+                                        <option value="492">PURI</option>
+                                        <option value="493">RAYAGADA</option>
+                                        <option value="494">SAMBALPUR</option>
+                                        <option value="495">SUBARNAPUR</option>
+                                        <option value="496">SUNDARGARH</option>
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>District</span></label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-4 pt-3">
+
+                                <div class="custom-control custom-radio custom-control-inline">
+
+                                    <input type="radio" class="custom-control-input"
+                                        onchange="presentEducationUrbanRuralChange(this.value)" id="preUrban" value="U"
+                                        name="presentRuralOrUrban"> <label class="custom-control-label"
+                                        for="preUrban">Urban</label>
+
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+
+                                    <input type="radio" class="custom-control-input"
+                                        onchange="presentEducationUrbanRuralChange(this.value)" id="preRural" value="R"
+                                        name="presentRuralOrUrban" checked="checked"> <label
+                                        class="custom-control-label" for="preRural">Rural</label>
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 pt-4" id="preBlockDiv">
+                                <div class="select">
+                                    <select class="select-text" id="block"
+                                        onchange="getPresentVillageAndPanchat(this.value)" name="presentBlock.id">
+                                        <option value="0">
+                                            -Select block-</option>
+                                        <option value="4184" selected="selected">BALIKUDA</option>
+                                        <option value="4185">BIRIDI</option>
+                                        <option value="4186">ERASAMA</option>
+                                        <option value="4187">JAGATSINGHPUR</option>
+                                        <option value="4188">KUJANG</option>
+                                        <option value="4189">NAUGAON</option>
+                                        <option value="4190">RAGHUNATHPUR</option>
+                                        <option value="4191">TIRTOL</option>
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>Block</span> </label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 pt-4" id="preGramListDiv">
+                                <div class="select">
+                                    <select class="select-text" id="presentGramPanchayatList"
+                                        onchange="getPresentVillageByPanchat(this.value)" name="peresentPanchayat.id">
+                                        <option value="0">--- Select ---</option>
+                                        <option value="2665">ADHANGA</option>
+                                        <option value="2666">ALABOL</option>
+                                        <option value="2667">ALAVER</option>
+                                        <option value="2668">AMBASAL</option>
+                                        <option value="2669">ANANTAPUR</option>
+                                        <option value="2670">APANDARA</option>
+                                        <option value="2671">ARILO</option>
+                                        <option value="2672">BADAGAON</option>
+                                        <option value="2673">BAHARANA</option>
+                                        <option value="2674">BALIKUDA</option>
+                                        <option value="2675">BARAMUNDALI</option>
+                                        <option value="2676">BORIKINA</option>
+                                        <option value="2677">GARAMA</option>
+                                        <option value="2678">ICHHAPUR</option>
+                                        <option value="2679">KALIO</option>
+                                        <option value="2680">KHALAGAON</option>
+                                        <option value="2681">KRUSHNADASPUR</option>
+                                        <option value="2682">KUSUPUR</option>
+                                        <option value="2683">MACHHAGAON</option>
+                                        <option value="2684">MARICHPUR</option>
+                                        <option value="2685">MULUGAON</option>
+                                        <option value="2686">NAGAPUR</option>
+                                        <option value="2687">NAHARANA</option>
+                                        <option value="2808">OSAKANA</option>
+                                        <option value="2689">RAHAN</option>
+                                        <option value="2690">SANGRAMPUR</option>
+                                        <option value="2691">TANDIKULA</option>
+                                        <option value="2692">TARASAHI</option>
+                                        <option value="2693">THAILO</option>
+                                        <option value="2694">TITIRA</option>
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>Gram
+                                            panchayat</span><sup class="text-danger">*</sup> </label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 pt-4" id="preVillageDiv">
+                                <div class="select">
+                                    <select class="select-text" id="preVillage" name="presentVillageSetup.id">
+                                        <option value="0">-Select village-</option>
+
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>Village</span></label>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-sm-4 pt-4" id="preUlbDiv">
+                                <div class="select">
+                                    <select class="select-text" id="preUlb" onchange="getPresentWard(this.value)"
+                                        name="presentUlbSetup.id">
+                                        <option value="0">
+                                            -Select ulb-</option>
+
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>ULB</span></label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 pt-4" id="preWardDiv">
+                                <div class="select">
+                                    <select class="select-text" id="preWard" name="presentWardSetup.id">
+                                        <option value="0">
+                                            -Select ward-</option>
+
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>Ward</span></label>
+                                </div>
+                            </div>
+
+
+                            <!--							<div class="material-textfield col-sm-4 mt-4" id="preGramtext">-->
+                            <!--									<input class="characterAndDigitsAndSpace" placeholder=" " type="text"-->
+                            <!--										id="presentGramPanchayat" th:field="*{educationSchmeDetailsVO.presentGramaPanchayat}-->
+                            <!--							">-->
+                            <!--									<label><span th:text="#{registration.pergrampanchayath}">Gram-->
+                            <!--											panchayat</span></label>-->
+                            <!--								</div>-->
+                            <!--								</div>-->
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " class="number-only" type="text" id="presentPin" maxlength="6"
+                                        onchange='checkPin(this.value,&quot;presentPin&quot;)' name="presentPincode"
+                                        value="">
+                                    <label><span>PIN Code</span></label>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!-- Card 2 End -->
+
+
+
+
+
+            <div class="card mt-4">
+                <div class="bg-green p-2 p-2" id="applicantDetailsHeading5">
+                    <h6 class="text-white mb-0 font-weight-bold" data-toggle="collapse"
+                        data-target="#applicantDetailsCollapse3" aria-expanded="true"
+                        aria-controls="applicantDetailsCollapse3">Subscription
+                        Details</h6>
+                </div>
+
+                <div class="row text-center" id="subscriptionData"></div>
+            </div>
+            <div class="card mt-4">
+                <div class="bg-green" id="applicantDetailsHeading5" data-toggle="collapse"
+                    data-target="#applicantDetailsCollapse4" aria-expanded="true"
+                    aria-controls="applicantDetailsCollapse4">
+                    <div style="float: left;">
+                        <h6 class="text-white mb-0 font-weight-bold">Account
+                            Details</h6>
+                    </div>
+
+                </div>
+                <div id="applicantDetailsCollapse4" class="collapse show">
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " type="text" id="bankName" name="bankName" value="">
+                                    <label><span>Name of the bank </span><sup class="text-danger">*</sup></label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " id="branchName" type="text" name="branchName" value="">
+                                    <label><span>
+                                            Branch name </span><sup class="text-danger">*</sup></label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " class="number-only" id="accountNo" type="text" maxlength="18"
+                                        name="accountNo" value="">
+                                    <label><span>Account
+                                            number</span> <sup class="text-danger">*</sup></label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " class="ifsc" type="text" maxlength="11" id="ifsc" name="ifsc"
+                                        value="">
+                                    <label><span>
+                                            IFSC </span><sup class="text-danger">*</sup></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="card mt-4">
+                <div class="bg-green p-2" id="applicantDetailsHeading5">
+                    <h6 class="text-white font-weight-bold mb-0" data-toggle="collapse"
+                        data-target="#applicantDetailsCollapse6" aria-expanded="true"
+                        aria-controls="applicantDetailsCollapse6">Other Details
+                    </h6>
+                </div>
+                <div id="applicantDetailsCollapse6" class="collapse show">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " id="estName" type="text" class="characterAndDigitsAndSpace"
+                                        name="establishmentName" value=""> <label><span>Establishment
+                                            name</span></label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " id="estRegNo" required type="text" class="registrationNumber"
+                                        name="establishmentRegNo" value=""> <label><span>Establishment
+                                            registration no.</span></label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " id="estAdd" type="text" class="characterAndDigitsAndSpace"
+                                        name="establishmentAddress" value=""> <label><span>Where
+                                            the worker is working</span></label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col-sm-12 col-md-4 pt-4">
+                                <div class="select">
+                                    <select class="select-text" id="nfsOrSfsType" name="nfsOrSfs">
+                                        <option value="0">
+                                            -Select ration card type-</option>
+                                        <option value="N">NFSA</option>
+                                        <option value="S">SFSS</option>
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>Ration card
+                                            details</span></label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " id="nfsOrSfsCardNo" type="text" class="characterAndDigits"
+                                        name="nfsOrSfsCardNo" value=""> <label>NFSA
+                                        or SFSA card no. (if available)</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="select">
+                                    <select class="select-text" id="category" name="catogary">
+                                        <option value="0">
+                                            --- Please category ---</option>
+                                        <option value="1">General</option>
+                                        <option value="2">OBC</option>
+                                        <option value="3">SC</option>
+                                        <option value="4">ST</option>
+                                        <option value="5">SEBC</option>
+                                        <option value="6">Other</option>
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>Category</span></label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row pt-3">
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="select">
+                                    <select class="select-text" id="relegion" name="relegion.id">
+                                        <option value="0">--- Please
+                                            select religion ---</option>
+                                        <option value="1">Hindu</option>
+                                        <option value="2">Muslim</option>
+                                        <option value="3">Christian</option>
+                                        <option value="4">Sikhs</option>
+                                        <option value="5">Buddhist</option>
+                                        <option value="6">Other</option>
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>Religion </span></label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="select">
+                                    <select class="select-text" id="physicallyChallenged" name="physicallyChallenged">
+                                        <option value="0">--- Please
+                                            select ---</option>
+                                        <option value="1">Yes</option>
+                                        <option value="2">No</option>
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>Physically
+                                            challenged</span><sup class="text-danger">*</sup></label>
+                                </div>
+                            </div>
+                            <!--		<div class="col-sm-12 col-md-4 pt-3">
+								<div class="material-textfield">
+									<input placeholder=" " id="nfsOrSfsCardNo"
+										th:field="${educationSchmeDetailsVO.appliedAmount}" class="number-only"
+										type="text"> <label>Amount Applied</label>
+								</div>
+							</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card mt-4">
+                <div class="bg-green " id="applicantDetailsHeading5">
+                    <h6 class="text-white font-weight-bold mb-0" data-toggle="collapse"
+                        data-target="#applicantDetailsCollapse7" aria-expanded="true"
+                        aria-controls="applicantDetailsCollapse7">Details
+                        of son(s) / daughter(s) for whom education assistance is sought </h6>
+                    <a class="btn btn-sm btn-danger" style="float: right;" onclick="addFamilyDetailsByRegId()">
+                        <span style="font-size: 12px; color: white" title="Add new family member">Add
+                            New&nbsp;</span><i class='fas fa-plus'
+                            style='font-size: 12px; color: white; float: right;'></i>
+                    </a>
+
+
+
+                </div>
+                <div id="applicantDetailsCollapse7" class="collapse show">
+                    <div class="card-body">
+                        <div class="row ">
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="select">
+                                    <select class="select-text" id="studentName" onchange="getGender(this.value)"
+                                        name="studentId.id">
+                                        <option value="0">--- Please select student ---</option>
+                                        <option value="1573402">SONALI BEHERA</option>
+                                        <option value="1573403">ITISHREE BEHERA</option>
+                                        <option value="1573404">TAPASWINI BEHERA</option>
+                                        <option value="1573405">LIPSA BEHERA</option>
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>Name
+                                        </span><sup class="text-danger">*</sup></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+
+                            <div class="col-sm-12 col-md-3 pt-4">
+                                <div class="material-textfield">
+                                    <input placeholder=" " readonly id="genderId" type="text"
+                                        class="characterAndDigitsAndSpace" name="stGender" value=""> <label>
+                                        <span>Gender</span><sup class="text-danger">*</sup>
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12 col-md-3 pt-4">
+                                <div class="material-textfield">
+                                    <input placeholder=" " id="stdDob" onchange="checkValidDate('stdDob',this.value)"
+                                        type="date" name="dobToStringNew" value=""> <label>
+                                        <span>Date of birth</span><sup class="text-danger">*</sup></label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 pt-4">
+
+                                <div class="select">
+                                    <select class="select-text" id="courseId" onchange="getCourseDetails(this.value)"
+                                        name="courseId.id">
+                                        <option value="0">--- Please select course ---</option>
+                                        <option value="1">6TH CLASS (GIRL CHILD) (1006)</option>
+                                        <option value="2">7TH CLASS (GIRL CHILD) (1007)</option>
+                                        <option value="3">8TH CLASS (1008)</option>
+                                        <option value="4">9TH CLASS (1009)</option>
+                                        <option value="5">10TH CLASS (1010)</option>
+                                        <option value="6">10TH CLASS CASH AWARD (SECURING 90% ABOVE IN FINAL EXAM)
+                                            (1016)</option>
+                                        <option value="7">+2 FIRST YEAR(11TH) (1011)</option>
+                                        <option value="8">+2 SECOND YEAR(12TH) (1012)</option>
+                                        <option value="9">B.A FIRST YEAR (1013)</option>
+                                        <option value="10">B.A SECOND YEAR (1014)</option>
+                                        <option value="11">B.A THIRD YEAR (1015)</option>
+                                        <option value="12">B.Sc FIRST YEAR (1096)</option>
+                                        <option value="13">B.Sc SECOND YEAR (1097)</option>
+                                        <option value="14">B.Sc THIRD YEAR (1098)</option>
+                                        <option value="15">B.Com FIRST YEAR (1099)</option>
+                                        <option value="16">B.Com SECOND YEAR (1100)</option>
+                                        <option value="17">B.Com THIRD YEAR (1101)</option>
+                                        <option value="18">PG FIRST YEAR (1034)</option>
+                                        <option value="19">PG SECOND YEAR (1035)</option>
+                                        <option value="20">ITI FIRST YEAR (1029)</option>
+                                        <option value="21">ITI SECOND YEAR (1030)</option>
+                                        <option value="22">DIPLOMA/POLYTECHNIC FIRST YEAR (1031)</option>
+                                        <option value="23">DIPLOMA/POLYTECHNIC SECOND YEAR (1032)</option>
+                                        <option value="24">DIPLOMA/POLYTECHNIC THIRD YEAR (1033)</option>
+                                        <option value="25">B-TECH FIRST YEAR (1023)</option>
+                                        <option value="26">B-TECH SECOND YEAR (1024)</option>
+                                        <option value="27">B-TECH THIRD YEAR (1025)</option>
+                                        <option value="28">B-TECH FOURTH YEAR (1026)</option>
+                                        <option value="29">MCA FIRST YEAR (1017)</option>
+                                        <option value="30">MCA SECOND YEAR (1018)</option>
+                                        <option value="31">MCA THIRD YEAR (1019)</option>
+                                        <option value="32">MBA FIRST YEAR (1020)</option>
+                                        <option value="33">MBA SECOND YEAR (1021)</option>
+                                        <option value="34">B.Arch FIRST YEAR (1067)</option>
+                                        <option value="35">B.Arch SECOND YEAR (1068)</option>
+                                        <option value="36">B.Arch THIRD YEAR (1069)</option>
+                                        <option value="37">B.Arch FOURTH YEAR (1070)</option>
+                                        <option value="38">M.Arch FIRST YEAR (1071)</option>
+                                        <option value="39">M.Arch SECOND YEAR (1072)</option>
+                                        <option value="40">M.TECH FIRST YEAR (1027)</option>
+                                        <option value="41">M.TECH SECOND YEAR (1028)</option>
+                                        <option value="42">M.Sc. FIRST YEAR (1073)</option>
+                                        <option value="43">M.Sc. SECOND YEAR (1074)</option>
+                                        <option value="44">B. PHARM FIRST YEAR (1042)</option>
+                                        <option value="45">B. PHARM SECOND YEAR (1088)</option>
+                                        <option value="46">B. PHARM THIRD YEAR (1089)</option>
+                                        <option value="47">B. PHARM FOURTH YEAR (1090)</option>
+                                        <option value="48">M. PHARM FIRST YEAR (1043)</option>
+                                        <option value="49">M. PHARM SECOND YEAR (1086)</option>
+                                        <option value="50">HOTEL MANAGEMENT & CATERING SERVICES FIRST YEAR (1045)
+                                        </option>
+                                        <option value="51">HOTEL MANAGEMENT & CATERING SERVICES SECOND YEAR (1108)
+                                        </option>
+                                        <option value="52">HOTEL MANAGEMENT & CATERING SERVICES THIRD YEAR (1109)
+                                        </option>
+                                        <option value="53">MEDICAL FIRST YEAR (1047)</option>
+                                        <option value="54">MEDICAL SECOND YEAR (1103)</option>
+                                        <option value="55">MEDICAL THIRD YEAR (1104)</option>
+                                        <option value="56">MEDICAL FOURTH YEAR (1105)</option>
+                                        <option value="57">B.Ed. FIRST YEAR (1038)</option>
+                                        <option value="58">B.Ed. SECOND YEAR (1039)</option>
+                                        <option value="59">CT FIRST YEAR (1036)</option>
+                                        <option value="60">CT SECOND YEAR (1037)</option>
+                                        <option value="61">NURSING FIRST YEAR (1040)</option>
+                                        <option value="62">NURSING SECOND YEAR (1041)</option>
+                                        <option value="63">NURSING THIRD YEAR (1051)</option>
+                                        <option value="64">NURSING FOURTH YEAR (1052)</option>
+                                        <option value="65">+3 1ST YEAR (1110)</option>
+                                        <option value="66">+3 2ND YEAR (1111)</option>
+                                        <option value="67">+3 3RD YEAR (1112)</option>
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>Name of course</span><sup
+                                            class="text-danger">*</sup></label>
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="col-sm-12 col-md-6 pt-4">
+                                <div class="md-form">
+                                    <textarea placeholder=" " id="stdNschool" class="md-textarea form-control" rows="2"
+                                        name="nameOfTheSchool"></textarea>
+                                    <label><span><b>Name of the school/ the educational institution where
+                                                reading</b></span>
+                                        <sup class="text-danger">*</sup> </label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12 col-md-6 pt-4">
+                                <div class="md-form">
+                                    <textarea placeholder=" " id="instSchool" class="md-textarea form-control" rows="2"
+                                        name="toSchoolName"></textarea>
+                                    <label><span><b>Address of the school/ the educational institution where
+                                                reading</b></span>
+                                        <sup class="text-danger">*</sup> </label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-sm-12 col-md-4 pt-4">
+                                <div class="select">
+                                    <select class="select-text" onchange="getSchoolBlock(this.value)"
+                                        id="schoolDistrictId" name="schoolDistrict.id">
+                                        <option value="0">-Select district-</option>
+                                        <option value="467">ANGUL</option>
+                                        <option value="469">BALASORE</option>
+                                        <option value="470">BARGARH</option>
+                                        <option value="471">BHADRAK</option>
+                                        <option value="468">BOLANGIR</option>
+                                        <option value="472">BOUDH</option>
+                                        <option value="473">CUTTACK</option>
+                                        <option value="474">DEOGARH</option>
+                                        <option value="475">DHENKANAL</option>
+                                        <option value="476">GAJAPATI</option>
+                                        <option value="477">GANJAM</option>
+                                        <option value="478">JAGATSINGHAPUR</option>
+                                        <option value="479">JAJAPUR</option>
+                                        <option value="480">JHARSUGUDA</option>
+                                        <option value="481">KALAHANDI</option>
+                                        <option value="482">KANDHAMAL</option>
+                                        <option value="483">KENDRAPARA</option>
+                                        <option value="484">KENDUJHAR</option>
+                                        <option value="485">KHORDHA</option>
+                                        <option value="486">KORAPUT</option>
+                                        <option value="487">MALKANGIRI</option>
+                                        <option value="488">MAYURBHANJ</option>
+                                        <option value="489">NABARANGPUR</option>
+                                        <option value="490">NAYAGARH</option>
+                                        <option value="491">NUAPADA</option>
+                                        <option value="492">PURI</option>
+                                        <option value="493">RAYAGADA</option>
+                                        <option value="494">SAMBALPUR</option>
+                                        <option value="495">SUBARNAPUR</option>
+                                        <option value="496">SUNDARGARH</option>
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>
+                                            District</span><sup class="text-danger">*</sup></label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12 col-md-4 pt-4">
+                                <div class="select">
+                                    <select class="select-text" id="schoolBlockContainer" name="schoolBlock.id">
+                                        <option value="0">
+                                            -Select block-</option>
+                                        <option value="4184">BALIKUDA</option>
+                                        <option value="4185">BIRIDI</option>
+                                        <option value="4186">ERASAMA</option>
+                                        <option value="4187">JAGATSINGHPUR</option>
+                                        <option value="4188">KUJANG</option>
+                                        <option value="4189">NAUGAON</option>
+                                        <option value="4190">RAGHUNATHPUR</option>
+                                        <option value="4191">TIRTOL</option>
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>Block</span></label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12 col-md-4 pt-4">
+                                <div class="material-textfield">
+                                    <input placeholder=" " class="number-only" maxlength="6" id="schoolPinCode"
+                                        type="text" onchange='checkPin(this.value,&quot;schoolPinCode&quot;)'
+                                        name="schoolPinCode" value="">
+                                    <label><span>PIN
+                                            Code</span></label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+
+                                <div class="select">
+                                    <select class="select-text" id="admittedYearOrClassId"
+                                        onchange="checkAcademicYear(this.value);" name="admittedYearOrClass">
+                                        <option value="0">--- Please select year ---</option>
+                                        <option value="2022-2023">2022-2023</option>
+                                        <option value="2021-2022">2021-2022</option>
+                                        <option value="2020-2021">2020-2021</option>
+                                        <option value="2019-2020">2019-2020</option>
+                                        <option value="2018-2019">2018-2019</option>
+                                        <option value="2017-2018">2017-2018</option>
+                                    </select> <span class="select-highlight"></span> <span class="select-bar"></span>
+                                    <label class="select-label"><span>Academic year
+                                        </span><sup class="text-danger">*</sup></label>
+                                </div>
+
+                            </div>
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " id="rollNoId" type="text" class="characterAndDigitsAndSpace"
+                                        name="rollNo" value=""> <label><span>Roll no.<sup
+                                                class="text-danger">*</sup></label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " id="admBillNoId" type="text" name="admBillNo" value="">
+                                    <label>
+                                        <span>Admission bill no.</span></label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " id="admBillDateStringId"
+                                        onchange="checkValidDate('admBillDateStringId',this.value)" type="date"
+                                        name="admBillDateString" value=""> <label>
+                                        <span>Admission bill date</span></label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-4 pt-3">
+                                <div class="material-textfield">
+                                    <input placeholder=" " readonly id="amountId" type="text"
+                                        class="characterAndDigitsAndSpace" name="amount" value="">
+                                    <label><span>Amount<sup class="text-danger">*</sup></label>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="row pt-4">
+                            <div class="col-sm-12  text-center">
+                                <button type="button" id="saveDetails" class="btn btn-sm btn-primary">
+                                    <span>Add details</span>
+                                </button>
+                            </div>
+
+
+
+
+                        </div>
+                        <div class="row pt-4 text-center" id="studentData"></div>
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="bg-green" id="applicantDetailsHeading5" data-toggle="collapse"
+                    data-target="#applicantDetailsCollapse4" aria-expanded="true"
+                    aria-controls="applicantDetailsCollapse4">
+                    <div style="float: left;">
+                        <h6 class="text-white mb-0 font-weight-bold">Benefit Availed History</h6>
+                    </div>
+
+                </div>
+                <div id="applicantDetailsCollapse4" class="collapse show">
+                    <div class="card-body">
+
+                        <div id="availedBenefitData"></div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div id="applicantDetailsAccordion5" class="pt-4">
+                <div class="card p-0 mb-3 mt-1">
+                    <div class="bg-green p-2" id="applicantDetailsHeading5">
+                        <h6 class="text-white mb-0 font-weight-bold" data-toggle="collapse"
+                            data-target="#applicantDetailsCollapse5" aria-expanded="true"
+                            aria-controls="applicantDetailsCollapse5">Supporting
+                            Documents</h6>
+                    </div>
+                    <div id="applicantDetailsCollapse5" class="collapse show" aria-labelledby="applicantDetailsHeading5"
+                        data-parent="#applicantDetailsAccordion5">
+                        <div class="card-body">
+                            <div class="row">
+                                <input type="hidden" name="applicationid" value="5384956">
+                            </div>
+                            <div class="row" id="suppUploadDiv"></div>
+
+                            <div class="row" id="attachmentTable"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="row pt-2 pb-4 text-center">
+                <div class="col-sm-12">
+                    <button type="button" class="btn btn-primary" onclick="saveAsDraft()">
+                        <span>Save</span>
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="submitBackDataApplication('S')">
+                        <span>Submit</span>
+                    </button>
+                </div>
+            </div>
+
+
+
+
+        </form>
+
+        <div class="modal fade" id="rem">
+            <div class="modal-dialog modal-notify modal-info modal-lg">
+                <div class="modal-content" id="mc">
+                    <div class="modal-header">
+                        <p id="h4" class="heading lead">
+                            <b> </b>
+                        </p>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="remBdy" style="padding-top: 40px;"></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer" style="background-color: #105e55;">
+        <div class="container-fluid p-0">
+            <div class="col-6 h-100 text-white d-flex  " style="font-size: 10px; text-align: left;">
+                Version 2.0, Dated 1<sup style="line-height: 2.7;">st</sup>&nbsp;May
+                2023
+            </div>
+            <div class="d-flex flex-row">
+                <div class="col-12 h-100 text-white d-flex align-items-center justify-content-end">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/obocwwb/webjars/jquery-ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="/obocwwb/webjars/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="/obocwwb/webjars/bootstrap/4.6.0-1/js/bootstrap.min.js"></script>
+    <script src="/obocwwb/js/department.js?119"></script>
+    <script src="/obocwwb/js/worker.js?1"></script>
+    <script src="/obocwwb/js/validate.js?108"></script>
+    <script type="text/javascript">
+        window.history.forward();
+
+        $(document).on('load', 'body', function (event) {
+            noBack();
+        });
+
+        $(document).on('pageshow', 'body', function (event) {
+            if (event.persisted)
+                noBack();
+        });
+
+        $('#profile').popover({
+            html: true,
+            content: function () {
+                return $('#popover-content').html();
+            }
+        });
+
+        $('body')
+            .on(
+                'click',
+                function (e) {
+                    $('[data-toggle=popover]')
+                        .each(
+                            function () {
+                                if (!$(this).is(e.target)
+                                    && $(this)
+                                        .has(e.target).length === 0
+                                    && $('.popover').has(
+                                        e.target).length === 0) {
+                                    $(this).popover('hide');
+                                }
+                            });
+                });
+
+        function noBack() {
+            window.history.forward();
+        }
+
+        $('#bologna-list a').on('click', function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+    </script>
+</body>

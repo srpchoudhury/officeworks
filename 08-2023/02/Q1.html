@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>matrix</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <div id="matrix"></div>
+        <script>
+          var n=  prompt('Enter a Number');
+            function task(n){
+                for (let i=0;i<n;i++){
+                    let row = '';
+                    for(let j=0;j<n;j++){
+                        row += (i==j) ? '1' : '0';
+                    }
+                    $('#matrix').append(row +'<br>' );
+                }
+            }
+        
+             task(n);
+        </script>
+    </body>
+</html>

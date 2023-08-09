@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Nav Proj</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+    </style>
+    <script>
+        // var categories = {
+        //     Electronics: [
+        //         { name: "Samsung Mobile", price: 13000.00, img: "mobile.jpg" },
+        //         { name: "Boat NeckBand", price: 990.00, img: "neckband.jpg" }
+        //     ],
+        //     Footwear: [
+        //         { name: "Nike Casuals", price: 6700.00, img: "shoe1.jpg" },
+        //         { name: "Lee Cooper Boot", price: 1899.00, img: "shoe2.avif" }
+        //     ],
+        //     Fashion: [
+        //         { name: "Backpack", price: 1000.00, img: "bagpack.jpg" },
+        //         { name: "Mens Cotton Jacket", price: 599.00, img: "cottonJacket.jpg" }
+        //     ],
+        //     Lenses: [
+        //         { name: "Eyewear Styles", price: 3450.00, img: "lens1.jpg" },
+        //         { name: "ComputerLenses", price: 199.00, img: "lens2.jpg" }
+        //     ],
+        //     Medicines: [
+        //         { name: "Horlicks", price: 8500.00, img: "horlicks.jpg" },
+        //         { name: "Bournvita", price: 1499.00, img: "bournvita.jpg" }
+        //     ]
+        // };
+
+
+        // function updateCardDetails(product) {
+        //     document.getElementById("lblName1").innerHTML = product.name;
+        //     document.getElementById("lblPrice1").innerHTML = product.price;
+        //     document.getElementById("imgProduct1").src = product.img;
+        // }
+
+
+        // function categoryClicked(category) {
+        //     console.log(category);
+        //     var categoryName = document.getElementById(category + "Btn").innerHTML;
+        //     console.log(categoryName);
+        //     var products = categories[category];
+
+        //     updateCardDetails(products[0]);
+        // }
+
+        function ElectronicsClicked() {
+            var categoryName = document.getElementById("eleBtn").innerHTML;
+            document.getElementById("lblName1").innerHTML = "Samsung Mobile";
+            document.getElementById("lblPrice1").innerHTML = 13000.00;
+            document.getElementById("imgProduct1").src = 'mobile.jpg';
+
+            document.getElementById("lblName2").innerHTML = "Boat NeckBand";
+            document.getElementById("lblPrice2").innerHTML = 990.00;
+            document.getElementById("imgProduct2").src = 'neckband.jpg';
+        }
+        function FootwearClicked() {
+            var categoryName = document.getElementById("fooBtn").innerHTML;
+
+            document.getElementById("lblName1").innerHTML = "Nike Casuals";
+            document.getElementById("lblPrice1").innerHTML = 6700.00;
+            document.getElementById("imgProduct1").src = 'shoe1.jpg';
+
+            document.getElementById("lblName2").innerHTML = "Lee Cooper Boot";
+            document.getElementById("lblPrice2").innerHTML = 1899.00;
+            document.getElementById("imgProduct2").src = 'shoe2.avif';
+
+        }
+        function FashionClicked() {
+            var categoryName = document.getElementById("fasBtn").innerHTML;
+
+            document.getElementById("lblName1").innerHTML = "Backpack";
+            document.getElementById("lblPrice1").innerHTML = 1000.00;
+            document.getElementById("imgProduct1").src = 'bagpack.jpg';
+
+            document.getElementById("lblName2").innerHTML = "Mens Cotton Jacket";
+            document.getElementById("lblPrice2").innerHTML = 599.00;
+            document.getElementById("imgProduct2").src = 'cottonJacket.jpg';
+
+        }
+        function LensesClicked() {
+            var categoryName = document.getElementById("lenBtn").innerHTML;
+
+            document.getElementById("lblName1").innerHTML = "Eyewear Styles";
+            document.getElementById("lblPrice1").innerHTML = 3450.00;
+            document.getElementById("imgProduct1").src = 'lens1.jpg';
+
+            document.getElementById("lblName2").innerHTML = "ComputerLenses";
+            document.getElementById("lblPrice2").innerHTML = 199.00;
+            document.getElementById("imgProduct2").src = 'lens2.jpg';
+
+        }
+        function MedicinesClicked() {
+            var categoryName = document.getElementById("medBtn").innerHTML;
+
+            document.getElementById("lblName1").innerHTML = "Horlicks";
+            document.getElementById("lblPrice1").innerHTML = 8500.00;
+            document.getElementById("imgProduct1").src = 'horlicks.jpg';
+
+            document.getElementById("lblName2").innerHTML = "Bournvita";
+            document.getElementById("lblPrice2").innerHTML = 1499.00;
+            document.getElementById("imgProduct2").src = 'bournvita.jpg';
+
+        }
+
+
+        var cartItems = [];
+
+        function GetCartItemsCount() {
+
+            var uniqueProducts = Math.ceil(cartItems.length / 3);
+            document.getElementById("lblCart").innerHTML = uniqueProducts;
+        
+            // document.getElementById("lblCart").innerHTML = cartItems.length;
+
+        }
+        // function AddToCart(name, price, img) {
+        //     var itemIndex = cartItems.indexOf(name);
+        //     if (itemIndex === -1) {
+        //         cartItems.push(name);
+        //         cartItems.push(price);
+        //         cartItems.push(img);
+        //         GetCartItemsCount();
+        //     }
+        // }
+        function AddTOCartClick1() {
+
+            var name = document.getElementById("lblName1").innerHTML;
+            var price = document.getElementById("lblPrice1").innerHTML;
+            var img = document.getElementById("imgProduct1").src;
+            // AddToCart(name, price, img);
+            // console.log(name);
+            // console.log(price);
+            // console.log(img);
+
+            cartItems.push(name);
+            cartItems.push(price);
+            cartItems.push(img);
+
+            GetCartItemsCount();
+
+            //  console.log(cartItems);
+
+        }
+        function AddTOCartClick2() {
+            var name = document.getElementById("lblName2").innerHTML;
+            var price = document.getElementById("lblPrice2").innerHTML;
+            var img = document.getElementById("imgProduct2").src;
+
+            // AddToCart(name, price, img);
+            // console.log(name);
+            // console.log(price);
+            // console.log(img);      
+
+            cartItems.push(name);
+            cartItems.push(price);
+            cartItems.push(img);
+            GetCartItemsCount();
+
+            // console.log(cartItems);
+
+        }
+
+        function LoadCartItems() {
+            // var totalPrice;
+            document.querySelector("tbody").innerHTML = "";
+            console.log(cartItems);
+            // for (var item of cartItems) {
+            for (i = 0; i < cartItems.length; i++) {
+
+                var tr = document.createElement("tr");
+                var tdName = document.createElement("td");
+                var tdPrice = document.createElement("td");
+                var tdPhoto = document.createElement("td");
+                var tdRemove = document.createElement("td");
+
+                tdName.innerHTML = cartItems[i];
+                i++;
+                tdPrice.innerHTML = cartItems[i];
+                i++;
+
+                var img = document.createElement("img");
+                img.height = "50";
+                img.width = "50";
+                img.src = cartItems[i];
+
+                tdPhoto.appendChild(img);
+
+
+                var deleteBtn = document.createElement("button");
+                deleteBtn.className = "btn btn-link bi bi-trash";
+                deleteBtn.setAttribute("data-index", i);
+                deleteBtn.addEventListener("click", function () {
+
+                    var dataIndex = parseInt(this.getAttribute("data-index"));
+
+                    RemoveFromCart(dataIndex);
+                });
+                tdRemove.appendChild(deleteBtn);
+
+
+
+
+                tr.appendChild(tdName);
+                tr.appendChild(tdPrice);
+                tr.appendChild(tdPhoto);
+                tr.appendChild(tdRemove);
+
+                document.querySelector("tbody").appendChild(tr);
+                // }
+            }
+        }
+
+        
+        function RemoveFromCart(index) {
+
+            cartItems.splice(index - 2, 3);
+            GetCartItemsCount();
+            LoadCartItems();
+        }
+
+
+    </script>
+</head>
+
+<body class="container-fluid">
+    <div class="row ">
+        <div class="col-md-8">
+            <div class="btn-group w-100">
+                <button onclick="ElectronicsClicked()" id="eleBtn" class="btn btn-success w-100">Electronics</button>
+                <button onclick="FootwearClicked()" id="fooBtn" class="btn btn-success w-100">Footwear</button>
+                <button onclick="FashionClicked()" id="fasBtn" class="btn btn-success w-100">Fashion</button>
+                <button onclick="LensesClicked()" id="lenBtn" class="btn btn-success w-100">Lenses</button>
+                <button onclick="MedicinesClicked()" id="medBtn" class="btn btn-success w-100">Nutrition</button>
+            </div>
+        </div>
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-2">
+            <div class="mt-2">
+                <button onclick="LoadCartItems()" class="btn btn-warning w-100" data-bs-target="#cart"
+                    data-bs-toggle="modal">
+                    <span class="bi bi-cart2"></span>
+                    [<label id="lblCart"></label>]
+                    Your Cart Items
+                </button>
+                <div class="modal fade" id="cart">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3>Your Cart Items</h3>
+                                <button class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Price</th>
+                                            <th>Preview</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="second-group">
+        <div class="row w-100">
+            <div class="col-md-4">
+                <div class="mt-2">
+
+                    <div class="card ">
+                        <div class="card-header text-center">
+                            <h2 id="lblName1">Samsung Mobile</h2>
+                        </div>
+                        <div class="card-body text-center">
+                            <img id="imgProduct1" width="100" src='mobile.jpg' height="100">
+                            <p id="lblPrice1"> 13000</p>
+                        </div>
+                        <div class="card-footer">
+                            <button onclick="AddTOCartClick1()" class="btn btn-danger w-100">
+                                <span class="bi bi-cart4"> Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mt-2">
+
+                    <div class="card ">
+                        <div class="card-header text-center">
+                            <h2 id="lblName2">Boat NeckBand</h2>
+                        </div>
+                        <div class="card-body text-center">
+                            <img id="imgProduct2" width="100" src="neckband.jpg" height="100">
+                            <p id="lblPrice2">990</p>
+                        </div>
+                        <div class="card-footer">
+                            <button onclick="AddTOCartClick2()" class="btn btn-danger w-100">
+                                <span class="bi bi-cart4"> Add to Cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</body>
+
+</html>

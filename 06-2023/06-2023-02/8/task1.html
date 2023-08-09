@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form And New Thing</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+              
+              
+                $("#btn").click(function(){
+                    $("#div").css("display","block");
+                         var name = $("#name").val();
+                         var email = $("#email").val();
+                         var phone = $("#phone").val();
+                         var age = $("#age").val();
+                         var address = $("#address").val();
+                         var gender = $("input[type='radio'][name='gender']:checked").val();
+                        //  alert(gender);
+                        name=name.trim();
+                        email=email.trim();
+                        phone=phone.trim();
+                        age=age.trim();
+                        address=address.trim();
+                        
+                        if(name == ""){
+                            alert("Name Must be filled");
+                        }else if(email == ""){
+                            alert("Email must be filled");
+                        }else if(phone == ""){
+                            alert("Phone Must be filled");
+                        }else if(age == ""){
+                            alert("age must be filled");
+                        }else if(address == ""){
+                            alert("Address Must be filled");
+                        }else if($('#male').is(':checked')){
+                            // alert("Gender must be filled");
+                        }else if($('#female').is(':checked')){
+                            // alert("Gender must be filled");
+                        }
+                //  function addDiv(){
+                 $("#name1").text("Name : "+name);
+                $("#email1").text( "Email : "+email);
+                $("#phone1").text("Phone : "+phone);
+                $("#age1").text("Age : "+age);
+                 $("#address1").text("Address : "+address);
+                 $("#gender1").text("Gender : "+gender);
+
+                 $(".form").val('');
+               
+
+                // alert(dynName);
+                // //  }
+                //         var arr = [];
+                //         arr.push(dynName);
+                //         arr.push(dynEmail);
+                //         arr.push(phone);
+                //         arr.push(age);
+                //         arr.push(address);
+                //         arr.push(gender);
+                //         // alert(arr);
+
+                    // $('.parent').append("<div></div>").addClass("editedDiv");
+                    $("#div").clone().appendTo(".parent").addClass("editedDiv");
+                    $("#div").css("display","none");
+
+                 
+
+                });
+            });
+        </script>
+        <style>
+            .editedDiv{
+                border: 1px solid black;
+                width: 200px;
+                height: 210px;
+                display: none;
+            }
+            ul{
+                list-style: none;
+            }
+        </style>
+    </head>
+    <head>
+
+        <table cellspacing="10" align="center">
+            <thead>
+                <tr align="center">
+                    <td colspan="2">Registration</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" id="name" class="form"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" id="email" class="form"></td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td><input type="number" id="phone" class="form"></td>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td><input type="text" id="age" class="form"></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><textarea name="" id="address" class="form"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td><input type="radio" class="form" name="gender" id="male" value="male">Male <input type="radio" value="female" class="form" name="gender" id="female">Female</td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><button id="btn">submit</button></td>
+                </tr>
+            </tbody>
+        </table>
+ 
+        <br>
+        <div class="parent">
+            <div class="editedDiv" id="div">
+                <p id="name1">Name : </p>
+                <p id="email1">Email : </p>
+                <p id="phone1">Phone : </p>
+                <p id="age1">Age : </p>
+                <p id="address1">Address : </p>
+                <p id="gender1">Gender : </p>
+            </div>
+        </div>
+    </head>
+</html>

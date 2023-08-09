@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+             .tabl {
+                width:400px;border:1px solid blue;display:table;
+            }
+           .row {
+            height:40px;
+            display:table-row;
+        }
+           .cell {
+            border:1px solid black;
+            display:table-cell;
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="tabl">
+	<div class="row">
+		<div class="cell"> CELL one</div>
+		<div class="cell"> CELL two</div>
+		<div class="cell"> CELL three</div></div>
+	<div class="row">
+		<div class="cell"> CELL four
+		</div><div class="cell"> CELL five</div>
+		<div class="cell"> 
+			<div class="tabl">
+				<div class="row">
+					<div class="cell">CELL 6A</div>
+					<div class="cell">CELL6B</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

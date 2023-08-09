@@ -1,0 +1,21 @@
+<script>
+    var number = 12421;
+    var original=number;
+
+    var reminder,reverse =0;
+    
+    while (number > 0){
+        reminder = number%10;
+        reverse = reverse*10+reminder;
+        number = parseInt(number/10);
+    }
+    if(original == reverse)
+    {
+    
+        document.writeln("A palindrome number");
+    }
+      else 
+      {
+      document.writeln("Not a palindrome no");
+      }
+</script>

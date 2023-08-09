@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>A_Z</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var data = {
+                Electronics: [
+
+                    { name: "Boat NeckBand", price: 990.00, img: "neckband.jpg" },
+                    { name: "Samsung Mobile", price: 13000.00, img: "mobile.jpg" },
+                    { name: "Trimmer", price: 199.00, img: "trimmer.avif" }
+                ],
+                Footwear: [
+                    { name: "Nike Casuals", price: 6700.00, img: "shoe1.jpg" },
+                    { name: "Lee Cooper Boot", price: 1899.00, img: "shoe2.avif" }
+                ],
+                Fashion: [
+                    { name: "Backpack", price: 1000.00, img: "bagpack.jpg" },
+                    { name: "Mens Cotton Jacket", price: 599.00, img: "cottonJacket.jpg" }
+                ],
+                Lenses: [
+                    { name: "Eyewear Styles", price: 3450.00, img: "lens1.jpg" },
+                    { name: "ComputerLenses", price: 199.00, img: "lens2.jpg" }
+                ],
+                Medicines: [
+                    { name: "Horlicks", price: 8500.00, img: "horlicks.jpg" },
+                    { name: "Bournvita", price: 1499.00, img: "bournvita.jpg" }
+                ]
+            };
+
+            $(".btn").click(function () {
+                $(".product-container").empty();
+                var category = ($(this).data("id"));
+                /* how to put categoriesd data in the card*/
+                data[category].forEach(product => {
+                    $(".product-container").append(`
+                        <div class="card text-center my-3 w-25 col-md-4">
+                             
+                             <img src="${product.img}" width="100" height="200" class="card-img-top " alt="${product.name}">
+                          <div class="card-body">
+                             <h5 class="card-title text-center">${product.name}</h5>
+                          <p class="card-text text-center">$${product.price}</p>
+                             <a href="#" class="btn btn-danger ">Add to Cart</a>
+                        </div>
+                     </div>`);
+                });
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <div class="row">
+        <div class="btn-group w-100">
+            <button id="eleBtn" class="btn btn-success w-100" data-category="Electronics"
+                data-id="Electronics">Electronics</button>
+            <button id="fooBtn" class="btn btn-success w-100" data-category="Footwear"
+                data-id="Footwear">Footwear</button>
+            <button id="fasBtn" class="btn btn-success w-100" data-category="Fashion" data-id="Fashion">Fashion</button>
+            <button id="lenBtn" class="btn btn-success w-100" data-category="Lenses" data-id="Lenses">Lenses</button>
+            <button id="medBtn" class="btn btn-success w-100" data-category="Medicines"
+                data-id="Medicines">Nutrition</button>
+        </div>
+    </div>
+    <div class="product-container" style="display:flex; flex-direction:row">
+
+
+    </div>
+    <div>
+      
+
+    </div>
+
+
+</body>
+
+        
+</html>

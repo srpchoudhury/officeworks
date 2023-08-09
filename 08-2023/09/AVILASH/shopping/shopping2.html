@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Filter</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .product {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="firstCheck">
+        <h2>Brands</h2>
+        <label><input type="checkbox" class="brand" value="nike"> Nike</label>
+        <label><input type="checkbox" class="brand" value="adidas"> Adidas</label>
+        <label><input type="checkbox" class="brand" value="puma"> Puma</label>
+    </div>
+    <div class="secondCheck">
+        <h2>Categories</h2>
+        <label><input type="checkbox" class="category" value="casual"> Casual</label>
+        <label><input type="checkbox" class="category" value="sneaker"> Sneaker</label>
+        <label><input type="checkbox" class="category" value="boot"> Boot</label>
+        <label><input type="checkbox" class="category" value="running"> Running</label>
+    </div>
+    <div class="main">
+        <h2>Products</h2>
+        <!-- Your product divs here -->
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(".product").show();
+            $(".brand,.category").change(updateFilters);
+
+            function updateFilters() {
+                var selectedBrands = $(".brand:checked").map(function () {
+                    return "." + $(this).val();
+                }).get();
+                var selectedCategories = $(".category:checked").map(function () {
+                    return "." + $(this).val();
+                }).get();
+                
+                // Show all products initially
+                $(".product").hide();
+
+                // Construct the filter classes based on selected brands and categories
+                var filterClasses = selectedBrands.concat(selectedCategories);
+
+                if (filterClasses.length > 0) {
+                    // Combine all filter classes into a single selector
+                    var combinedFilter = filterClasses.join(",");
+                    $(combinedFilter).show();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

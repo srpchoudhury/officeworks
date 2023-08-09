@@ -1,0 +1,32 @@
+<DOCTYPE html>
+    <html>
+
+    <head>
+        <title>Day Calculator</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+
+    <body>
+
+        <label for="days-in-future">Enter the number of days in the future:</label>
+        <input type="text" id="days-in-future">
+        <br>
+        <button id="calculate-button">Calculate</button>
+        <br>
+        <p id="result"></p>
+
+        <script>
+            $(document).ready(function () {
+                $('#calculate-button').click(function () {
+                    var daysInFuture = parseInt($('#days-in-future').val());
+                    var weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                    var currentDayIndex = new Date().getDay();
+                    var indexes = (currentDayIndex + daysInFuture) % 7;
+                    var futureDay = weekdays[indexes];
+                    $('#result').text('After ' + daysInFuture + ' days, the day will be ' + futureDay);
+                });
+            });
+        </script>
+    </body>
+
+    </html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .delete-btn {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .add-btn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div id="container">
+    <h2>Enter Your Name</h2>
+    <div id="form-container"></div>
+    <button id="add-btn" class="add-btn">Add New</button>
+    <br><br>
+    <button id="submit-btn">SUBMIT</button>
+    <br><br>
+    <table id="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="table-body">
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    var counter = 1;
+
+    function addRow() {
+      var formContainer = $('#form-container');
+      var nameInput = $('<input type="text" placeholder="Enter Your Name" name="name-' + counter + '">');
+      var ageInput = $('<input type="text" placeholder="Age" name="age-' + counter + '">');
+      formContainer.append(nameInput);
+      formContainer.append(ageInput);
+      formContainer.append('<br>');
+      counter++;
+    }
+
+    function deleteRow(btn) {
+      var row = $(btn).closest('tr');
+      row.remove();
+    }
+
+    function submitForm() {
+      var formContainer = $('#form-container');
+      var tableBody = $('#table-body');
+      var inputs = formContainer.find('input');
+      var numRows = inputs.length / 2;
+
+      for (var i = 0; i < numRows; i++) {
+        var name = inputs.eq(i * 2).val();
+        var age = inputs.eq(i * 2 + 1).val();
+
+        if (name && age) {
+          var row = $('<tr>');
+          var nameCell = $('<td>').text(name);
+          var ageCell = $('<td>').text(age);
+          var deleteCell = $('<td>').html('<button class="delete-btn">Delete</button>');
+
+          deleteCell.find('button').click(function() {
+            deleteRow(this);
+          });
+
+          row.append(nameCell);
+          row.append(ageCell);
+          row.append(deleteCell);
+          tableBody.append(row);
+
+          inputs.eq(i * 2).val('');
+          inputs.eq(i * 2 + 1).val('');
+        }
+      }
+    }
+
+    $('#add-btn').click(addRow);
+    $('#submit-btn').click(submitForm);
+  </script>
+</body>
+</html>

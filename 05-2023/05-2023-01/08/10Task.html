@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Classic Login Form Example</title>
+  <!-- <link href="https://fonts.googleapis.com/css?family=Assistant:400,700" rel="stylesheet"> -->
+  <link rel="stylesheet" href="10Taskstyle.css">
+  <script>
+           function userLogin(){
+            uname = document.getElementById('username').name.value;
+            pwd = document.getElementById('password').name.value;
+            if( uname=="kanha" ){
+                  alert("valid credientiall");
+            }else {
+              alert("Invalid Credentials");
+            }
+           }
+  </script>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<section class='login' id='login'>
+  <div class='head'>
+  <h1 class='company'>Universe Explorer</h1>
+  </div>
+  <p class='msg'>Welcome back</p>
+  <div class='form'>
+    <form>
+  <input type="text" placeholder='Username' class='text' id='username' required><br>
+  <input type="password" placeholder='••••••••••••••' id="password" class='password'><br>
+  <a href="#" class='btn-login' id='do-login' onsubmit="userLogin()">Login</a>
+  <a href="#" class='forgot'>Forgot?</a>
+  
+    </form>
+  </div>
+</section>
+<footer>
+  <p id="demo"> </p>
+  <p>Made with <span class='heart'>&hearts;</span> by Bridges(<a href='https://github.com/pxntxs'>@pxntxs</a>)</p>
+  <p>Gradient: <a href='https://uigradients.com/#Turquoiseflow'>https://uigradients.com/#Turquoiseflow</a></p>
+</footer> 
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

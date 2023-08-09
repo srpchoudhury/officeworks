@@ -1,0 +1,41 @@
+<script>
+    function getLoc(){
+            var all_location_id = document.getElementByName("location[]").value;
+                 var str = <!-- Here I want the selected checkbox values, eg: 1, 4, 6 -->
+
+        }
+    <script>
+
+foreach($cityrows as $cityrow){
+echo '<input type="checkbox" name="location[]" value="'.$cityrow['location_id'].'" />'.$cityrow['location'];
+echo '<br>';
+}
+echo '<input name="searchDonor" type="button" class="button" value="Search Donor" onclick="getLoc()" />';
+*/
+
+/*
+<p>Choose Language you can work with:</p>
+<input type="checkbox" name="language" value="HTML"> HTML<br>
+<input type="checkbox" name="language" value="CSS"> CSS<br>
+<input type="checkbox" name="food1" value="Milk"> Milk (food)<br>
+<input type="checkbox" name="language" value="JavaScript"> JavaScript<br>
+<input type="checkbox" name="language" value="PHP"> PHP<br>
+<input type="checkbox" name="language" value="Python"> Python<br>
+<input type="checkbox" name="food" value="vegetable"> Vegetable (food)<br>
+<input type="checkbox" name="language" value="Ruby"> Ruby<br>
+<button onclick="selectAll()">Select All</button>
+
+<script>
+function selectAll() {
+// selecting all checkboxes
+// of group language
+var checkboxes = document.getElementsByName('language');
+var values = [];
+// looping through all checkboxes
+for (var i = 0; i < checkboxes.length; i++) {
+  checkboxes[i].checked = true;
+  values.push(checkboxes[i].value);
+}
+alert(values);
+
+*/

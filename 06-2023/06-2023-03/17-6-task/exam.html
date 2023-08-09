@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Confirm Order</title>
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+  <style>
+    .first-div {
+      border: 1px solid black;
+      width: 500px;
+      padding: 40px;
+    }
+  .form-control {
+    margin-left: 100px;
+  }
+  #form-group {
+    display: flex;
+  }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="first-div">
+        <h4>Confirm order of 50 items</h4>
+        <form id="orderForm">
+          <div class="form-group">
+          
+            <input type="text" class="form-control" placeholder="Enter Name:" style="padding: 5px;" id="name" required>
+          </div>
+          <div class="form-group">
+           
+            <input type="email" class="form-control" placeholder="Enter Email: "style="padding: 5px;" id="email" required>
+          </div>
+          <div class="form-group">
+          
+            <input type="text" class="form-control" placeholder="Enter Phone Number:" style="padding: 5px;" id="phone" required>
+          </div>
+          <div class="form-group">
+            
+            <textarea class="form-control" id="address" required></textarea>
+          </div>
+          <div class="form-group">
+            
+            <textarea class="form-control" id="note"></textarea>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="itemList">
+              <tr>
+                <td>
+                  <select class="form-control item-select">
+                    <option value="">Select Item</option>
+                    <option value="Item 1">Item 1</option>
+                    <option value="Item 2">Item 2</option>
+                    <option value="Item 3">Item 3</option>
+                    <option value="Item 4">Item 4</option>
+                    <option value="Item 5">Item 5</option>
+                    <option value="Item 6">Item 6</option>
+                    <option value="Item 7">Item 7</option>
+                    <option value="Item 8">Item 8</option>
+                    <option value="Item 9">Item 9</option>
+                    <option value="Item 10">Item 11</option>
+                    <option value="Item 11">Item 10</option>
+                    <option value="Item 12">Item 12</option>
+                    <option value="Item 13">Item 13</option>
+                    <option value="Item 14">Item 14</option>
+                    <option value="Item 15">Item 15</option>
+                    <option value="Item 16">Item 16</option>
+                    <option value="Item 17">Item 17</option>
+                    <option value="Item 18">Item 18</option>
+                    <option value="Item 19">Item 19</option>
+                    <option value="Item 20">Item 20</option>
+                    <option value="Item 21">Item 21</option>
+                    <option value="Item 22">Item 22</option>
+                    <option value="Item 23">Item 23</option>
+                    <option value="Item 24">Item 24</option>
+                    <option value="Item 25">Item 25</option>
+                    <option value="Item 26">Item 26</option>
+                    <option value="Item 27">Item 27</option>
+                    <option value="Item 28">Item 28</option>
+                    <option value="Item 29">Item 29</option>
+                    <option value="Item 30">Item 30</option>
+                    <option value="Item 31">Item 31</option>
+                    <option value="Item 32">Item 32</option>
+                    <option value="Item 33">Item 33</option>
+                    <option value="Item 34">Item 34</option>
+                    <option value="Item 35">Item 35</option>
+                    <option value="Item 36">Item 36</option>
+                    <option value="Item 37">Item 37</option>
+                    <option value="Item 38">Item 38</option>
+                    <option value="Item 39">Item 39</option>
+                    <option value="Item 40">Item 40</option>
+                    <option value="Item 41">Item 41</option>
+                    <option value="Item 42">Item 42</option>
+                    <option value="Item 43">Item 43</option>
+                    <option value="Item 44">Item 44</option>
+                    <option value="Item 45">Item 45</option>
+                    <option value="Item 46">Item 46</option>
+                    <option value="Item 47">Item 47</option>
+                    <option value="Item 48">Item 48</option>
+                    <option value="Item 49">Item 49</option>
+                    <option value="Item 50">Item 50</option>
+
+                  </select>
+                </td>
+                <td><input type="number" class="form-control quantity-input" min="1"></td>
+                <td><button type="button" class="btn btn-danger delete-btn" disabled>Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <button type="submit" class="btn btn-primary">Save Order</button>
+          <button type="button" class="btn btn-success" id="addNewItem">Add New Item</button>
+        </form>
+      </div>
+      <div>
+        <p id="error"></p>
+      </div>
+      <div class="col-md-6">
+        <h4>Order Summary</h4>
+        <table class="table" border="1"> 
+          <thead>
+            <tr>
+              <th>Order Number</th>
+              <th>Item SKU</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody id="orderSummary"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+    
+      var orderCount = 0;
+
+      // Add new item row
+      $('#addNewItem').click(function () {
+        var newItemRow = $('<tr>' +
+          '<td>' +
+          '<select class="form-control item-select">' +
+          '<option value="">Select Item</option>' +
+          '<option value="Item 1">Item 1</option>' +
+          '<option value="Item 2">Item 2</option>' +
+          '<option value="Item 3">Item 3</option>' +
+          '<option value="Item 4">Item 4</option>' +
+          '<option value="Item 5">Item 5</option>  ' +
+          '<option value="Item 6">Item 6</option>' +
+          '<option value="Item 7">Item 7</option> ' +
+          '<option value="Item 8">Item 8</option>' +
+          '<option value="Item 9">Item 9</option> ' +
+          ' <option value="Item 10">Item 11</option>' +
+          '<option value="Item 11">Item 10</option>' +
+          '<option value="Item 12">Item 12</option>' +
+          '<option value="Item 13">Item 13</option>' +
+          '<option value="Item 14">Item 14</option>' +
+          '<option value="Item 15">Item 15</option> ' +
+          '<option value="Item 16">Item 16</option> ' +
+          '<option value="Item 17">Item 17</option> ' +
+          '<option value="Item 18">Item 18</option> ' +
+          '<option value="Item 19">Item 19</option> ' +
+          '<option value="Item 20">Item 20</option> ' +
+          '<option value="Item 21">Item 21</option> ' +
+          '<option value="Item 22">Item 22</option> ' +
+          '<option value="Item 23">Item 23</option> ' +
+          '<option value="Item 24">Item 24</option> ' +
+          '<option value="Item 25">Item 25</option> ' +
+          '<option value="Item 26">Item 26</option> ' +
+          '<option value="Item 27">Item 27</option> ' +
+          '<option value="Item 28">Item 28</option> ' +
+          '<option value="Item 29">Item 29</option> ' +
+          '<option value="Item 30">Item 30</option> ' +
+          '<option value="Item 31">Item 31</option> ' +
+          '<option value="Item 32">Item 32</option> ' +
+          '<option value="Item 33">Item 33</option> ' +
+          '<option value="Item 34">Item 34</option> ' +
+          '<ption value="Item 35">Item 35</option> ' +
+          '<option value="Item 36">Item 36</option> ' +
+          '<option value="Item 37">Item 37</option> ' +
+          '<option value="Item 38">Item 38</option> ' +
+          '<option value="Item 39">Item 39</option> ' +
+          '<option value="Item 40">Item 40</option> ' +
+          '<option value="Item 41">Item 41</option> ' +
+          '<option value="Item 42">Item 42</option> ' +
+          '<option value="Item 43">Item 43</option> ' +
+          '<option value="Item 44">Item 44</option> ' +
+          '<option value="Item 45">Item 45</option> ' +
+          '<option value="Item 46">Item 46</option> ' +
+          '<option value="Item 47">Item 47</option> ' +
+          '<option value="Item 48">Item 48</option> ' +
+          '<option value="Item 49">Item 49</option> ' +
+          '<option value="Item 50">Item 50</option> ' +
+          '</select>' +
+          '</td>' +
+          '<td><input type="number" class="form-control quantity-input" min="1"></td>' +
+          '<td><button type="button" class="btn btn-danger delete-btn">Delete</button></td>' +
+          '</tr>');
+
+        // Remove selected item from all other dropdowns
+        $('.item-select').each(function () {
+          var selectedItem = $(this).val();
+          if (selectedItem !== '') {
+            newItemRow.find('.item-select option[value="' + selectedItem + '"]').remove();
+          }
+        });
+
+        $('#itemList').append(newItemRow);
+        $('#itemList tr:first-child .delete-btn').prop('disabled', true);
+        $('#itemList tr:not(:first-child) .delete-btn').prop('disabled', false);
+      });
+
+      // Delete item row
+      $('#itemList').on('click', '.delete-btn', function () {
+        var selectedItem = $(this).closest('tr').find('.item-select').val();
+        if (selectedItem !== '') {
+          $('.item-select option[value="' + selectedItem + '"]').show();
+        }
+        $(this).closest('tr').remove();
+        $('#itemList tr:first-child .delete-btn').prop('disabled', true);
+      });
+
+      // Submit form
+      $('#orderForm').submit(function (e) {
+
+        var name =  $("#name").val();
+        if(name.trim() == ""){
+      $("#error").text("Name is Blank").css("color","red");
+      return;
+     }
+     var phone = $("phone").val();
+     var regex = /^[0-9]+$/;
+    phone.trim();
+    if(! regex.test(number) || address == ""){
+      $("#error").text("Name is Blank").css("color","red");
+      return;
+    }
+     var address = $("#address").val();
+     address.trim();
+     var regex = /^[A-Za-z\-]+$/;
+  
+    if( regex.test(address) || address == ""){
+      return;
+    }
+    
+   
+        e.preventDefault();
+
+        var orderNumber = generateOrderNumber();
+        var selectedItem = $('#itemList tr:first-child .item-select').val();
+        var quantity = $('#itemList tr:first-child .quantity-input').val();
+
+        if (selectedItem !== '' && quantity !== '') {
+          var orderSummaryRow = $('<tr>' +
+            '<td>' + orderNumber + '</td>' +
+            '<td>' + selectedItem + '</td>' +
+            '<td>' + quantity + '</td>' +
+            '</tr>');
+
+          $('#orderSummary').append(orderSummaryRow);
+          $('#itemList tr:not(:first-child)').each(function () {
+            var selectedItem = $(this).find('.item-select').val();
+            var quantity = $(this).find('.quantity-input').val();
+
+            if (selectedItem !== '' && quantity !== '') {
+              var orderSummaryRow = $('<tr>' +
+                '<td></td>' +
+                '<td>' + selectedItem + '</td>' +
+                '<td>' + quantity + '</td>' +
+                '</tr>');
+
+              $('#orderSummary').append(orderSummaryRow);
+            }
+          });
+
+          $('#itemList tr:not(:first-child)').remove();
+          $('#orderForm')[0].reset(); // Clear form fields
+          refreshSelectOptions(); // Refresh select options
+        } else {
+          alert('Please select an item and enter a quantity.');
+        }
+      });
+
+      // Function to refresh select options
+      function refreshSelectOptions() {
+        var selectOptions = [];
+        $('.item-select option').each(function () {
+          var value = $(this).val();
+          if (value !== '') {
+            selectOptions.push(value);
+          }
+        });
+
+        $('#itemList .item-select').each(function () {
+          var selectElement = $(this);
+          selectElement.empty();
+
+          $.each(selectOptions, function (index, value) {
+            selectElement.append($('<option></option>').attr('value', value).text(value));
+          });
+        });
+      }
+
+      function generateOrderNumber() {
+        return Math.floor(Math.random() * 90000) + 10000;
+      }
+    });
+  </script>
+
+</body>
+
+</html>

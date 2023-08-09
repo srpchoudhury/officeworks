@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>string function</title>
+    <script>
+        // function ChangeCase(){
+        //     var name=document.getElementById("txtName").value;
+        //     var firstChar = name.charAt(0);
+        //     console.log(firstChar);
+        //     var restChar = name.substring(1);
+        //     console.log(restChar);
+        //     var sentence = firstChar.toUpperCase()+restChar.toLowerCase();
+        //     document.getElementById("txtName").value = sentence;
+        // }
+        function ChangeCase() {
+            var userName = document.getElementById("txtName").value;
+            var firstChar = userName.charAt(0);
+            console.log(firstChar);
+            console.log(userName.charCodeAt(0));
+          
+            var restChars = userName.substring(1);
+            console.log(restChars);
+            var sentence = firstChar.toUpperCase() + restChars.toLowerCase();
+            document.getElementById("txtName").value = sentence;
+        }
+    </script>
+</head>
+
+<body>
+    <fieldset>
+        <legend>test</legend>
+        <div>
+            <input type="text" id="txtName" onblur="ChangeCase()">
+        </div>
+    </fieldset>
+</body>
+
+</html>

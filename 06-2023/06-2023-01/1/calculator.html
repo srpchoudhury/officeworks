@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #result {
+            border: none;
+            border-bottom: 1px solid gray;
+            width: 230px;
+            padding: 15px;
+            text-align: center;
+            justify-content: center;
+
+
+        }
+
+        .form {
+            border: 1px solid black;
+            width: 250px;
+            text-align: center;
+            padding: 10px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 2px 2px 42px rgba(246, 2, 2, 0.1);
+            border: none;
+            margin-left: 400px;
+            margin-top: 200px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+
+
+        }
+
+        .input {
+            border: none;
+            border-bottom: 1px solid rgb(164, 165, 155);
+            outline: none;
+        }
+    </style>
+    <script>
+
+
+
+        function onButtonClick(ele) {
+            var operation = ele.innerText;
+            var a = parseInt(document.getElementById("first").value);
+            var b = parseInt(document.getElementById("second").value);
+            console.log(operation);
+
+            document.getElementById("result").innerHTML = calculator(a, b, operation);
+
+        }
+        function calculator(a, b, operator) {
+            console.log(a, b, operator);
+            if (operator == "add") {
+                // console.log(a,b,operator);
+                return (a + b);
+            }
+            else if (operator == "sub") {
+                return (a - b);
+            }
+            else if (operator == "mul") {
+                return (a * b);
+            }
+            else if (operator == "div") {
+                return (a / b);
+            }
+        }
+
+    </script>
+</head>
+
+<body class="container">
+    <div class="form">
+        <h4>Calculator</h4>
+        <div>
+            <input type="text" id="first" class="input">
+        </div>
+        <div>
+            <input type="text" id="second" class="input">
+        </div>
+        <div class="input-group p-2">
+            <button class="btn btn-outline-primary" id="add" value="add" onclick="onButtonClick(this)">add</button>
+            <button class="btn btn-outline-danger" id="sub" value="sub" onclick="onButtonClick(this)">sub</button>
+            <button class="btn btn-outline-info" id="mul" value="mul" onclick="onButtonClick(this)">mul</button>
+            <button class="btn btn-outline-success" id="div" value="div" onclick="onButtonClick(this)">div</button>
+        </div>
+        <p id="result">
+
+        </p>
+    </div>
+</body>
+
+</html>

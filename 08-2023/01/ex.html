@@ -1,0 +1,31 @@
+<script>
+
+    var rows = 5;
+    for (let i = 0; i < rows; i++) {
+        let pattern1 = "";
+        let pattern2 = "";
+        for (let j = 0; j < rows - i - 1; j++) {
+            pattern1 += " ";
+        }
+        pattern1 += "X";
+        for (let k = 0; k < 2 * i - 1; k++) {
+            pattern1 += " ";
+        }
+        if (i !== 0) {
+            pattern1 += "X";
+        }
+        pattern1 += "  ";
+        for (let j = 0; j < rows - i - 1; j++) {
+            pattern2 += "  ";
+        }
+        pattern2 += "X";
+        for (let k = 0; k < 2 * i - 1; k++) {
+            pattern2 += " ";
+        }
+        if (i !== rows - 5) {
+            pattern2 += "X";
+        }
+        console.log(pattern1 + pattern2);
+    }
+
+</script>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .header {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .all_brands {
+      flex: 1;
+      padding-right: 20px;
+    }
+    .main-content {
+      flex: 3;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 2px;
+    }
+    .product {
+      background-color: #f4fbfd;
+      border: 1px solid #fdfcfc;
+      padding: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      flex-basis: calc(25% - 20px);
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      height: 200px;
+    }
+    .product h3 {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+    .checkbox-field {
+      margin-top: 20px;
+    }
+    .checkbox-field label {
+      margin-right: 10px;
+    }
+    .checkbox-field input[type="checkbox"] {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+
+     <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const products = [
+      ];
+      function filterProducts() {
+        const selectedBrands = Array.from(document.querySelectorAll('.brand-checkbox:checked')).map(checkbox => checkbox.dataset.brand);
+        const selectedCategories = Array.from(document.querySelectorAll('.category-checkbox:checked')).map(checkbox => checkbox.dataset.category);
+
+        const productCards = document.querySelectorAll('.product');
+        productCards.forEach(productCard => {
+          const productBrand = productCard.dataset.brand;
+          const productCategory = productCard.dataset.category;
+          
+          if (
+            (selectedBrands.length === 0 || selectedBrands.includes(productBrand)) &&
+            (selectedCategories.length === 0 || selectedCategories.includes(productCategory))
+          ) {
+            productCard.style.display = 'block';
+            productCard.style.height = '200px';
+          } else {
+            productCard.style.display = 'none';
+            productCard.style.height = '200px';
+          }
+        });
+      }
+      const brandCheckboxes = document.querySelectorAll('.brand-checkbox');
+      const categoryCheckboxes = document.querySelectorAll('.category-checkbox');
+
+      brandCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', filterProducts);
+      });
+
+      categoryCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', filterProducts);
+      });
+      filterProducts();
+    });
+  </script>
+  <div class="header">
+    <div class="all_brands">
+      <h2>Brands</h2>
+      <div class="checkbox-field">
+        <label><input type="checkbox" class="brand-checkbox" data-brand="Biscuits"> Biscuits</label>
+        <label><input type="checkbox" class="brand-checkbox" data-brand="Chocolates"> Chocolates</label>
+        <label><input type="checkbox" class="brand-checkbox" data-brand="ice-cream"> ice-cream</label>
+        <label><input type="checkbox" class="brand-checkbox" data-brand="cool-drinks"> cool-drinks</label>
+        <label><input type="checkbox" class="brand-checkbox" data-brand="sweets"> sweets</label>
+      </div>
+      <h2>Categories</h2>
+      <div class="checkbox-field">
+        <label><input type="checkbox" class="category-checkbox" data-category="50/50">50/50</label>
+        <label><input type="checkbox" class="category-checkbox"data-category="parle">parle</label>
+        <label><input type="checkbox" class="category-checkbox" data-category="dairymilk"> dairymilk</label>
+        <label><input type="checkbox" class="category-checkbox" data-category="kitkat">kitkat</label>
+        <label><input type="checkbox" class="category-checkbox" data-category="amul"> amul</label>
+        <label><input type="checkbox" class="category-checkbox" data-category="soft-drinks"> soft-drinks</label>
+        <label><input type="checkbox" class="category-checkbox" data-category="energy-drink"> energy-drink</label>
+        <label><input type="checkbox" class="category-checkbox" data-category="rasgola"> rasgola</label>
+        <label><input type="checkbox" class="category-checkbox" data-category="kajukatli"> kajukatli</label>
+    </div>
+    </div>
+    <div class="main-content">
+      <div class="product" data-brand="Biscuits" data-category="50/50">
+        <img src="b50502.jpg" alt="Product 1">
+
+      </div>
+      <div class="product" data-brand="Biscuits" data-category="50/50">
+        <img src="b50503.jpg" alt="Product 1">
+      </div>
+      <div class="product" data-brand="Biscuits" data-category="50/50">
+        <img src="b50501.jpg" alt="Product 1">
+
+      </div>
+      <div class="product" data-brand="Biscuits" data-category="parle">
+        <img src="par2.jpg" alt="Product 1">
+
+      </div>
+      <div class="product" data-brand="Biscuits" data-category="parle">
+        <img src="par3.jpg" alt="Product 1">
+
+      </div>
+      <div class="product" data-brand="Biscuits" data-category="parle">
+        <img src="par1.jpg" alt="Product 1">
+
+      </div>
+      <div class="product" data-brand="Chocolates" data-category="dairymilk">
+        <img src="dairy1.jpg" alt="Product 1">
+
+      </div>
+      <div class="product" data-brand="Chocolates" data-category="dairymilk">
+        <img src="dairy2.jpg" alt="Product 1">
+
+      </div>
+      <div class="product" data-brand="Chocolates" data-category="kitkat">
+        <img src="kit1.jpg" alt="Product 1">
+
+      </div>
+      <div class="product" data-brand="Chocolates" data-category="kitkat">
+        <img src="kit2.jpg" alt="Product 1">
+
+      </div>
+      <div class="product" data-brand="ice-cream" data-category="amul">
+        <img src="mango1.jpg" alt="Product 1">
+
+      </div>
+      <div class="product" data-brand="ice-cream" data-category="amul">
+        <img src="kulfi1.jpg" alt="Product 1">
+
+      </div>
+      <div class="product" data-brand="ice-cream" data-category="amul">
+        <img src="butter1.jpg" alt="Product 1">
+
+      </div>
+      <div class="product" data-brand="cool-drinks" data-category="soft-drinks">
+        <img src="thumsup1.jpg" alt="Product 1">
+
+      </div>
+      <div class="product" data-brand="cool-drinks" data-category="soft-drinks">
+        <img src="sprit1.jpg" alt="Product 1">
+
+      </div>
+      <div class="product" data-brand="cool-drinks" data-category="energy-drink">
+        <img src="mon1.jpg" alt="Product 1">
+      </div>
+  
+      <div class="product" data-brand="cool-drinks" data-category="energy-drink">
+        <img src="redbull1.jpg" alt="Product 1">
+      </div>
+ 
+      <div class="product" data-brand="sweets" data-category="rasgola">
+        <img src="ras2.jpg" alt="Product 1">
+      </div>
+   
+      <div class="product" data-brand="sweets" data-category="rasgola">
+        <img src="ras1.jpg" alt="Product 1">
+      </div>
+
+      <div class="product" data-brand="sweets" data-category="kajukatli">
+        <img src="kaju1.jpg" alt="Product 1">
+      </div>
+
+      <div class="product" data-brand="sweets" data-category="kajukatli">
+        <img src="kaju2.jpg" alt="Product 1">
+      </div>
+    </div>
+  </div>
+</body>
+</html>

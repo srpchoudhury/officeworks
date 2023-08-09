@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+    <table class="data-table">
+    </table>
+    <button class="btnsbt">Submit</button>
+    <button class="btnaddmore">Add More</button>
+     <div class="output1">
+    <!-- <p id="names">Name : </p>
+    <p id="ages">Age : </p> -->
+    </div> 
+    <script>         
+$(".btnsbt").click(function(){
+                      
+             var output='';
+             output += '<div class="output1">';
+             $(".name").each(function(){
+                
+              output += ' <label id="names">Name:'+this.value+'</label>';
+             
+                 
+            
+                
+             }); 
+             $(".age").each(function(){
+             
+                output += '<label id="ages">Age:'+this.value+'<label><br> ';
+                  
+                })
+                output += '</div> ';
+                $(".output1").html(output);
+            
+   });
+         var clonetr = '<tr><td><input type="text" class="name" placeholder="Enter Your Name"></td><td><input type="text" class="age"  placeholder="Age"></td><td><button class="btndelete">DELETE</button></td></tr>';
+   $(".btnaddmore").click(function(){
+     $(".data-table").append(clonetr);
+  });
+  $(document).on("click",".btndelete", function(){
+       $(this).closest("tr").hide();
+  });
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<script>
+    function isPrime(number){
+        for(let i=2;i<number;i++){
+            if(number % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+    num=10;
+    if(isPrime(num)){
+        alert("Prime")
+    }
+    else {
+        alert("Not Prime");
+    }
+</script>

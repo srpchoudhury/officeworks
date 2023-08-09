@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#input_box").on("keyup", function() {
+    var getUserValue = $(this).val().toLowerCase();
+    $("#Table tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(getUserValue) > -1)
+    });
+    var one = $("tbody tr #one").text();
+    var two = $("tbody tr #two").text();
+    var three = $("tbody tr #three").text();
+    var four = $("tbody tr #four").text();
+
+    var arr = [one,two,three,four];
+    console.log(arr);
+    arr.sort();
+    console.log(arr);
+    var i=0;
+    for(var val of arr){
+        arr[i] = val;
+        i++
+        console.log(arr);
+    }
+    $("tbody tr #one").text(arr[0]);
+    $("tbody tr #two").text();
+
+   
+  });
+});
+</script>
+<style>
+table {
+  /* font-family: arial, sans-serif; */
+  border-collapse: collapse;
+  width: 500px;
+  margin-bottom: 10px;
+}
+.container {
+    border: 3px solid black;
+    width: 550px;
+}
+#input_box {
+margin-left: 25px;
+margin-top: 10px;
+}
+button {
+    margin-left: 235px;
+    background-color: green;
+    padding: 5px;
+    border: none;
+}
+
+
+</style>
+</head>
+<body >
+
+<div class="container">
+<div class="firstpart">
+    <input id="input_box" type="text" placeholder="Search text....">
+    <button>Sort First Name</button>
+</div>
+    <br>
+
+<table border="3" align="center" >
+  <thead>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Email</th>
+    <th>State</th>
+  </tr>
+  </thead>
+  <tbody id="Table">
+  <tr>
+    <td id="one">John</td>
+    <td>Doe</td>
+    <td>john@example.com</td>
+    <td>Odisha</td>
+  </tr>
+  <tr>
+    <td id="two">Rakesh</td>
+    <td>Sharma</td>
+    <td>rakesh@col.com</td>
+    <td>Goa</td>
+  </tr>
+  <tr> 
+    <td id="three">Upasana</td>
+    <td>Devit</td>
+    <td>devit4@gmail.com.com</td>
+    <td>Delhi</td>
+  </tr>
+  <tr>
+    <td id="four">Rahul</td>
+    <td>Sathpathy</td>
+    <td>satral@gmail.com</td>
+    <td>Odisha</td>
+  </tr>
+  </tbody>
+</table>
+  
+
+</div>
+</body>
+</html>

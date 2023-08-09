@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Country Dropdown Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>Country Dropdown Example</h1>
+  
+  <select id="countryDropdown"></select>
+  
+  <script>
+    $(document).ready(function() {
+      $.ajax({
+        url: 'http://devdesigntex.thbred.store/test-1111111/',
+        method: 'GET',
+        dataType: 'json',
+        data: {
+        request_type: 'getcountry'
+         },
+        success: function(response) {
+          // Process the response data here
+          var countries = response; // Assuming the response is an array of country objects
+      
+          // Get the select element by its ID
+          var select = $('#countryDropdown');
+      
+          // Iterate over the countries array
+          countries.forEach(function(country) {
+            // Create an option element for each country name
+            var option = $('<option>').text(countries.name);
+      
+            // Append the option element to the select
+            select.append(option);
+          });
+        },
+        error: function(xhr, status, error) {
+          // Handle any errors that occur during the request
+          console.log('Error:', error);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+Footer

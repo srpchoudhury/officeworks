@@ -1,0 +1,72 @@
+.section-six {
+    background-color: #d9d5f1;
+}
+.section-six-whole {
+    width: 1140px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    padding: 20px;
+    
+}
+.section-six-header .h3-p{
+    padding: 30px;
+    text-align: center;
+    color: #000000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.section-six-header .h3-p .h3{
+    margin: 15px;
+    font-size: 25px;
+}
+.section-six-header .h3-p .p {
+      margin: 20px;
+      font-size: 20px;
+}
+.section-six-body {
+    margin: 20px;
+    display: flex;
+    
+    
+}
+.section-six-body .cards {
+        padding: 30px;
+        width: 290px;
+        background-color: white;
+        border-radius: 20px;
+       box-shadow:  0 2px 48px 0 rgba(0, 0, 0, 0.1);
+       margin-right: 45px;
+}
+.section-six-body .cards .card-header {
+    padding: 20px;
+    text-align: center;
+}
+.section-six-body .cards .currency{
+    padding: 30px;
+    background-color: rgb(102, 96, 232);
+    width: 80%;
+    border-radius: 10px;
+    text-align: center;
+}
+.section-six-body .cards ul {
+    padding: 10px;
+}
+.section-six-body .cards ul li {
+    list-style: none;
+    padding: 15px;
+    text-align: center;
+}
+.section-six-body .cards .card-footer {
+    margin: 20px;
+    margin-left: 60px;
+}
+.section-six-body .cards .card-footer button {
+    padding: 10px;
+    border-radius: 30px;
+    background-color: #ff6dd8;
+    color: rgb(232, 206, 206);
+    cursor: pointer;
+    width: 150px;
+}
+.section-six-body .cards .card-footer button:hover {
+    background-color: rgb(166, 106, 235);
+}

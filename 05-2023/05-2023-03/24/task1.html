@@ -1,0 +1,32 @@
+<script>
+    function grade(mark){
+        if(mark >= 90 && mark <=100){
+            alert("Grade O");
+        }
+        else  if(mark >= 80 && mark <= 89 ){
+            alert("Grade E");
+        }
+        else   if(mark >= 70 && mark <= 79 ){
+            alert("Grade A");
+        }
+        else  if(mark >= 60 && mark <= 69 ){
+            alert("Grade B");
+        }
+        else  if(mark >= 50 && mark <= 59 ){
+            alert("Grade C");
+        }
+        else   if(mark >= 40 && mark <= 49 ){
+            alert("Grade D");
+        }
+        else  if(mark >= 30 && mark <= 39 ){
+            alert("Grade G");
+        }
+        else if(mark >= 0 && mark <=29){
+            alert("Grade F");
+        }
+        else{ 
+            alert(`Enter valid mark ${mark}`);
+        }
+    }
+    grade(065);
+</script>

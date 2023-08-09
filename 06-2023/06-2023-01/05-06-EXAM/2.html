@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+      .list1 {
+        list-style: none;
+        border: 3px solid black;
+        width: 150px;
+        margin-left: 100px;
+        margin-top: 100px;
+      }
+      .list2 {
+        /* list-style: none; */
+        border: 3px solid black;
+        width: 150px;
+        margin-right: 100px;
+        margin-top: 100px;
+        padding-left: 20px;
+      }
+      .all {
+        display: flex;
+        justify-content: space-between;
+      }
+      #btn {
+        margin-top: 150px;
+        width: 100px;
+        height: 25px;
+     
+      }
+    </style>
+    <script>
+        function OnSubmitButton(){
+              var markedCheckBox = document.querySelectorAll('input[type="checkbox"]:checked');
+              document.querySelector("ul").innerHTML = "";
+              for( var task of markedCheckBox) {
+                // alert(list);
+                // console.log(task.value);
+               
+                 var li = document.createElement("li");
+                li.innerHTML = task.value;
+                document.querySelector("ul").appendChild(li);
+                   
+              }
+        }
+
+    </script>
+</head>
+<body >
+   
+
+    <div class="all">
+        <div id="item">
+            <ol class="list1">
+                <li>  <input type="checkbox" class="check" onclick="OnSubmitButton()" value="C"> C</li>
+                <li>  <input type="checkbox" class="check" onclick="OnSubmitButton()" value="C++">C++</li>
+                <li> <input type="checkbox" class="check" onclick="OnSubmitButton()" value="Php">Php </li>
+                <li><input type="checkbox" class="check" onclick="OnSubmitButton()"value="Java">Java</li>
+                <li> <input type="checkbox" class="check"  onclick="OnSubmitButton()" value="AdvanceJava">Advance Java</li>
+                <li>  <input type="checkbox" class="check"  onclick="OnSubmitButton()" value="JavaScript">JavaScript</li>
+                <li> <input type="checkbox" class="check" onclick="OnSubmitButton()" value="Oracle">Oracle</li>
+            </ol>
+         </div>
+         <div class="item" id="button">
+            <!-- <button id="btn" onclick="OnSubmitButton()">Send</button> -->
+         </div>
+        <div id="item3">
+            <ul class="list2">
+                
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

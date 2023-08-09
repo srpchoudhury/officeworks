@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="\https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <style>
+        #container {
+            display: flex;
+            justify-content: space-between;
+            font-size: 25px;
+            background-color: red;
+            color: white;
+            padding: 5px;
+        }
+    </style>
+    <script>
+        function Clock(){
+            var now = new Date();
+            document.getElementById("time").innerHTML = now.toLocaleTimeString();
+        }
+        function bodyLoad(){
+           setInterval(Clock,1000);
+           var now = new Date();
+           var icon = document.getElementById("icon");
+           var msg = document.getElementById("msg");
+           var hrs = now.getHours();
+           if(hrs>=0 && hrs<=12){
+            msg.innerHTML = "Good Morning";
+            icon.className = "bi bi-brightness-alt-high";
+           } else if( hrs>=13 && hrs <= 17) {
+              msg.innerHTML = "Good Afternoon";
+              icon.className = "bi brightness-high";
+           } else {
+            msg.innerHTML = "Good Evening";
+            msg.className = "bi cloud-sun-fill";
+           }
+        }
+    </script>
+</head>
+<body onload="bodyLoad()">
+    <div id="container">
+        <span>Amazon Shopping</span>
+        <span>
+            <span id="icon"></span>  <span id="msg"></span>
+        </span>
+        <span id="time"></span>
+    </div>
+</body>
+</html>

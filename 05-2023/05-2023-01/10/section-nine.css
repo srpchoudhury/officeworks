@@ -1,0 +1,97 @@
+.section-nine {
+    background-color: rgb(238, 224, 240);
+ }
+ .section-nine .section-nine-whole {
+    margin: 2px;
+    padding: 10px;
+
+ }
+ .section-nine .section-nine-whole  .section-nine-header {
+    padding-top: 100px;
+ }
+ .section-nine .section-nine-whole  .section-nine-header .h3-p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+ }
+ .section-nine .section-nine-whole  .section-nine-header .h3-p h3{
+    padding: 5px;
+ }
+ .section-nine .section-nine-whole  .section-nine-header .h3-p p {
+    padding: 5px;
+ }
+ .section-nine .section-nine-whole  .section-nine-body {
+    padding: 20px;
+ }
+ .section-nine .section-nine-whole  .section-nine-body .two-items {
+        display: flex;
+      
+ }
+ .section-nine .section-nine-whole  .section-nine-body .two-items .first-part {
+    padding-left: 180px;
+    width: 350px;
+ }
+ .section-nine .section-nine-whole  .section-nine-body .two-items .first-part h4 {
+    padding: 20px;
+    padding-top: 0;
+    padding-left: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ }
+ .section-nine .section-nine-whole  .section-nine-body .two-items .first-part p {
+    padding: 30px;
+    padding-top: 0;
+    padding-left: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ }
+ .section-nine .section-nine-whole  .section-nine-body .two-items .second-part {
+    padding-right: 60px;
+    width: 503px;
+  
+    padding-left: 150px;
+ }
+ .section-nine .section-nine-whole  .section-nine-body .two-items .second-part .input-flex {
+    display: flex;
+  
+ }
+ .section-nine .section-nine-whole  .section-nine-body .two-items .second-part .first-input {
+    padding: 12px;
+    padding-right: 90px;
+    border-radius: 30px;
+    border: none;
+    margin: 5px;
+    outline: none;
+ }
+ .section-nine .section-nine-whole  .section-nine-body .two-items .second-part .second-input {
+    padding: 12px;
+    padding-right: 90px;
+    border-radius: 30px;
+    border: none;
+    margin: 5px;
+    outline: none;
+ }
+ .section-nine .section-nine-whole  .section-nine-body .two-items .second-part .third-input {
+   
+    padding-right: 370px;
+    padding-top: 15px;
+    padding-left: 15px;
+    border-radius: 30px;
+    padding-bottom: 90px;
+    border: none;
+    margin: 5px;
+    outline: none;
+ }
+ .section-nine .section-nine-whole  .section-nine-footer {
+    margin: 10px;
+    padding: 50px;
+    padding-left: 500px;
+ }
+ .section-nine .section-nine-whole  .section-nine-footer button {
+    padding: 10px;
+    border-radius: 30px;
+    color: rgb(235, 215, 215);
+    background-color: rgb(163, 163, 243);
+    cursor: pointer;
+ }
+ .section-nine .section-nine-whole  .section-nine-footer button:hover {
+    background-color: rgb(203, 168, 236);
+ }
+ 

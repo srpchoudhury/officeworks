@@ -1,0 +1,28 @@
+.third-box {
+    background-color: rgb(102, 4, 4);
+ }
+ .third-box-body {
+    padding: 25px 60px 25px 60px;
+ }
+ .third-box-body .first h2{
+    color: white;
+ }
+ .third-box-body .second {
+    display: flex;
+    padding: 30px;
+ }
+ .third-box-body .second .dropdown{
+   padding-left: 30px;
+   padding-right: 30px;
+ }
+ .third-box-body .second .dropdown .dropdown-menu{
+    padding: 9px;
+ }
+ .third-box-body .second input{
+    padding: 10px;
+    border-radius: 5px;
+ }
+ .third-box-body .second h5{
+    color: white;
+    font-size: 15px;
+ }

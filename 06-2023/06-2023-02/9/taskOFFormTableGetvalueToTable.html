@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+  // Form submit event handler
+             $("#myForm").submit(function(event) {
+                    event.preventDefault(); // Prevent form submission
+
+
+    var name = $("#name").val();
+
+ 
+    var email = $("#email").val();
+    var phone = $("#phone").val();
+   
+    var age = $("#age").val();
+
+    var address = $("#address").val();
+    var gender = $("input[type='radio']:checked").val();
+        // Validate form inputs
+        if (name.trim() === "" || email=== "" || phone.trim() === "" || age === "" || address.trim() === "" || gender === "") {
+      alert("Please fill in all fields.");
+      return;
+    }
+    namePattern = /\d/;
+    if(namePattern.test(name)){
+        alert("Name should not contain numbers");
+        return;
+    }
+
+    var phonePattern = /^\+?\d{0,3}?\d{10}$/;
+    if(!phonePattern.test(phone)){
+        alert("Number must be 10 characters.");
+        return;
+    }
+    if(isNaN(age) || age<1 || age>120){
+        alert("Please enter a valid age");
+        return;
+    }
+    if (!gender) {
+         
+         alert("Gender is required");
+         return;
+   }
+
+    console.log(name);
+    console.log(email);
+    console.log(phone);
+    console.log(age);
+    console.log(address);
+    console.log(gender);
+  
+    // Check if all fields are filled
+   
+
+   
+
+    // Append the new div to the validatedValues div
+    $("#validatedValues").append("<tr><td>" +name+"</td><td>"+email+"</td><td>"+phone+"</td><td>"+age+"</td><td>"+address+"</td><td>"+gender+"</td></tr>" );
+    $("#table tbody tr:odd").css({"background-color":"yellow","color":"red"});
+
+    // Clear form inputs
+    $("#name").val("");
+    $("#email").val("");
+    $("#phone").val("");
+    $("#age").val("");
+    $("#address").val("");
+    // $("#gender").val("");
+  });
+});
+
+    </script>
+</head>
+<body>
+    <form id="myForm">
+       <table>
+       <tr>
+        <td>Name</td>
+        <td> <input type="text" id="name" ></td>
+       </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" id="email" ></td>
+        </tr>
+       <tr>
+        <td>Phone</td>
+        <td> <input type="text" id="phone"></td>
+       </tr>
+       <tr>
+        <td>Age</td>
+        <td> <input type="text" id="age"></td>
+       </tr>
+       <tr>
+        <td>Address</td>
+        <td> <textarea name="" id="address"></textarea></td>
+       </tr>
+       <tr>
+        <td>Gender</td>
+        <td> <input type="radio" name="gender" value="male" id="male">Male
+            <input type="radio" name="gender" value="female" id="female">Female</td>
+       </tr>
+       <tr>
+        <td> <input type="submit" value="Submit"></td>
+       </tr>
+       </table>
+      </form>
+      
+      <!-- <div id="validatedValues"></div> -->
+     
+       <div>
+            <table border="1" id="table">
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Email</td>
+                        <td>Phone</td>
+                        <td>Age</td>
+                        <td>Address</td>
+                        <td>Gender</td>
+                    </tr>
+                </thead>
+                <tbody id="validatedValues">
+
+                </tbody>
+            </table>
+       </div>
+      
+</body>
+</html>

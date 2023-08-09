@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add New Row Q-4</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function SubmitClick() {
+          //  document.querySelectorAll('input').value = "";
+         
+            var rows = document.querySelectorAll("#wrapper .row");
+            var tableBody = document.querySelector("tbody");
+            tableBody.innerHTML = "";
+
+            rows.forEach(function (row) {
+                var name = row.querySelector('.name').value;
+                var email = row.querySelector('.email').value;
+                var dob = row.querySelector('.dob').value;
+                
+
+                name = name.trim();
+                email = email.trim();
+
+                if (name === "" || !isValidEmail(email) || dob === "") {
+
+                    alert("Please fill in all fields with valid data before submitting.");
+                    return;
+                }
+
+                var tdName = document.createElement("td");
+                tdName.textContent = name;
+
+                var tdEmail = document.createElement("td");
+                tdEmail.textContent = email;
+
+                var tdDob = document.createElement("td");
+                tdDob.textContent = dob;
+
+                var newRow = document.createElement("tr");
+                newRow.appendChild(tdName);
+                newRow.appendChild(tdEmail);
+                newRow.appendChild(tdDob);
+
+                tableBody.appendChild(newRow);
+              //  document.getElementById('form').trigger('reset');
+
+              row.querySelector('.name').value='';
+              row.querySelector('.email').value='';
+              row.querySelector('.dob').value='';
+            });
+                //  document.getElementsByClassName("name").value = "";
+                //  document.getElementsByClassName("email").value = "";
+                //  document.getElementsByClassName("dob").value = "";
+                 
+        }
+        function isValidEmail(email) {
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailPattern.test(email);
+        }
+
+        function AddClicked() {
+            var newRow = document.createElement("div");
+            newRow.className = "row";
+
+            var oneDiv = document.createElement("div");
+            oneDiv.className = "col-md-2";
+            var secondDiv = document.createElement("div");
+            secondDiv.className = "col-md-2";
+            var thirdDiv = document.createElement("div");
+            thirdDiv.className = "col-md-2";
+
+
+
+
+            var newName = document.createElement("input");
+            newName.setAttribute("type", "text");
+            newName.setAttribute('placeholder', 'Enter Your Name');
+            newName.classList.add('name', 'form-control');
+
+            var newEmail = document.createElement("input");
+            newEmail.setAttribute("type", "email");
+            newEmail.setAttribute('placeholder', 'Enter Your Email');
+            newEmail.classList.add('email', 'form-control');
+
+            var newDob = document.createElement("input");
+            newDob.setAttribute("type", "date");
+            newDob.setAttribute('placeholder', 'Enter Your Dob');
+            newDob.classList.add('dob', 'form-control');
+
+            oneDiv.appendChild(newName);
+            secondDiv.appendChild(newEmail);
+            thirdDiv.appendChild(newDob);
+
+            newRow.appendChild(oneDiv);
+            newRow.appendChild(secondDiv);
+            newRow.appendChild(thirdDiv);
+
+            document.getElementById("wrapper").appendChild(newRow);
+        }
+        // document.getElementById('form').trigger('reset');
+    </script>
+</head>
+
+<body class="container-fluid" onload="BodyLoad()">
+  
+    <div id="wrapper">
+       
+        <div class="row mt-4">
+            <div class="col-md-2">
+                <input type="text" class="form-control name" placeholder="Enter Your Name" id="inputName">
+            </div>
+            <div class="col-md-2">
+                <input type="email" class="form-control email" placeholder="Enter Your Email" id="inputEmail">
+            </div>
+            <div class="col-md-2">
+                <input type="date" class="form-control dob" id="inputDate">
+            </div>
+      
+            <div class="col-md-2">
+                <button class="btn btn-danger w-100" onclick="AddClicked()">Add</button>
+            </div>
+
+        </div>
+
+    </div>
+   
+    <div class="row mt-4">
+        <div class="col-md-2">
+            <button onclick="SubmitClick()" class="btn btn-primary w-100">submit</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped ">
+                    <thead>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>DOB</th>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</body>
+
+</html>

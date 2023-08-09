@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function buttonClickedAdd(){
+                 var a=document.getElementById("First").value;
+                 var b=document.getElementById("Second").value;
+                 
+                 document.getElementById("result").value = a+b;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="first">
+    <input type="text" id="second">
+    <button onclick="buttonClickedAdd()" value="add" id="1">Add</button>
+    <button onclick="buttonClicked()" value="sub" id="2">Sub</button>
+    <button onclick="buttonClicked()" value="mul" id="3">Mul</button>
+    <button onclick="buttonClicked()" value="div" id="4">Div</button>
+    <input type="text" id="result">
+</body>
+</html>

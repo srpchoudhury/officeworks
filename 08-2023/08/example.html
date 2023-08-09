@@ -1,0 +1,46 @@
+
+<script>
+    $(document).ready(function () {
+        $(".firstCheck input, .secondCheck input").click(function () {
+            var selectedBrands = $(".firstCheck input:checked").map(function () {
+                return $(this).data("brands");
+            }).get();
+
+            var selectedCategories = $(".secondCheck input:checked").map(function () {
+                return $(this).data("categories");
+            }).get();
+
+            $(".card").hide();
+
+            if (selectedBrands.length === 0 && selectedCategories.length === 0) {
+                $(".card").show();
+            } else {
+                $(".card").each(function () {
+                    var brand = $(this).data("brand");
+                    var category = $(this).data("category");
+
+                    if (
+                        (selectedBrands.includes(brand) || selectedBrands.length === 0) &&
+                        (selectedCategories.includes(category) || selectedCategories.length === 0)
+                    ) {
+                        $(this).show();
+                    }
+                });
+            }
+        });
+
+        $(".apply-filters").click(function() {
+            $(".firstCheck input:checked, .secondCheck input:checked").each(function () {
+                var label = $(this).closest("li").text().trim();
+                var brand = $(this).data("brands");
+                var category = $(this).data("categories");
+                
+                console.log(label);
+                console.log(brand);
+                console.log(category);
+                
+                $(".card[data-brand='" + brand + "'][data-category='" + category + "']").show();
+            });
+        });
+    });
+</script>

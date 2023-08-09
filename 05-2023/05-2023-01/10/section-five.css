@@ -1,0 +1,59 @@
+.section-five{
+    background-color: whitesmoke;
+}
+.section-five-whole {
+    margin: 20px;
+}
+.section-five-whole .section-five-header .h3-p {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.section-five-whole .section-five-header .h3-p .h3 {
+    padding: 30px;
+    font-size: 25px;
+}
+.section-five-whole .section-five-header .h3-p .p {
+    font-size: 20px;
+    padding: 20px;
+}
+.section-five-whole .section-five-body {
+    margin: 20px;
+    padding: 20px;
+}
+.section-five-body {
+    display: flex;
+}
+.section-five-body .cards {
+width: 350px;
+box-shadow:   0 2px 48px 0 rgba(0, 0, 0, 0.1);
+margin: 30px;
+border-radius: 20px;
+margin-left: 60px;
+}
+.section-five-body .cards .card-header .img {
+      margin-left: 120px;
+      padding: 20px;
+}
+.section-five-body .cards .card-body {
+margin: 20px;
+}
+.section-five-body .cards .card-body .p {
+text-align: center;
+padding: 20px;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.section-five-body .cards .card-footer {
+margin: 10px;
+}
+.section-five-body .cards .card-footer .card-footer-body {
+display: flex;
+}
+.section-five-body .cards .card-footer .card-footer-body img{
+   border-radius: 50px;
+   padding: 20px;
+}
+.section-five-body .cards .card-footer .card-footer-body .h2-h3 {
+  padding: 20px;
+  padding-left: 0px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

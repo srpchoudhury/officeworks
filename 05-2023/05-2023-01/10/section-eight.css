@@ -1,0 +1,68 @@
+.section-eight {
+    background-color: aliceblue;
+  }
+  .section-eight .section-eight-whole {
+        margin: 2px;
+        padding: 20px;
+  }
+  .section-eight .section-eight-whole  .section-eight-header {
+    margin: 20px;
+    padding: 50px;
+  }
+  .section-eight .section-eight-whole .section-eight-header .h2-p {
+        text-align: center;
+  }
+  .section-eight .section-eight-whole .section-eight-header .h2-p .h2{
+    padding: 40px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .section-eight .section-eight-whole .section-eight-header .h2-p .p {
+    padding: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+  }
+  .section-eight .section-eight-whole .section-eight-body {
+    
+    padding: 30px;
+    padding-top: 10PX;
+    display: flex;
+  
+  }
+  .section-eight .section-eight-whole .section-eight-body .cards {
+    width: 300px;
+    text-align: center;
+    padding: 30px;
+    margin-right: 40px;
+   
+   
+  }
+  .section-eight .section-eight-whole .section-eight-body .cards .card-header {
+      
+  }
+  .section-eight .section-eight-whole .section-eight-body .cards .card-body {
+    padding: 5px;
+  }
+  .section-eight .section-eight-whole .section-eight-body .cards .card-body .h3-p {
+    padding: 5px;
+    padding-left: 80px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  .section-eight .section-eight-whole .section-eight-body .cards .card-body .h3-p h3 {
+    padding: 3px;
+  }
+  .section-eight .section-eight-whole .section-eight-body .cards .card-body .h3-p p {
+    padding: 8px;
+  }
+  .section-eight .section-eight-whole .section-eight-body .cards .card-footer {
+    padding-left: 75px;
+  }
+  .section-eight .section-eight-whole .section-eight-body .cards .card-footer button {
+    border-radius: 30px;
+    padding: 10px;
+    background-color: rgb(117, 117, 200);
+    color: white;
+    cursor: pointer;
+  }
+  .section-eight .section-eight-whole .section-eight-body .cards .card-footer button:hover {
+    background-color: rgb(174, 128, 218);
+  }

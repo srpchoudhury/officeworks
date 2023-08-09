@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .form{
+        border: 1px solid rgb(106, 211, 216);
+        width: 290px;
+        margin-top: 150px;
+        margin-left: 280px;
+        box-shadow: 5px 1px 25px rgba(0, 7, 8, 0.3);
+        background-color: darkcyan;
+       
+       
+       }
+      .form-group{
+         border: 1px solid rgb(9, 65, 74);
+         width: 100%;
+        
+         
+     }
+     form div label {
+           float: left;
+           width: 40%;
+    }
+    .input{
+        background-color: #ADD8E6;
+    }
+   .button{
+   
+   } 
+    
+    
+    
+    
+    </style>
+</head>
+<body>
+  <div class="form">
+    <div class="form-group">
+       <h2 align="center">Registration Form</h2>
+    </div>
+    <div class="form-group" >
+       <form>
+        <div class="form-group-control">
+            <label> First Name :</label>
+            <input type="text" id="firstName" class="input">
+        </div>
+        <div class="form-group-control">
+            <label> Last Name :</label>
+            <input type="text" id="lastName" class="input">
+        </div>
+        <div class="form-group-control">
+            <label>Gender :</label>
+           <div id="maleFemale">
+            <input type="radio" id="male" class="input">Male
+            <input type="radio" id="female" class="input" checked>Female
+           </div>
+        </div>
+        <div class="form-group-control">
+            <label>Subject :</label>
+            <select id="subject" class="input">
+                <option value="">Core Java</option>
+                <option value="">Adv Java</option>
+                <option value="">Spring</option>
+                <option value="">Hibernate</option>
+            </select>
+        </div>
+        <div class="form-group-control">
+            <button id="submit" class="button" >Submit</button>
+        </div>
+       </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product Filter</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .product {
+            display: none;
+        }
+
+        /* .main{
+            display: flex;
+            display: inline-block;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="firstCheck">
+        <h2>Brands</h2>
+        <label><input type="checkbox" class="brand" value="nike"> Nike</label>
+        <label><input type="checkbox" class="brand" value="adidas"> Adidas</label>
+        <label><input type="checkbox" class="brand" value="puma"> Puma</label>
+    </div>
+
+    <div class="secondCheck">
+        <h2>Categories</h2>
+        <label><input type="checkbox" class="category" value="casual"> Casual</label>
+        <label><input type="checkbox" class="category" value="sneaker"> Sneaker</label>
+        <label><input type="checkbox" class="category" value="boot"> Boot</label>
+        <label><input type="checkbox" class="category" value="running"> Running</label>
+    </div>
+
+    <div class="main">
+        <h2>Products</h2>
+        <div class="product nike casual" brand="nike" value="casual">Nike Casual Shoes
+            <img src="NIKE1.jfif" alt="">
+        </div>
+        <div class="product nike sneaker" brand="nike" value="sneaker">Nike Sneaker
+            <img src="NIKE2.jfif" alt="">
+        </div>
+        <div class="product nike boot" brand="nike" value="boot">Nike Boot Shoes
+            <img src="NIKE3.jfif" alt="">
+        </div>
+        <div class="product nike running" brand="nike" value="running">Nike Running Shoes
+            <img src="NIKE4.jfif" alt="">
+        </div>
+        <div class="product adidas casual" brand="adidas" value="casual">Adidas Casual
+            <img src="adidas1.jpg" alt="">
+        </div>
+        <div class="product adidas sneaker" brand="adidas" value="sneaker">Adidas Sneaker
+            <img src="adidas2.jpg" alt="">
+        </div>
+        <div class="product adidas boot" brand="adidas" value="boot">Adidas Boot
+            <img src="adidas3.jpg" alt="">
+        </div>
+        <div class="product adidas running" brand="adidas" value="running">Adidas Running
+            <img src="adidas4.jpg" alt="">
+        </div>
+        <div class="product puma boot" brand="puma" value="boot">Puma Boots
+            <img src="puma2.jpg" alt="">
+        </div>
+
+        <div class="product puma sneaker" brand="puma" value="sneaker">Puma Sneakers
+            <img src="puma1.jpg" alt="">
+        </div>
+        <div class="product puma casual" brand="puma" value="casual">Puma Casual
+            <img src="puma3.jpg" alt="">
+        </div>
+        <div class="product puma running" brand="puma" value="running">Puma Running
+            <img src="puma4.jpg" alt="">
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $(".product").show();
+            $(".brand,.category").change(function(){
+
+          
+                var selectedBrands = $(".brand:checked").map(function () {
+                    return "." + $(this).val();
+                }).get();
+                var selectedCategories = $(".category:checked").map(function () {
+                    return "." + $(this).val();
+                }).get();
+
+                // Show all products initially
+                $(".product").hide();
+
+                var brandClass = [];
+                $.each(selectedBrands, function (i, brandClass) {
+                    filterClasses.push(brandClass);
+                });
+                var brandFilter = filterClasses.join(",");
+                $(brandFilter).show();
+
+                var filterClasses = [];
+                $.each(selectedBrands, function (i, brandClass) {
+                    $.each(selectedCategories, function (j, categoryClass) {
+                        filterClasses.push(brandClass + categoryClass);
+                    });
+                });
+
+                // Combine all filter classes into a single selector
+                var combinedFilter = filterClasses.join(",");
+                $(combinedFilter).show();
+            
+            var combinedFilter = selectedBrands;
+            if (combinedFilter !== "") {
+                $(".product").filter(selectedBrands).show();
+            }
+       
+        })
+    })
+
+        
+      
+    </script>
+
+
+
+
+</body>
+
+</html>

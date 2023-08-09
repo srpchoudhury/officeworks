@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTML AND Last ku Dynamic</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <style>
+        /* .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            
+            flex-direction: row;
+        } */
+
+        .card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+
+
+            $(".btn1").click(function () {
+                var category = $(this).data("id");
+                $(".card").hide();
+
+               
+                $(".card[data-category='" + category + "']").show();
+            })
+
+            $(".btn").click(function () {
+                var id = $(this).data("id");
+                // console.log(id);
+
+                $("h3").each(function () {
+                    var items = $(this).text();
+                    if (items.charAt(0).toUpperCase() === id) {
+                        $(this).parent().parent().show();
+                    } else {
+                        $(this).parent().parent().hide();
+                    }
+                })
+
+            });
+        });
+    </script>
+</head>
+
+<body class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-3">
+            <button class="btn1" data-id="electronics">Electronics</button>
+        </div>
+        <div class="col-md-3">
+            <button class="btn1" data-id="footwear">Footwear</button>
+        </div>
+        <div class="col-md-3">
+            <button class="btn1" data-id="nutrition"> Nutrition</button>
+        </div>
+    </div>
+
+    <div class="alphabets">
+
+
+        <button class="btn" data-id="A">A</button>
+        <button class="btn" data-id="B">B</button>
+        <button class="btn" data-id="C">C</button>
+        <button class="btn" data-id="D">D</button>
+        <button class="btn" data-id="E">E</button>
+        <button class="btn" data-id="F">F</button>
+        <button class="btn" data-id="G">G</button>
+        <button class="btn" data-id="H">H</button>
+        <button class="btn" data-id="I">I</button>
+        <button class="btn" data-id="J">J</button>
+        <button class="btn" data-id="K">K</button>
+        <button data-id="L" class="btn">L</button>
+        <button data-id="M" class="btn">M</button>
+        <button data-id="N" class="btn">N</button>
+        <button data-id="O" class="btn">O</button>
+        <button data-id="P" class="btn">P</button>
+        <button data-id="Q" class="btn">Q</button>
+        <button data-id="R" class="btn">R</button>
+        <button data-id="S" class="btn">S</button>
+        <button data-id="T" class="btn">T</button>
+        <button data-id="U" class="btn">U</button>
+        <button data-id="V" class="btn">V</button>
+        <button data-id="W" class="btn">W</button>
+        <button data-id="X" class="btn">X</button>
+        <button data-id="Y" class="btn">Y</button>
+        <button data-id="Z" class="btn">Z</button>
+
+
+    </div>
+
+    <div class="product-container">
+
+        <div class="row">
+           
+                <div class="card text-center mt-3 col-md-3 w-25" data-category="electronics">
+                    <div class="card-header  ">
+                        <h3>Boat Neckband</h3>
+                    </div>
+                    <div class="card-body ">
+                        <img src="neckband.jpg" class="card-img-top" height="200" width="100">
+                    </div>
+                    <div class="card-footer">
+                        <p> &#x20B9; 5000.00</p>
+                    </div>
+                </div>
+           
+         
+                <div class="card text-center mt-3 col-md-3 w-25" data-category="electronics">
+                    <div class="card-header  ">
+                        <h3>Samsung Mobile</h3>
+                    </div>
+                    <div class="card-body ">
+                        <img src="mobile.jpg" class="card-img-top" height="200" width="100">
+                    </div>
+                    <div class="card-footer">
+                        <p> &#x20B9; 20000.00</p>
+                    </div>
+                </div>
+            
+                <div class="card text-center mt-3 col-md-3 w-25" data-category="electronics">
+                    <div class="card-header  ">
+                        <h3>Trimmer</h3>
+                    </div>
+                    <div class="card-body ">
+                        <img src="trimmer.avif" class="card-img-top" height="200" width="100">
+                    </div>
+                    <div class="card-footer">
+                        <p> &#x20B9; 999.00</p>
+                    </div>
+                </div>
+            
+                <div class="card text-center mt-3 col-md-3 w-25" data-category="nutrition">
+                    <div class="card-header  ">
+                        <h3>Horlicks</h3>
+                    </div>
+                    <div class="card-body ">
+                        <img src="horlicks.jpg" class="card-img-top" height="200" width="100">
+                    </div>
+                    <div class="card-footer">
+                        <p> &#x20B9; 456.00</p>
+                    </div>
+                </div>
+           
+                <div class="card text-center mt-3 col-md-3 w-25" data-category="footwear">
+                    <div class="card-header  ">
+                        <h3>Lee Cooper Boot</h3>
+                    </div>
+                    <div class="card-body ">
+                        <img src="shoe1.jpg" class="card-img-top" height="200" width="100">
+                    </div>
+                    <div class="card-footer">
+                        <p> &#x20B9; 4999.00</p>
+                    </div>
+                </div>
+           
+                <div class="card text-center mt-3 col-md-3 w-25" data-category="footwear">
+                    <div class="card-header  ">
+                        <h3>Nike Casuals</h3>
+                    </div>
+                    <div class="card-body ">
+                        <img src="shoe2.avif" class="card-img-top" height="200" width="100">
+                    </div>
+                    <div class="card-footer">
+                        <p> &#x20B9; 9900.00</p>
+                    </div>
+                </div>
+            
+                <div class="card text-center mt-3 col-md-3 w-25" data-category="nutrition">
+                    <div class="card-header  ">
+                        <h3>Bournvita</h3>
+                    </div>
+                    <div class="card-body ">
+                        <img src="bournvita.jpg" class="card-img-top" height="200" width="100">
+                    </div>
+                    <div class="card-footer">
+                        <p> &#x20B9; 349.00</p>
+                    </div>
+                </div>
+           
+        </div>
+
+    </div>
+</body>
+
+</html>
+

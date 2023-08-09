@@ -1,0 +1,13 @@
+<script>
+    var emp = {
+        "emp_id" : 67,
+        "name" : "Rudra",
+        "email" : "crudra38@gmail.com",
+        "name_email" : function () {
+            return function () {
+                return this.emp_id;
+            }
+        }
+    };
+    alert(emp.name_email);
+</script>

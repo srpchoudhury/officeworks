@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(45deg,#328f8a,#08ac4b);
+        }
+        .login-page{
+           /* top: 50%;
+            left: 50%;
+            transform: translate(-50%,0);  */
+            padding: 10%;
+        }
+        .form{
+          
+            
+            width: 360px;
+            margin: 0 auto;
+            padding: 5px; 
+            position: relative;
+            
+            
+           
+            background: white;
+            box-shadow: 2px 5px 3px rgba(0,0,0,0.3),2px 5px 3px rgba(0,0,0,0.3);
+            text-align: center;
+            border-radius: 2%;
+           
+        }
+        .form button {
+            padding: 12px;
+            margin: 0 auto;
+            width: 200px;
+            background-image: linear-gradient(45deg,#328f8a,#08ac4b);
+            cursor: pointer;
+            border: none;
+            color: white;
+        }
+      
+       p{
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+       }
+       h2{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       }
+       .login-page .form  .form-body input[type=text].text{
+           background: none;
+           border: none;
+           box-shadow: 0px 2px 0px 0px black;
+           outline: none;
+           padding: 12px;
+            margin: 12px;
+           
+       }
+     .login-page .form .form-body input[type=password].password{
+         border: none;
+         background: none;
+         box-shadow: 0px 2px 0px 0px black;
+         outline: none;
+         padding: 12px;
+            margin: 12px;
+     }
+     .login-page .form  .form-body .text::placeholder{
+          color: darkgray;
+     }
+     .login-page .form .form-body .password::placeholder{
+          color: darkgray;
+     }
+     .login-page .form  .form-body a{
+            text-decoration: none;
+            color: #08ac4b;
+     }
+     .login-page .form .form-body a:hover {
+        text-decoration: underline;
+     }
+
+
+
+
+
+
+    
+    </style>
+</head>
+<body>
+   <div class="login-page">
+        <div class="form" id="form-container">
+           
+             <div class="form-header">
+                <h2>LOGIN </h2>
+                <p id="demo"></p>
+                <p>Please enter your credentials to login</p>
+             </div> 
+             <div class="form-body">
+                <input type="text" placeholder="username" id="username" class="text">
+               <input type="password" placeholder="password" id="password" class="password">
+               <button onclick="loginUser()">LOGIN</button>
+               <p>Not registered?<a href="#"> Create an account</a></p>
+             </div> 
+        </div> 
+    </div>
+   
+</body>
+</html>
