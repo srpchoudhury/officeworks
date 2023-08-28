@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+    <!--=============== BOXICONS ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+ 
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .modal-body {
+            padding: 30px;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-modal {
+            width: 48%;
+          
+        }
+      
+        .modal {
+            color: #ffc107;
+        }
+        .modal input {
+            border-color: #ffc107;
+            outline: none;
+        }
+        .modal input:focus {
+            box-shadow: 1px 1px 1px 1px #ffb566;
+        }
+      
+
+       
+        .btn-dark {
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+        .btn-dark:hover {
+            background-color: #343a40;
+            border-color: #343a40;
+        }
+        .modal .btn-dark {
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+        .modal .btn-dark:hover {
+            background-color: #343a40;
+            border-color: #343a40;
+        }
+      
+        .btn-link {
+            color: #ffc107;
+        }
+        .btn-link:hover {
+            color: #343a40;
+            text-decoration: none;
+        }
+        .cart__container {
+            max-height: 400px;
+            /* Adjust the value as needed */
+            overflow-y: auto;
+            /* Enable vertical scroll if content exceeds max-height */
+        }
+        .logged-in-icon {  
+            margin-left: 10px;
+            border-radius: 50%;
+            border-color: #343a40;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            /* line-height: 30px; */
+            background-color: #ffb566;
+            color: #343a40;
+            font-size: 18px;
+            font-weight: bold;      
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            /* border clolor */
+            border: 2px solid #343a40;
+        }
+        .welcome-message {
+            font-size: 18px;
+            font-weight: bold;
+            color:#343a40;
+            background-color: #ffb566;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-transform: capitalize;     
+
+        }
+        .btn-link {
+            color: #ffc107;
+        }
+        .btn-link:hover {
+            color: #343a40;
+            text-decoration: none;
+        }
+
+
+        .cart__container {
+            max-height: 400px;
+            /* Adjust the value as needed */
+            overflow-y: auto;
+            /* Enable vertical scroll if content exceeds max-height */
+        }
+
+        .logged-in-icon {  
+            margin-left: 10px;
+            border-radius: 50%;
+            border-color: #343a40;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            /* line-height: 30px; */
+            background-color: #ffb566;
+            color: #343a40;
+            font-size: 18px;
+            font-weight: bold;      
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            /* border clolor */
+            border: 2px solid #343a40;
+        }
+
+        .welcome-message {
+            font-size: 18px;
+            font-weight: bold;
+            color:#343a40;
+            background-color: #ffb566;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-transform: capitalize;     
+        }
+    </style>
+    
+   
+
+    <script src="assets/js/rudra.js"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+
+
+    <title>Responsive watches website - Bedimcode</title>
+</head>
+
+<body>
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <i class='bx bxs-watch nav__logo-icon'></i> Rolex
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#featured" class="nav__link">Featured</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#products" class="nav__link">Products</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#new" class="nav__link">New</a>
+                    </li>
+                </ul>
+
+                <div class="nav__close" id="nav-close">
+                    <i class='bx bx-x'></i>
+                </div>
+            </div>
+
+            <div class="nav__btns">
+                <!-- Theme change button -->
+                <i class='bx bx-moon change-theme' id="theme-button"></i>
+
+                <div class="nav__shop" id="login">
+                    <i class='bx bx-user' data-toggle="modal" data-target="#loginModal"></i>
+                    <div id="welcomeMessage" class="welcome-message"></div>
+
+                </div>
+              
+                <div class="nav__shop" id="cart-shop">
+                    <i class='bx bx-shopping-bag'></i>
+                </div>
+
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+    <!--==================== CART ====================-->
+    <div class="cart" id="cart">
+        <i class='bx bx-x cart__close' id="cart-close"></i>
+
+        <h2 class="cart__title-center">My Cart</h2>
+
+        <div class="cart__container">
+
+        </div>
+
+        <div class="cart__prices">
+            <span class="cart__prices-item"></span>
+            <span class="cart__prices-total"></span>
+        </div>
+    </div>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+        <!--==================== HOME ====================-->
+        <section class="home" id="home">
+            <div class="home__container container grid">
+                <div class="home__img-bg">
+                    <img src="assets/img/home.png" alt="" class="home__img">
+                </div>
+
+                <div class="home__social">
+                    <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
+                        Facebook
+                    </a>
+                    <a href="https://twitter.com/" target="_blank" class="home__social-link">
+                        Twitter
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
+                        Instagram
+                    </a>
+                </div>
+
+                <div class="home__data">
+                    <h1 class="home__title">NEW WATCH <br> COLLECTIONS B720</h1>
+                    <p class="home__description">
+                        Latest arrival of the new imported watches of the B720 series,
+                        with a modern and resistant design.
+                    </p>
+                    <span class="home__price">$1245</span>
+
+                    <div class="home__btns">
+                        <a href="#" class="button button--gray button--small">
+                            Discover
+                        </a>
+
+                        <button class="button home__button">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== FEATURED ====================-->
+        <section class="featured section container" id="featured">
+            <h2 class="section__title">
+                Featured
+            </h2>
+
+            <div class="featured__container grid">
+                <article class="featured__card">
+                    <span class="featured__tag">Sale</span>
+
+                    <img src="assets/img/featured1.png" alt="" class="featured__img">
+
+                    <div class="featured__data">
+                        <h3 class="featured__title">Jazzmaster</h3>
+                        <span class="featured__price">1050.00</span>
+                    </div>
+
+                    <button class="button featured__button">ADD TO CART</button>
+                </article>
+
+                <article class="featured__card">
+                    <span class="featured__tag">Sale</span>
+
+                    <img src="assets/img/featured2.png" alt="" class="featured__img">
+
+                    <div class="featured__data">
+                        <h3 class="featured__title">Ingersoll</h3>
+                        <span class="featured__price">250.00</span>
+                    </div>
+
+                    <button class="button featured__button">ADD TO CART</button>
+                </article>
+
+                <article class="featured__card">
+                    <span class="featured__tag">Sale</span>
+
+                    <img src="assets/img/featured3.png" alt="" class="featured__img">
+
+                    <div class="featured__data">
+                        <h3 class="featured__title">Rose gold</h3>
+                        <span class="featured__price">890.00</span>
+                    </div>
+
+                    <button class="button featured__button">ADD TO CART</button>
+                </article>
+            </div>
+        </section>
+
+        <!--==================== STORY ====================-->
+        <section class="story section container">
+            <div class="story__container grid">
+                <div class="story__data">
+                    <h2 class="section__title story__section-title">
+                        Our Story
+                    </h2>
+
+                    <h1 class="story__title">
+                        Inspirational Watch of <br> this year
+                    </h1>
+
+                    <p class="story__description">
+                        The latest and modern watches of this year, is available in various
+                        presentations in this store, discover them now.
+                    </p>
+
+                    <a href="#" class="button button--small">Discover</a>
+                </div>
+
+                <div class="story__images">
+                    <img src="assets/img/story.png" alt="" class="story__img">
+                    <div class="story__square"></div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== PRODUCTS ====================-->
+        <section class="products section container" id="products">
+            <h2 class="section__title">
+                Products
+            </h2>
+
+            <div class="products__container grid">
+                <article class="products__card">
+                    <img src="assets/img/product1.png" alt="" class="products__img">
+
+                    <h3 class="products__title">Spirit rose</h3>
+                    <span class="products__price">1500.00</span>
+
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/product2.png" alt="" class="products__img">
+
+                    <h3 class="products__title">Khaki pilot</h3>
+                    <span class="products__price">1350.00</span>
+
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/product3.png" alt="" class="products__img">
+
+                    <h3 class="products__title">Jubilee black</h3>
+                    <span class="products__price">870.00</span>
+
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/product4.png" alt="" class="products__img">
+
+                    <h3 class="products__title">Fosil me3</h3>
+                    <span class="featured__price">650.00</span>
+
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+
+                <article class="products__card">
+                    <img src="assets/img/product5.png" alt="" class="products__img">
+
+                    <h3 class="products__title">Duchen</h3>
+                    <span class="products__price">950.00</span>
+
+                    <button class="products__button">
+                        <i class='bx bx-shopping-bag'></i>
+                    </button>
+                </article>
+            </div>
+        </section>
+
+        <!--==================== TESTIMONIAL ====================-->
+        <section class="testimonial section container">
+            <div class="testimonial__container grid">
+                <div class="swiper testimonial-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="testimonial__card swiper-slide">
+                            <div class="testimonial__quote">
+                                <i class='bx bxs-quote-alt-left'></i>
+                            </div>
+                            <p class="testimonial__description">
+                                They are the best watches that one acquires, also they are always with the latest
+                                news and trends, with a very comfortable price and especially with the attention
+                                you receive, they are always attentive to your questions.
+                            </p>
+                            <h3 class="testimonial__date">March 27. 2021</h3>
+
+                            <div class="testimonial__perfil">
+                                <img src="assets/img/testimonial1.jpg" alt="" class="testimonial__perfil-img">
+
+                                <div class="testimonial__perfil-data">
+                                    <span class="testimonial__perfil-name">Lee Doe</span>
+                                    <span class="testimonial__perfil-detail">Director of a company</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial__card swiper-slide">
+                            <div class="testimonial__quote">
+                                <i class='bx bxs-quote-alt-left'></i>
+                            </div>
+                            <p class="testimonial__description">
+                                They are the best watches that one acquires, also they are always with the latest
+                                news and trends, with a very comfortable price and especially with the attention
+                                you receive, they are always attentive to your questions.
+                            </p>
+                            <h3 class="testimonial__date">March 27. 2021</h3>
+
+                            <div class="testimonial__perfil">
+                                <img src="assets/img/testimonial2.jpg" alt="" class="testimonial__perfil-img">
+
+                                <div class="testimonial__perfil-data">
+                                    <span class="testimonial__perfil-name">Samantha Mey</span>
+                                    <span class="testimonial__perfil-detail">Director of a company</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial__card swiper-slide">
+                            <div class="testimonial__quote">
+                                <i class='bx bxs-quote-alt-left'></i>
+                            </div>
+                            <p class="testimonial__description">
+                                They are the best watches that one acquires, also they are always with the latest
+                                news and trends, with a very comfortable price and especially with the attention
+                                you receive, they are always attentive to your questions.
+                            </p>
+                            <h3 class="testimonial__date">March 27. 2021</h3>
+
+                            <div class="testimonial__perfil">
+                                <img src="assets/img/testimonial3.jpg" alt="" class="testimonial__perfil-img">
+
+                                <div class="testimonial__perfil-data">
+                                    <span class="testimonial__perfil-name">Raul Zaman</span>
+                                    <span class="testimonial__perfil-detail">Director of a company</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-button-next">
+                        <i class='bx bx-right-arrow-alt'></i>
+                    </div>
+                    <div class="swiper-button-prev">
+                        <i class='bx bx-left-arrow-alt'></i>
+                    </div>
+                </div>
+
+                <div class="testimonial__images">
+                    <div class="testimonial__square"></div>
+                    <img src="assets/img/testimonial.png" alt="" class="testimonial__img">
+                </div>
+            </div>
+        </section>
+
+        <!--==================== NEW ====================-->
+        <section class="new section container" id="new">
+            <h2 class="section__title">
+                New Arrivals
+            </h2>
+
+            <div class="new__container">
+                <div class="swiper new-swiper">
+                    <div class="swiper-wrapper">
+                        <article class="new__card swiper-slide">
+                            <span class="new__tag">New</span>
+
+                            <img src="assets/img/new1.png" alt="" class="new__img">
+
+                            <div class="new__data">
+                                <h3 class="new__title">Longines rose</h3>
+                                <span class="new__price">980.00</span>
+                            </div>
+
+                            <button class="button new__button">ADD TO CART</button>
+                        </article>
+
+                        <article class="new__card swiper-slide">
+                            <span class="new__tag">New</span>
+
+                            <img src="assets/img/new2.png" alt="" class="new__img">
+
+                            <div class="new__data">
+                                <h3 class="new__title">Jazzmaster</h3>
+                                <span class="new__price">1150.00</span>
+                            </div>
+
+                            <button class="button new__button">ADD TO CART</button>
+                        </article>
+
+                        <article class="new__card swiper-slide">
+                            <span class="new__tag">New</span>
+
+                            <img src="assets/img/new3.png" alt="" class="new__img">
+
+                            <div class="new__data">
+                                <h3 class="new__title">Dreyfuss gold</h3>
+                                <span class="new__price">750.00</span>
+                            </div>
+
+                            <button class="button new__button">ADD TO CART</button>
+                        </article>
+
+                        <article class="new__card swiper-slide">
+                            <span class="new__tag">New</span>
+
+                            <img src="assets/img/new4.png" alt="" class="new__img">
+
+                            <div class="new__data">
+                                <h3 class="new__title">Portuguese rose</h3>
+                                <span class="new__price">1590.00</span>
+                            </div>
+
+                            <button class="button new__button">ADD TO CART</button>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--==================== NEWSLETTER ====================-->
+        <section class="newsletter section container">
+            <div class="newsletter__bg grid">
+                <div>
+                    <h2 class="newsletter__title">Subscribe Our <br> Newsletter</h2>
+                    <p class="newsletter__description">
+                        Don't miss out on your discounts. Subscribe to our email
+                        newsletter to get the best offers, discounts, coupons,
+                        gifts and much more.
+                    </p>
+                </div>
+
+                <form action="" class="newsletter__subscribe">
+                    <input type="email" placeholder="Enter your email" class="newsletter__input">
+                    <button class="button">
+                        SUBSCRIBE
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer section">
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <h3 class="footer__title">Our information</h3>
+
+                <ul class="footer__list">
+                    <li>1234 - Peru</li>
+                    <li>La Libertad 43210</li>
+                    <li>123-456-789</li>
+                </ul>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">About Us</h3>
+
+                <ul class="footer__links">
+                    <li>
+                        <a href="#" class="footer__link">Support Center</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link">Customer Support</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link">About Us</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link">Copy Right</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">Product</h3>
+
+                <ul class="footer__links">
+                    <li>
+                        <a href="#" class="footer__link">Road bikes</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link">Mountain bikes</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link">Electric</a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer__link">Accesories</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer__content">
+                <h3 class="footer__title">Social</h3>
+
+                <ul class="footer__social">
+                    <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+                        <i class='bx bxl-facebook'></i>
+                    </a>
+
+                    <a href="https://twitter.com/" target="_blank" class="footer__social-link">
+                        <i class='bx bxl-twitter'></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
+                        <i class='bx bxl-instagram'></i>
+                    </a>
+                </ul>
+            </div>
+        </div>
+
+        <span class="footer__copy">&#169; Bedimcode. All rigths reserved</span>
+    </footer>
+
+
+    <!--==================== modals ====================-->
+    <!-- Login Modal -->
+     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Login</button>
+                    </form>
+                    <p class="text-center mt-3">Don't have an account? <button class="btn btn-link" data-dismiss="modal"
+                            data-toggle="modal" data-target="#signupModal">Sign up</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <!-- Signup Modal -->
+ <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="signupForm">
+                        <div class="form-group">
+                            <label for="signupUsername">Username</label>
+                            <input type="text" class="form-control" id="signupUsername" name="signupUsername" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPassword">Password</label>
+                            <input type="password" class="form-control" id="signupPassword" name="signupPassword"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                                required>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+
+
+
+    <!--=============== SCROLL UP ===============-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class='bx bx-up-arrow-alt scrollup__icon'></i>
+    </a>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
